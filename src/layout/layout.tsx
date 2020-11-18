@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import { Box } from 'rebass'
 import { ThemeProvider, ColorMode } from 'theme-ui'
 import theme from '../styles'
+import Cursor from 'components/cursor'
 // Components
 
 const Layout: React.FC = ({ children }) => {
+    // State to determine if custom cursor is to be used.
+    const [applyCustomCursor, setApplyCustomCursor] = useState(true)
+
     const data = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
@@ -45,18 +49,22 @@ const Layout: React.FC = ({ children }) => {
             theme={{ ...theme, colors: useLightTheme ? lightTheme : darkTheme }}
         >
             {/* <GlobalStyles /> */}
-            <div>
-                <Box
-                    as="main"
-                    bg={
-                        useLightTheme
-                            ? lightTheme.background
-                            : darkTheme.background
-                    }
-                >
-                    {children}
-                </Box>
-            </div>
+            <Box
+                bg={
+                    useLightTheme ? lightTheme.background : darkTheme.background
+                }
+                sx={{
+                    cursor: applyCustomCursor ? 'none' : 'unset',
+                    position: 'relative',
+                    'cursor:hover': applyCustomCursor ? 'none' : 'unset',
+                    'a, button': {
+                        cursor: applyCustomCursor ? 'none' : 'unset',
+                    },
+                }}
+            >
+                <Box as="main">{children}</Box>
+                {applyCustomCursor && <Cursor />}
+            </Box>
         </ThemeProvider>
     )
 }
