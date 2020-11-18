@@ -52,7 +52,17 @@ const Cursor: React.FC<unknown> = () => {
     /**
      * Function to remove the event listener when component umounts.
      */
-    const removeEventListeners = () => {}
+    const removeEventListeners = () => {
+        document.removeEventListener('mousemove', onMouseMove)
+
+        // listen, if cursor is in-view
+        document.removeEventListener('mouseenter', displayCursor)
+        document.removeEventListener('mouseleave', hideCursor)
+
+        // listen on click event
+        document.removeEventListener('mousedown', setClicked)
+        document.removeEventListener('mouseup', unsetClicked)
+    }
 
     /**
      * Function to attach event listener to add custom styling when custom cursor hovers over a button or link
@@ -75,7 +85,20 @@ const Cursor: React.FC<unknown> = () => {
     /**
      * Function to remove event listeners attached by the function "addListenersLinks"
      */
-    const removeListenersLinks = () => {}
+    const removeListenersLinks = () => {
+        const buttons = document.querySelectorAll('button')
+        const links = document.querySelectorAll('a')
+
+        buttons.forEach(el => {
+            el.removeEventListener('mouseover', hover)
+            el.removeEventListener('mouseout', unhover)
+        })
+
+        links.forEach(el => {
+            el.removeEventListener('mouseover', hover)
+            el.removeEventListener('mouseout', unhover)
+        })
+    }
 
     /**
      * Function to adjust position of custom cursor based on the current position of native cursor
