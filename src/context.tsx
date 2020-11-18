@@ -8,7 +8,7 @@ type CustomCursorState = {
 
 type Context = {
     lightTheme: boolean
-    customCursor: CustomCursorState
+    cursorState: CustomCursorState
     setIsClicking: (isClicking: boolean) => void
     setIsHovering: (isHovering: boolean) => void
     setIsHidden: (isHidden: boolean) => void
@@ -23,7 +23,7 @@ const customCursorInitial = {
 
 const PageContext = React.createContext<Context>({
     lightTheme: true,
-    customCursor: customCursorInitial,
+    cursorState: customCursorInitial,
     setIsClicking: () => {},
     setIsHovering: () => {},
     setIsHidden: () => {},
@@ -72,7 +72,7 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
         <PageContext.Provider
             value={{
                 lightTheme,
-                customCursor,
+                cursorState,
                 setIsClicking,
                 setIsHovering,
                 setIsHidden,
@@ -83,3 +83,6 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
         </PageContext.Provider>
     )
 }
+
+export default PageContext
+export { ContextProvider }

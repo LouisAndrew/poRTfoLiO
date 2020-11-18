@@ -44,6 +44,7 @@ module.exports = {
                 components: path.join(__dirname, 'src/components'),
                 layout: path.join(__dirname, 'src/layout'),
                 templates: path.join(__dirname, 'src/templates'),
+                context: path.join(__dirname, 'src/context'),
             },
         },
         {

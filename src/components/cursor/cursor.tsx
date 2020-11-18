@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 // import styling libs
 import { Box } from 'rebass'
 // import local components
+import PageContext from 'context'
 
 type CursorPosition = {
     x: number
@@ -14,8 +15,14 @@ type CursorPosition = {
  */
 const Cursor: React.FC<unknown> = () => {
     const [position, setPosition] = useState<CursorPosition>({ x: 0, y: 0 })
-    const [isHovering, setIsHovering] = useState(false)
-    const [isClicking, setIsClicking] = useState(false)
+    const {
+        cursorState,
+        setIsClicking,
+        setIsHidden,
+        setIsHovering,
+    } = useContext(PageContext)
+
+    const { isHidden, isClicking, isHovering } = cursorState
 
     useEffect(() => {
         addEventListeners()
@@ -31,9 +38,15 @@ const Cursor: React.FC<unknown> = () => {
      * Function to add event listener to window -> to move the custom cursor
      */
     const addEventListeners = () => {
-        window.addEventListener('mousemove', onMouseMove)
-        window.addEventListener('mousedown', setClicked)
-        window.addEventListener('mouseup', unsetClicked)
+        document.addEventListener('mousemove', onMouseMove)
+
+        // listen, if cursor is in-view
+        document.addEventListener('mouseenter', displayCursor)
+        document.addEventListener('mouseleave', hideCursor)
+
+        // listen on click event
+        document.addEventListener('mousedown', setClicked)
+        document.addEventListener('mouseup', unsetClicked)
     }
 
     /**
@@ -45,21 +58,17 @@ const Cursor: React.FC<unknown> = () => {
      * Function to attach event listener to add custom styling when custom cursor hovers over a button or link
      */
     const addListenersLinks = () => {
-        console.log('Listening hover event for button and link..')
-
         const buttons = document.querySelectorAll('button')
         const links = document.querySelectorAll('a')
 
-        console.log({ buttons, links })
-
         buttons.forEach(el => {
-            el.addEventListener('mouseover', () => setIsHovering(true))
-            el.addEventListener('mouseout', () => setIsHovering(false))
+            el.addEventListener('mouseover', hover)
+            el.addEventListener('mouseout', unhover)
         })
 
         links.forEach(el => {
-            el.addEventListener('mouseover', () => setIsHovering(true))
-            el.addEventListener('mouseout', () => setIsHovering(false))
+            el.addEventListener('mouseover', hover)
+            el.addEventListener('mouseout', unhover)
         })
     }
 
@@ -90,6 +99,35 @@ const Cursor: React.FC<unknown> = () => {
         setIsClicking(false)
     }
 
+    /**
+     * Function to set the cursor into its hovering state
+     */
+    const hover = () => {
+        setIsHovering(true)
+    }
+
+    /**
+     * Function to restore cursor from hovering state
+     */
+    const unhover = () => {
+        setIsHovering(false)
+    }
+
+    /**
+     * Function to hide the cursor when e.g user's native cursor is out of window
+     */
+    const hideCursor = () => {
+        setIsHidden(true)
+    }
+
+    /**
+     * Function to display custom cursor when user's native cursor is in view
+     */
+    const displayCursor = () => {
+        console.log('hide')
+        setIsHidden(false)
+    }
+
     return (
         <Box
             height={40}
@@ -102,11 +140,12 @@ const Cursor: React.FC<unknown> = () => {
                 borderRadius: '100%',
                 position: 'absolute',
                 pointerEvents: 'none',
-                transition: 'all 0.15s ease',
+                transition: 'all 0.15s ease, opacity 0.25s',
                 zIndex: 9999,
                 mixBlendMode: 'difference',
-                transform: `translate(-50%, 0%) scale(${
-                    isHovering ? '0.8' : isClicking ? '0.3' : '1'
+                opacity: isHidden ? 0 : 1,
+                transform: `translate(-50%, -50%) scale(${
+                    isClicking ? '0.5' : isHovering ? '1.5' : '1'
                 })`,
                 left: position.x,
                 top: position.y,

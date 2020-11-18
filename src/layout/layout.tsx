@@ -5,6 +5,7 @@ import { Box } from 'rebass'
 import { ThemeProvider, ColorMode } from 'theme-ui'
 import theme from '../styles'
 import Cursor from 'components/cursor'
+import { ContextProvider } from 'context'
 // Components
 
 const Layout: React.FC = ({ children }) => {
@@ -48,23 +49,27 @@ const Layout: React.FC = ({ children }) => {
         <ThemeProvider
             theme={{ ...theme, colors: useLightTheme ? lightTheme : darkTheme }}
         >
-            {/* <GlobalStyles /> */}
-            <Box
-                bg={
-                    useLightTheme ? lightTheme.background : darkTheme.background
-                }
-                sx={{
-                    cursor: applyCustomCursor ? 'none' : 'unset',
-                    position: 'relative',
-                    'cursor:hover': applyCustomCursor ? 'none' : 'unset',
-                    'a, button': {
+            <ContextProvider>
+                {/* <GlobalStyles /> */}
+                <Box
+                    bg={
+                        useLightTheme
+                            ? lightTheme.background
+                            : darkTheme.background
+                    }
+                    sx={{
                         cursor: applyCustomCursor ? 'none' : 'unset',
-                    },
-                }}
-            >
-                <Box as="main">{children}</Box>
-                {applyCustomCursor && <Cursor />}
-            </Box>
+                        position: 'relative',
+                        'cursor:hover': applyCustomCursor ? 'none' : 'unset',
+                        'a, button': {
+                            cursor: applyCustomCursor ? 'none' : 'unset',
+                        },
+                    }}
+                >
+                    <Box as="main">{children}</Box>
+                    {applyCustomCursor && <Cursor />}
+                </Box>
+            </ContextProvider>
         </ThemeProvider>
     )
 }
