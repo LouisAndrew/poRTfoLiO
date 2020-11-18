@@ -1,31 +1,33 @@
-export { GlobalStyles } from './global-styles';
-// import { useContext } from "react";
-// import { ThemeContext, DefaultTheme } from "styled-components";
-// import media from "use-media";
-export { theme } from './theme';
-import 'modern-css-reset/dist/reset.min.css';
+import buttons from './buttons'
+import text from './texts'
+import variants from './variants'
 
-// type DefaultThemeObject = Omit<typeof themeObject, "screens"> & {
-//   screens: {
-//     [key: string]: number;
-//   };
-// };
+const theme = {
+    //             640,   832,     1040
+    breakpoints: ['40em', '48em', '72em'],
+    fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+    space: [0, 4, 8, 16, 32, 64, 128, 256],
+    fonts: {
+        body: "'Open Sans', sans-serif",
+        heading: "'Raleway', sans-serif",
+        monospace: 'Menlo, monospace',
+    },
+    fontWeights: {
+        body: 400,
+        heading: 700,
+        bold: 700,
+    },
+    lineHeights: {
+        body: 1.5,
+        heading: 1.25,
+    },
+    shadows: {
+        small: '0 0 4px rgba(0, 0, 0, .125)',
+        large: '0 0 24px rgba(0, 0, 0, .125)',
+    },
+    variants,
+    text,
+    buttons,
+}
 
-// const theme = (): DefaultTheme => {
-//   const { screens, ...themeValues }: DefaultThemeObject = themeObject;
-//   const breakpointSizes = Object.keys(screens).reduce((accum, key: string) => {
-//     const value = media({ maxWidth: screens[key] });
-//     return {
-//       ...accum,
-//       [key]: value,
-//     };
-//   }, {});
-//   return {
-//     ...themeValues,
-//     screens: breakpointSizes,
-//   };
-// };
-
-// const useTheme = () => useContext(ThemeContext);
-
-// What is use-media?
+export default theme
