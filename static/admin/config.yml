@@ -5,6 +5,8 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+site_url: https://compassionate-johnson-fa478f.netlify.app
+
 collections:
     # - name: 'blog'
     #   label: 'Blog'
