@@ -41,8 +41,20 @@ const Cursor: React.FC<unknown> = () => {
         document.addEventListener('mousemove', onMouseMove)
 
         // listen, if cursor is in-view
-        document.addEventListener('mouseenter', displayCursor)
-        document.addEventListener('mouseleave', hideCursor)
+        window.addEventListener('mouseenter', () => {
+            console.log('view')
+        })
+        window.addEventListener('mouseleave', () => {
+            console.log('hide')
+        })
+
+        window.addEventListener('mouseover', () => {
+            console.log('view')
+        })
+
+        window.addEventListener('mouseout', () => {
+            console.log('out')
+        })
 
         // listen on click event
         document.addEventListener('mousedown', setClicked)

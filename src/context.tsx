@@ -18,7 +18,7 @@ type Context = {
 const customCursorInitial = {
     isClicking: false,
     isHovering: false,
-    isHidden: true,
+    isHidden: false,
 }
 
 const PageContext = React.createContext<Context>({
@@ -31,7 +31,7 @@ const PageContext = React.createContext<Context>({
 })
 
 const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
-    const [lightTheme, setLightTheme] = useState(false)
+    const [lightTheme, setLightTheme] = useState(true)
     const [cursorState, setCursorState] = useState<CustomCursorState>(
         customCursorInitial
     )

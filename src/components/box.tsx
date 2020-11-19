@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Heading, Text, Box as ReBox, Button, Link } from 'rebass'
 import { Link as GatsbyLink } from 'gatsby'
 
+import PageContext from 'context'
+
 const Box = () => {
+    const { lightTheme, setTheme } = useContext(PageContext)
+
+    const buttonClick = () => {
+        console.log('changing theme')
+        setTheme(!lightTheme)
+    }
+
     return (
         <ReBox minHeight="100vh">
             <Heading color="text">Hello, World</Heading>
             <Text color="ffff">Helewale;aw</Text>
 
-            <ReBox my={3} onClick={() => console.log('Hello, World!')}>
-                <Button>This is a button</Button>
+            <ReBox my={3}>
+                <Button onClick={buttonClick}>Click to change theme</Button>
             </ReBox>
 
             <ReBox my={3}>
