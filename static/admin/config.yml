@@ -54,8 +54,14 @@ collections:
                     {
                         label: Tech,
                         name: tech,
+                        widget: relation,
                         collection: tech,
                         value_field: '*',
-                        search_fields: tech_name,
+                        search_fields: [tech_name],
                     },
             }
+          - { label: 'Finished Date', name: finished_date, widget: date }
+          - { label: Description, name: desc, widget: markdown }
+          - { label: 'Web URL', name: web_url, widget: string }
+          - { label: 'Repo URL', name: repo_url, widget: string }
+          - { label: 'Preview Description', name: preview_desc, widget: text }
