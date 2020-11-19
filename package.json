@@ -23,7 +23,7 @@
         "clean": "gatsby clean",
         "build": "gatsby build",
         "update": "ncu -u",
-        "verify": "gatsby build && gatsby clean && echo Verified. Page is ready to be pushed."
+        "verify": "gatsby build && gatsby clean && echo -e '${RED}Verified. Page is ready to be pushed.${NC}'"
     },
     "dependencies": {
         "@types/rebass": "^4.0.7",

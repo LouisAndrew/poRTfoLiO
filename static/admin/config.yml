@@ -26,14 +26,16 @@ collections:
       folder: 'content/tech'
       create: true
       fields:
+        {
           - { label: 'Name', name: 'name', widget: 'string' }
           - { label: Image, name: img, widget: image }
-
+        } 
     - name: 'project'
       label: 'Project'
       folder: 'content/project'
       create: true
       fields:
+        {
           - { label: Name, name: name, widget: string }
           - {
                 label: 'Images',
@@ -45,3 +47,5 @@ collections:
                   - { label: Label, name: label, widget: string }
             }
           - { label: Techs, name: techs, widget: list, field: { label: Tech, name: tech, collection: tech, value_field: *, search_fields: name } }
+        }
+          
