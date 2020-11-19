@@ -1,0 +1,47 @@
+backend:
+    name: git-gateway
+    branch: master
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+    # - name: 'blog'
+    #   label: 'Blog'
+    #   folder: 'content/blog'
+    #   create: true
+    #   slug: 'index'
+    #   media_folder: ''
+    #   public_folder: ''
+    #   path: '{{title}}/index'
+    #   editor:
+    #       preview: false
+    #   fields:
+    #       - { label: 'Title', name: 'title', widget: 'string' }
+    #       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+    #       - { label: 'Description', name: 'description', widget: 'string' }
+    #       - { label: 'Body', name: 'body', widget: 'markdown' }
+    - name: 'tech'
+      label: 'Technology'
+      folder: 'content/tech'
+      create: true
+      fields:
+          - { label: 'Name', name: 'name', widget: 'string' }
+          - { label: Image, name: img, widget: image }
+
+    - name: 'project'
+      label: 'Project'
+      folder: 'content/project'
+      create: true
+      fields:
+          - { label: Name, name: name, widget: string }
+          - {
+                label: 'Images',
+                name: 'imgs',
+                widget: 'list',
+                summary: '{{fields.image}}',
+                fields: 
+                  - { label: Image, name: img, widget: image }
+                  - { label: Label, name: label, widget: string }
+            }
+          - { label: Techs, name: techs, widget: list, field: { label: Tech, name: tech, collection: tech, value_field: *, search_fields: name } }
