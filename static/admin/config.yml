@@ -27,7 +27,7 @@ collections:
       create: true
       fields:
         {
-          - { label: 'Name', name: 'name', widget: 'string' }
+          - { label: 'Name', name: tech_name, widget: 'string' }
           - { label: Image, name: img, widget: image }
         } 
     - name: 'project'
@@ -36,7 +36,7 @@ collections:
       create: true
       fields:
         {
-          - { label: Name, name: name, widget: string }
+          - { label: Name, name: project_name, widget: string }
           - {
                 label: 'Images',
                 name: 'imgs',
@@ -46,6 +46,6 @@ collections:
                   - { label: Image, name: img, widget: image }
                   - { label: Label, name: label, widget: string }
             }
-          - { label: Techs, name: techs, widget: list, field: { label: Tech, name: tech, collection: tech, value_field: *, search_fields: name } }
+          - { label: Techs, name: techs, widget: list, field: { label: Tech, name: tech, collection: tech, value_field: *, search_fields: tech_name } }
         }
           
