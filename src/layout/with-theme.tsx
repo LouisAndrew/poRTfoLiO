@@ -44,8 +44,6 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         secondary: '#232323',
     }
 
-    console.log({ lightTheme, setIsHidden })
-
     return (
         <ThemeProvider
             theme={{

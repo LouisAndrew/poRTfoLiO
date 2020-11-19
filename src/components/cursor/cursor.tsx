@@ -16,6 +16,7 @@ type CursorPosition = {
 const Cursor: React.FC<unknown> = () => {
     const [position, setPosition] = useState<CursorPosition>({ x: 0, y: 0 })
     const {
+        lightTheme,
         cursorState,
         setIsClicking,
         setIsHidden,
@@ -41,20 +42,10 @@ const Cursor: React.FC<unknown> = () => {
         document.addEventListener('mousemove', onMouseMove)
 
         // listen, if cursor is in-view
-        window.addEventListener('mouseenter', () => {
-            console.log('view')
-        })
-        window.addEventListener('mouseleave', () => {
-            console.log('hide')
-        })
 
-        window.addEventListener('mouseover', () => {
-            console.log('view')
-        })
+        window.addEventListener('mouseover', displayCursor)
 
-        window.addEventListener('mouseout', () => {
-            console.log('out')
-        })
+        window.addEventListener('mouseout', hideCursor)
 
         // listen on click event
         document.addEventListener('mousedown', setClicked)
@@ -68,8 +59,8 @@ const Cursor: React.FC<unknown> = () => {
         document.removeEventListener('mousemove', onMouseMove)
 
         // listen, if cursor is in-view
-        document.removeEventListener('mouseenter', displayCursor)
-        document.removeEventListener('mouseleave', hideCursor)
+        document.removeEventListener('mouseover', displayCursor)
+        document.removeEventListener('mouseout', hideCursor)
 
         // listen on click event
         document.removeEventListener('mousedown', setClicked)
@@ -167,23 +158,25 @@ const Cursor: React.FC<unknown> = () => {
         <Box
             height={40}
             width={40}
-            bg={isHovering || isClicking ? 'background' : 'unset'}
+            // bg={isHovering || isClicking ? 'background' : 'unset'}
+            bg={`rgba(${lightTheme ? '255, 255, 255' : '0, 0, 0'}, 0.35)`}
             sx={{
                 borderWidth: 2,
                 borderStyle: 'solid',
-                borderColor: 'background',
+                borderColor: 'text',
                 borderRadius: '100%',
                 position: 'absolute',
                 pointerEvents: 'none',
                 transition: 'all 0.15s ease, opacity 0.25s',
                 zIndex: 9999,
-                mixBlendMode: 'difference',
+                // mixBlendMode: 'difference',
                 opacity: isHidden ? 0 : 1,
                 transform: `translate(-50%, -50%) scale(${
                     isClicking ? '0.5' : isHovering ? '1.5' : '1'
                 })`,
                 left: position.x,
                 top: position.y,
+                // backdropFilter: 'blur(1px)',
             }}
         />
     )

@@ -19,7 +19,9 @@ const Box = () => {
             <Text color="ffff">Helewale;aw</Text>
 
             <ReBox my={3}>
-                <Button onClick={buttonClick}>Click to change theme</Button>
+                <Button color="background" bg="primary" onClick={buttonClick}>
+                    Click to change theme
+                </Button>
             </ReBox>
 
             <ReBox my={3}>
