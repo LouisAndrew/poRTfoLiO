@@ -56,8 +56,8 @@ collections:
                         name: tech,
                         widget: relation,
                         collection: tech,
-                        value_field: '*',
-                        search_fields: [tech.tech_name],
+                        value_field: tech_name,
+                        search_fields: [tech_name],
                     },
             }
           - { label: 'Finished Date', name: finished_date, widget: date }
