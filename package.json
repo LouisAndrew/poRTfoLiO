@@ -22,7 +22,8 @@
         "serve": "gatsby serve",
         "clean": "gatsby clean",
         "build": "gatsby build",
-        "update": "ncu -u"
+        "update": "ncu -u",
+        "verify": "gatsby build && gatsby clean && echo Verified. Page is ready to be pushed."
     },
     "dependencies": {
         "@types/rebass": "^4.0.7",
@@ -41,6 +42,7 @@
         "gatsby-transformer-sharp": "^2.3.17",
         "modern-css-reset": "^1.1.0",
         "netlify-cms": "^2.10.68",
+        "netlify-cms-app": "^2.13.3",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "react-helmet": "^5.2.1",
