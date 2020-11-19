@@ -26,26 +26,36 @@ collections:
       folder: 'content/tech'
       create: true
       fields:
-        {
           - { label: 'Tech Name', name: tech_name, widget: 'string' }
-          - { label: Image, name: img, widget: image }
-        } 
+          - { label: 'Tech Logo', name: tech_logo, widget: image }
+
     - name: 'project'
       label: 'Project'
       folder: 'content/project'
       create: true
       fields:
-        {
           - { label: 'Project Name', name: project_name, widget: string }
+          - label: 'Project Screenshots'
+            name: 'project_screenshots'
+            widget: 'list'
+            summary: '{{fields.image}}'
+            fields:
+                - { label: Screenshot, name: screenshot, widget: image }
+                - {
+                      label: 'Screenshot label',
+                      name: screenshot_label,
+                      widget: string,
+                  }
           - {
-                label: 'Images',
-                name: 'imgs',
-                widget: 'list',
-                summary: '{{fields.image}}',
-                fields: 
-                  - { label: Image, name: img, widget: image }
-                  - { label: Label, name: label, widget: string }
+                label: Techs,
+                name: techs,
+                widget: list,
+                field:
+                    {
+                        label: Tech,
+                        name: tech,
+                        collection: tech,
+                        value_field: '*',
+                        search_fields: tech_name,
+                    },
             }
-          - { label: Techs, name: techs, widget: list, field: { label: Tech, name: tech, collection: tech, value_field: *, search_fields: tech_name } }
-        }
-          
