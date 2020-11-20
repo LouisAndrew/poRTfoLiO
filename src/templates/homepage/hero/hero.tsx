@@ -6,15 +6,27 @@ import { useStaticQuery, graphql } from 'gatsby'
 const Hero: React.FC<unknown> = () => {
     const data = useStaticQuery(graphql`
         {
-            markdownRemark(frontmatter: { template_key: { eq: "page" } }) {
+            heroData: markdownRemark(frontmatter: { template_key: { eq: "page" } }) {
                 frontmatter {
                     hero {
                         hero_content
                         hero_headline
-                        hero_imgs
                     }
                 }
-            }
+			}
+			imgS: markdownRemark(frontmatter: { template_key: { eq: "page" } }) {
+                frontmatter {
+                    hero {
+						hero_imgs {
+							childImageSharp {
+								fixed() {
+									
+								}
+							}
+						}
+                    }
+                }
+			}
         }
     `)
 
