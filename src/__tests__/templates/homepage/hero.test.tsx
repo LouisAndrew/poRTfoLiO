@@ -6,6 +6,7 @@ import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import Hero from 'templates/homepage/hero'
+// import '/__mocks__/window.js'
 
 import * as Gatsby from 'gatsby'
 
@@ -41,6 +42,19 @@ describe('Hero', () => {
                     },
                 },
             },
+            imgM: {
+                frontmatter: {
+                    hero: {
+                        hero_imgs: [
+                            {
+                                childImageSharp: {
+                                    fixed: {},
+                                },
+                            },
+                        ],
+                    },
+                },
+            },
             imgL: {
                 frontmatter: {
                     hero: {
@@ -54,7 +68,34 @@ describe('Hero', () => {
                     },
                 },
             },
+            imgXL: {
+                frontmatter: {
+                    hero: {
+                        hero_imgs: [
+                            {
+                                childImageSharp: {
+                                    fixed: {},
+                                },
+                            },
+                        ],
+                    },
+                },
+            },
         }))
+
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(), // deprecated
+                removeListener: jest.fn(), // deprecated
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        })
     })
 
     it('renders without crashing', () => {

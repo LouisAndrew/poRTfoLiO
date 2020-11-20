@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
-import Img from 'gatsby-image'
+import Img, { FixedObject } from 'gatsby-image'
 import { Box, Heading, Flex, Text } from 'rebass'
 // import local components
 
@@ -95,17 +95,17 @@ const Hero: React.FC<unknown> = () => {
     const imgXL = data.imgXL.frontmatter.hero.hero_imgs[0].childImageSharp.fixed
 
     const sources = [
-        { ...imgS, media: '(max-width: 640px)' },
+        { ...imgS, media: '(max-width: 640px)' } as FixedObject,
         {
             ...imgM,
             media:
                 '(max-width: 840px) and (max-height: 420px) and (orientation: landscape)',
-        },
+        } as FixedObject,
         {
             ...imgXL,
             media: '(min-width: 1952px)',
-        },
-        imgL,
+        } as FixedObject,
+        imgL as FixedObject,
     ]
     const { hero_content: heroContent, hero_headline: heroHeadline } = pageData
 
@@ -142,14 +142,16 @@ const Hero: React.FC<unknown> = () => {
                         className="hero__details-box"
                     >
                         <Heading as="h1" variant="primHeading" my={[3, 3, 4]}>
-                            {heroHeadline.split('\\n').map((text: string) => (
-                                <>
-                                    {text}
-                                    <br />
-                                </>
-                            ))}
+                            {heroHeadline
+                                .split('\\n')
+                                .map((text: string, i: number) => (
+                                    <React.Fragment key={`hero-heading-${i}`}>
+                                        {text}
+                                        <br />
+                                    </React.Fragment>
+                                ))}
                         </Heading>
-                        <Text as="p" variant="body">
+                        <Text as="p" variant="body" data-testid="content">
                             {heroContent}
                         </Text>
                     </Box>
