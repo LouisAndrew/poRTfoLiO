@@ -21,6 +21,13 @@ skills:
 social:
   - img: /img/react.svg
     link: https://github.com/louisandrew
+    social_key: github
+  - social_key: dribbble
+    link: https://dribbble.com/louisandrew3
+  - social_key: email
+    link: louisandrew3@gmail.com
+  - social_key: linkedin
+    link: https://www.linkedin.com/in/louis-andrew-b204971ab/
 contact:
   contact_headline: Interested in hiring me?\n Let's talk!
   contact_content: "I’m looking forward to chatting with you. The fastest way to
