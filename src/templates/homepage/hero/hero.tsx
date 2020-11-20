@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useScrollPercentage } from 'react-scroll-percentage'
 // import styling libs
 import Img, { FixedObject } from 'gatsby-image'
 import { Box, Heading, Flex, Text } from 'rebass'
@@ -109,9 +110,13 @@ const Hero: React.FC<unknown> = () => {
     ]
     const { hero_content: heroContent, hero_headline: heroHeadline } = pageData
 
+    const [ref, percentage] = useScrollPercentage()
+
+    console.log({ percentage })
+
     // TODO: add custom styling for iphone 5
     return (
-        <Flex variant="wrapper">
+        <Flex variant="wrapper" ref={ref}>
             <Flex
                 minHeight={['100vh', '100vh', '100vh', 'fit-content']}
                 flexDirection={['column']}

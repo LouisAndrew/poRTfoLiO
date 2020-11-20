@@ -10,6 +10,7 @@ const Homepage: React.FC<unknown> = () => {
     return (
         <>
             <Hero />
+            <div style={{ height: '200vh', backgroundColor: '#faa' }} />
         </>
     )
 }

@@ -9,8 +9,13 @@ import Hero from 'templates/homepage/hero'
 // import '/__mocks__/window.js'
 
 import * as Gatsby from 'gatsby'
+import * as ReactScrollPercentage from 'react-scroll-percentage'
 
 const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')
+const useScrollPercentage = jest.spyOn(
+    ReactScrollPercentage,
+    'useScrollPercentage'
+)
 
 const mockHeroContent = 'Hello, World!'
 const mockHeroHeadline = 'I am headline'
@@ -82,6 +87,12 @@ describe('Hero', () => {
                 },
             },
         }))
+
+        useScrollPercentage.mockImplementationOnce(() => [
+            () => {},
+            0,
+            undefined,
+        ])
 
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
