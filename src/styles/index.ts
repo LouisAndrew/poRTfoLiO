@@ -3,10 +3,12 @@ import text from './texts'
 import variants from './variants'
 
 const theme = {
-    //             640,   832,     1040
-    breakpoints: ['40em', '48em', '72em'],
+    //             640,   832,     960,    1040,   1952px
+    breakpoints: ['40em', '48em', '60em', '64em', '122em'],
+    //          0,  1,  2,  3,  4,  5,  6,  7,  8
     fontSizes: [12, 14, 16, 18, 20, 24, 32, 48, 64],
-    space: [0, 4, 8, 16, 32, 64, 128, 256],
+    //      0, 1, 2, 3,  4,  5,  6,   7,   8
+    space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     fonts: {
         body: "'Nunito', sans-serif",
         heading: "'Montserrat', sans-serif",

@@ -134,5 +134,6 @@ module.exports = {
         `gatsby-plugin-typescript`,
         `gatsby-plugin-offline`,
         'gatsby-plugin-theme-ui',
+        'gatsby-plugin-sass',
     ],
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { Box, BoxProps } from 'rebass'
+import { Box } from 'rebass'
 import { ThemeProvider, ColorMode } from 'theme-ui'
 
 import theme from '../styles'
@@ -32,7 +32,7 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         background: '#F9F9F9',
         primary: '#000000',
         text: '#646464',
-        secondary: '#F1F1F1',
+        secondary: '#ECECEC',
     }
 
     const darkColors: ColorMode = {

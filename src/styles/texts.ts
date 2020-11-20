@@ -5,7 +5,7 @@ export default {
     primHeading: {
         fontFamily: 'heading',
         fontWeight: 'bold',
-        fontSize: [5, 5, 7],
+        fontSize: ['3.5vh', 5, 6, 6, 6, 7],
         color: 'primary',
     },
     /**
@@ -22,7 +22,7 @@ export default {
      */
     body: {
         fontFamily: 'body',
-        fontSize: [1, 1, 5],
+        fontSize: ['2vh', 2, 4, 4, 4, 6],
         color: 'text',
     },
     /**

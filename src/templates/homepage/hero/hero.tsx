@@ -5,6 +5,9 @@ import Img from 'gatsby-image'
 import { Box, Heading, Flex, Text } from 'rebass'
 // import local components
 
+// custom very specific styling
+import './index.scss'
+
 /**
  * Hero section of the mainpage
  */
@@ -28,7 +31,22 @@ const Hero: React.FC<unknown> = () => {
                     hero {
                         hero_imgs {
                             childImageSharp {
-                                fixed(width: 250, height: 250, quality: 100) {
+                                fixed(width: 200, height: 200, quality: 100) {
+                                    ...GatsbyImageSharpFixed
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            imgM: markdownRemark(
+                frontmatter: { template_key: { eq: "page" } }
+            ) {
+                frontmatter {
+                    hero {
+                        hero_imgs {
+                            childImageSharp {
+                                fixed(width: 150, height: 150, quality: 100) {
                                     ...GatsbyImageSharpFixed
                                 }
                             }
@@ -51,30 +69,93 @@ const Hero: React.FC<unknown> = () => {
                     }
                 }
             }
+            imgXL: markdownRemark(
+                frontmatter: { template_key: { eq: "page" } }
+            ) {
+                frontmatter {
+                    hero {
+                        hero_imgs {
+                            childImageSharp {
+                                fixed(width: 500, height: 500, quality: 100) {
+                                    ...GatsbyImageSharpFixed
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     `)
 
     // extract all queries here.
     const pageData = data.heroData.frontmatter.hero
     const imgS = data.imgS.frontmatter.hero.hero_imgs[0].childImageSharp.fixed
+    const imgM = data.imgM.frontmatter.hero.hero_imgs[0].childImageSharp.fixed
     const imgL = data.imgL.frontmatter.hero.hero_imgs[0].childImageSharp.fixed
+    const imgXL = data.imgXL.frontmatter.hero.hero_imgs[0].childImageSharp.fixed
 
-    const sources = [{ ...imgS, media: '(max-width: 640px)' }, imgL]
+    const sources = [
+        { ...imgS, media: '(max-width: 640px)' },
+        {
+            ...imgM,
+            media:
+                '(max-width: 840px) and (max-height: 420px) and (orientation: landscape)',
+        },
+        {
+            ...imgXL,
+            media: '(min-width: 1952px)',
+        },
+        imgL,
+    ]
+    const { hero_content: heroContent, hero_headline: heroHeadline } = pageData
 
+    // TODO: add custom styling for iphone 5
     return (
-        <Box variant="wrapper">
-            <Flex minHeight={['100vh']} flexDirection={['column']}>
-                <Flex flexDirection={['column']}>
+        <Flex variant="wrapper">
+            <Flex
+                minHeight={['100vh', '100vh', '100vh', 'fit-content']}
+                flexDirection={['column']}
+                justifyContent={['center']}
+                py={['unset', 'unset', 'unset', 6, 6, 7]}
+            >
+                <Flex
+                    flexDirection={['column', 'row', 'column', 'row']}
+                    alignItems={['center']}
+                    className="hero__flex-wrapper"
+                >
                     <Box
                         bg="secondary"
                         width="fit-content"
-                        sx={{ borderRadius: '50%' }}
+                        sx={{ borderRadius: '50%', flexShrink: 0 }}
                     >
                         <Img fixed={sources} />
                     </Box>
+                    <Box
+                        mt={['2vh', 0, 4, 0]}
+                        ml={[0, 4, 0, 5]}
+                        px={[1]}
+                        sx={{
+                            textAlign: ['center', 'left', 'center', 'left'],
+                            textOverflow: 'wrap',
+                        }}
+                        width="100%"
+                        className="hero__details-box"
+                    >
+                        <Heading as="h1" variant="primHeading" my={[3, 3, 4]}>
+                            {heroHeadline.split('\\n').map((text: string) => (
+                                <>
+                                    {text}
+                                    <br />
+                                </>
+                            ))}
+                        </Heading>
+                        <Text as="p" variant="body">
+                            {heroContent}
+                        </Text>
+                    </Box>
                 </Flex>
             </Flex>
-        </Box>
+        </Flex>
     )
 }
 
