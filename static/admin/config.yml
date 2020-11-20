@@ -8,21 +8,6 @@ public_folder: /img
 site_url: https://compassionate-johnson-fa478f.netlify.app
 
 collections:
-    # - name: 'blog'
-    #   label: 'Blog'
-    #   folder: 'content/blog'
-    #   create: true
-    #   slug: 'index'
-    #   media_folder: ''
-    #   public_folder: ''
-    #   path: '{{title}}/index'
-    #   editor:
-    #       preview: false
-    #   fields:
-    #       - { label: 'Title', name: 'title', widget: 'string' }
-    #       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-    #       - { label: 'Description', name: 'description', widget: 'string' }
-    #       - { label: 'Body', name: 'body', widget: 'markdown' }
     - name: 'tech'
       label: 'Technology'
       folder: 'content/tech'
@@ -30,6 +15,10 @@ collections:
       fields:
           - { label: 'Tech Name', name: tech_name, widget: 'string' }
           - { label: 'Tech Logo', name: tech_logo, widget: image }
+          - label: 'Template Key'
+            name: template_key
+            widget: hidden
+            default: tech
 
     - name: 'project'
       label: 'Project'
@@ -67,3 +56,68 @@ collections:
           - { label: 'Web URL', name: web_url, widget: string }
           - { label: 'Repo URL', name: repo_url, widget: string }
           - { label: 'Preview Description', name: preview_desc, widget: text }
+          - label: 'Template Key'
+            name: template_key
+            widget: hidden
+            default: project
+
+    - name: page
+      label: Page
+      folder: 'content/page'
+      create: true
+      fields:
+          - label: 'Hero Section'
+            name: hero
+            widget: object
+            summary: 'Hero Section'
+            fields:
+                - { label: Headline, name: hero_headline, widget: string }
+                - { label: Content, name: hero_content, widget: text }
+                - label: 'Hero Images'
+                  name: hero_imgs
+                  widget: list
+                  field: { label: Img, name: img, widget: image }
+          - label: 'About Section'
+            name: about
+            widget: object
+            summary: 'About Section'
+            fields:
+                - { label: Headline, name: about_headline, widget: string }
+                - { label: Content, name: about_content, widget: text }
+                - label: 'About Images'
+                  name: about_imgs
+                  widget: list
+                  field: { label: Img, name: img, widget: image }
+          - label: 'Skills Section'
+            name: skills
+            widget: list
+            summary: 'Skills Section'
+            field:
+                {
+                    label: Tech,
+                    name: tech,
+                    widget: relation,
+                    collection: tech,
+                    value_field: tech_name,
+                    search_fields: [tech_name],
+                }
+          - label: 'Socials section'
+            name: social
+            widget: list
+            allow_add: true
+            fields:
+                - { label: Img, name: img, widget: image }
+                - { label: Link, name: link, widget: string }
+          - label: 'Contact section'
+            name: contact
+            widget: object
+            summary: 'Contact Section'
+            fields:
+                - { label: Headline, name: contact_headline, widget: string }
+                - { label: Content, name: contact_content, widget: text }
+                - { label: 'Email address', name: email, widget: string }
+                - { label: 'Button text', name: button_text, widget: string }
+          - label: 'Template Key'
+            name: template_key
+            widget: hidden
+            default: page

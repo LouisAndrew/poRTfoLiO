@@ -26,6 +26,27 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `images`,
+                path: `${__dirname}/static/img`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/content/project`,
+                name: `markdown-pages`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/content/tech`,
+                name: `markdown-pages`,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-react-axe',
             options: {
                 showInProduction: false,
@@ -79,5 +100,6 @@ module.exports = {
         `gatsby-plugin-typescript`,
         `gatsby-plugin-offline`,
         'gatsby-plugin-theme-ui',
+        'gatsby-transformer-remark',
     ],
 }
