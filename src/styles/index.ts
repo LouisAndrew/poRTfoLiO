@@ -5,11 +5,11 @@ import variants from './variants'
 const theme = {
     //             640,   832,     1040
     breakpoints: ['40em', '48em', '72em'],
-    fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+    fontSizes: [12, 14, 16, 18, 20, 24, 32, 48, 64],
     space: [0, 4, 8, 16, 32, 64, 128, 256],
     fonts: {
-        body: "'Open Sans', sans-serif",
-        heading: "'Raleway', sans-serif",
+        body: "'Nunito', sans-serif",
+        heading: "'Montserrat', sans-serif",
         monospace: 'Menlo, monospace',
     },
     fontWeights: {

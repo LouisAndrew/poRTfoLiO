@@ -21,7 +21,7 @@ type Props = {
  * Component which serves as a wrapper for all element inside the layout and provides theme and/or backgroundto the page
  */
 const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
-    const { lightTheme, setIsHidden } = useContext(PageContext)
+    const { lightTheme } = useContext(PageContext)
 
     // const { title, description } = data.site.siteMetadata as any;
 
@@ -33,7 +33,6 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         primary: '#000000',
         text: '#646464',
         secondary: '#F1F1F1',
-        ffff: '#390',
     }
 
     const darkColors: ColorMode = {

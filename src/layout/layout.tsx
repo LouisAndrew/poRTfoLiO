@@ -7,6 +7,7 @@ import Cursor from 'components/cursor'
 
 import { ContextProvider } from 'context'
 import WithTheme from './with-theme'
+import { useGoogleFonts } from 'helper/hooks/use-google-fonts'
 // Components
 
 const Layout: React.FC = ({ children }) => {
@@ -23,6 +24,9 @@ const Layout: React.FC = ({ children }) => {
             }
         }
     `)
+
+    // apply custom fonts
+    useGoogleFonts()
 
     return (
         <ContextProvider>
