@@ -108,6 +108,7 @@ collections:
             fields:
                 - { label: Img, name: img, widget: image }
                 - { label: Link, name: link, widget: string }
+                - { label: 'Social key', name: social_key, widget: string }
           - label: 'Contact section'
             name: contact
             widget: object
