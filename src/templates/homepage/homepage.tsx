@@ -1,4 +1,5 @@
 import React from 'react'
+import Hero from './hero'
 // import styling libs
 // import local components
 
@@ -6,7 +7,11 @@ import React from 'react'
  * Used as a wrapper element for all sections in the homepage
  */
 const Homepage: React.FC<unknown> = () => {
-    return <></>
+    return (
+        <>
+            <Hero />
+        </>
+    )
 }
 
 export { Homepage }
