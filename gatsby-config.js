@@ -47,6 +47,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/content/page`,
+                name: `markdown-pages`,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-react-axe',
             options: {
                 showInProduction: false,
