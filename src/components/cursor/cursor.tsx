@@ -150,7 +150,6 @@ const Cursor: React.FC<unknown> = () => {
      * Function to display custom cursor when user's native cursor is in view
      */
     const displayCursor = () => {
-        console.log('hide')
         setIsHidden(false)
     }
 

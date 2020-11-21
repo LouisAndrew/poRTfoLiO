@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { useScrollPercentage } from 'react-scroll-percentage'
 // import styling libs
 import Img, { FixedObject } from 'gatsby-image'
 import { Box, Heading, Flex, Text } from 'rebass'
@@ -8,6 +7,7 @@ import { Box, Heading, Flex, Text } from 'rebass'
 
 // custom very specific styling
 import './index.scss'
+import Scroller from 'components/scroller'
 
 /**
  * Hero section of the mainpage
@@ -109,18 +109,43 @@ const Hero: React.FC<unknown> = () => {
         imgL as FixedObject,
     ]
     const { hero_content: heroContent, hero_headline: heroHeadline } = pageData
+    const [scrollTop, setScrollTop] = useState(0)
+    const [heroHeight, setHeroHeight] = useState(0)
 
-    const [ref, percentage] = useScrollPercentage()
+    const heroRef = React.createRef<HTMLDivElement>()
 
-    console.log({ percentage })
+    useEffect(() => {
+        getHeight()
+        window.addEventListener('scroll', () => {
+            setScrollTop(window.scrollY)
+        })
+
+        return () => {
+            window.removeEventListener('scroll', () => {
+                setScrollTop(window.scrollY)
+            })
+        }
+    }, [])
+
+    /**
+     * Function to get the height of hero element.
+     */
+    const getHeight = () => {
+        if (heroRef.current) {
+            setHeroHeight(heroRef.current.scrollHeight)
+        }
+    }
+
+    const percentage = scrollTop / heroHeight
 
     // TODO: add custom styling for iphone 5
     return (
-        <Flex variant="wrapper" ref={ref}>
+        <Flex variant="wrapper" id="hero" ref={heroRef}>
             <Flex
                 minHeight={['100vh', '100vh', '100vh', 'fit-content']}
                 flexDirection={['column']}
                 justifyContent={['center']}
+                alignItems="center"
                 py={['unset', 'unset', 'unset', 6, 6, 7]}
             >
                 <Flex
@@ -161,6 +186,7 @@ const Hero: React.FC<unknown> = () => {
                         </Text>
                     </Box>
                 </Flex>
+                <Scroller percentage={percentage} />
             </Flex>
         </Flex>
     )
