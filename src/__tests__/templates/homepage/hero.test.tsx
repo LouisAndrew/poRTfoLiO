@@ -9,13 +9,8 @@ import Hero from 'templates/homepage/hero'
 // import '/__mocks__/window.js'
 
 import * as Gatsby from 'gatsby'
-import * as ReactScrollPercentage from 'react-scroll-percentage'
 
 const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')
-const useScrollPercentage = jest.spyOn(
-    ReactScrollPercentage,
-    'useScrollPercentage'
-)
 
 const mockHeroContent = 'Hello, World!'
 const mockHeroHeadline = 'I am headline'
@@ -88,12 +83,6 @@ describe('Hero', () => {
             },
         }))
 
-        useScrollPercentage.mockImplementationOnce(() => [
-            () => {},
-            0,
-            undefined,
-        ])
-
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
             value: jest.fn().mockImplementation(query => ({
@@ -115,17 +104,17 @@ describe('Hero', () => {
     })
 
     it('Should render the headline and content correctly', () => {
-        const { getByRole, getByTestId } = render(Element)
+        const { queryByText, getByTestId } = render(Element)
 
-        const headline = getByRole('heading')
+        const headline = queryByText(mockHeroHeadline)
         const content = getByTestId('content')
 
-        expect(headline).toHaveTextContent(mockHeroHeadline)
+        expect(headline).toBeInTheDocument()
         expect(content).toHaveTextContent(mockHeroContent)
     })
 
     it('matches snapshot', () => {
-        const run = false
+        const run = true
 
         if (run) {
             const tree = renderer.create(Element).toJSON()

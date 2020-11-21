@@ -3,6 +3,9 @@ import React from 'react'
 import { Box, Text } from 'rebass'
 // import local components
 
+// custom stylings
+import './index.scss'
+
 type Props = {
     /**
      * Percentage of the element scrolled
@@ -22,26 +25,32 @@ const Scroller: React.FC<Props> = ({ percentage }) => {
         <Box
             sx={{
                 position: 'relative',
-                top: [64],
+                top: [64, 48, 64],
             }}
+            role="complementary"
+            className="scroller"
         >
-            <Text variant="utils">SCROLL DOWN TO SEE MY PROJECTS</Text>
+            <Text variant="utils" as="h4">
+                SCROLL DOWN TO SEE MY PROJECTS
+            </Text>
             <Box
                 mt={[2]}
-                height={[32]}
-                width={[16]}
+                height={[24, 24, 32]}
+                width={[14, 14, 18]}
                 mx="auto"
                 sx={{
                     borderStyle: 'solid',
                     borderWidth: 2,
                     borderColor: 'primary',
-                    borderRadius: 8,
+                    borderRadius: [8],
                     position: 'relative',
                 }}
+                role="button"
+                className="scroller__box"
             >
                 <Box
-                    height={[10]}
-                    width={[10]}
+                    height={[6, 6, 10]}
+                    width={[6, 6, 10]}
                     mx="auto"
                     bg="primary"
                     sx={{
@@ -54,6 +63,8 @@ const Scroller: React.FC<Props> = ({ percentage }) => {
                             transformY * 100
                         )}%)`,
                     }}
+                    className="scroller__thumb"
+                    data-testid="scroller-thumb"
                 />
             </Box>
         </Box>
