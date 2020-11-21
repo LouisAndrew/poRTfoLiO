@@ -16,7 +16,7 @@ const Homepage: React.FC<unknown> = () => {
             <div style={{ height: '200vh', backgroundColor: '#faa' }} />
             <About />
             <Skillcard techName="React" />
-            <Skillcard techName="Typescript" />
+            <Skillcard techName="Typescript" variant="big" />
         </>
     )
 }

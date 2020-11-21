@@ -41,7 +41,9 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
             flexDirection="column"
             alignItems="center"
             data-testid="wrapper"
-            variant={variant}
+            bg="secondary"
+            variant={`skillcard-${variant}`}
+            sx={{ borderRadius: 8 }}
         >
             <Img
                 imgStyle={{ objectPosition: 'center', height: 'auto' }}
@@ -51,7 +53,9 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                         : (sourcesBig as FixedObject[])
                 }
             />
-            <Text>{name}</Text>
+            <Text variant="utils" mt={[3]}>
+                {name}
+            </Text>
         </Flex>
     )
 }
