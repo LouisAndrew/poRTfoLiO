@@ -101,6 +101,9 @@ const useAllTechs = () => {
 
     useEffect(() => {
         const { techData, imgS, imgM, imgL, imgXS } = data as any
+
+        console.log({ techData, imgS, imgM, imgL, imgXS })
+
         const temp: Tech[] = techData.edges.map((edge: any, i: number) => {
             const techName = edge.node.frontmatter.tech_name
             const xs =
