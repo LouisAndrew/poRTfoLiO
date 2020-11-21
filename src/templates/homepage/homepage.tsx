@@ -2,7 +2,7 @@ import React from 'react'
 
 import Hero from './hero'
 import About from './about'
-import Skillcard from 'components/skillcard'
+import MySkills from './my-skills'
 // import styling libs
 // import local components
 
@@ -15,8 +15,7 @@ const Homepage: React.FC<unknown> = () => {
             <Hero />
             <div style={{ height: '200vh', backgroundColor: '#faa' }} />
             <About />
-            <Skillcard techName="React" />
-            <Skillcard techName="Typescript" variant="big" />
+            <MySkills />
         </>
     )
 }
