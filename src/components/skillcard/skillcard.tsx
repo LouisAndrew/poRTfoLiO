@@ -1,6 +1,7 @@
 import React from 'react'
 // import styling libs
-import { Box, Text } from 'rebass'
+import { Flex, Text } from 'rebass'
+import Img, { FixedObject } from 'gatsby-image'
 // import local components
 import { useAllTechs } from 'helper/hooks/use-all-techs'
 
@@ -27,10 +28,31 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
         return null
     }
 
+    const {
+        techName: name,
+        techLogo: { xs, s, l },
+    } = tech
+
+    const sourcesSmall = [{ ...s, media: '(max-width: 640px)' }, l] as unknown
+    const sourcesBig = [{ ...xs, media: '(max-width: 640px)' }, l] as unknown
+
     return (
-        <Box data-testid="wrapper" variant={variant}>
-            <Text>{tech.techName}</Text>
-        </Box>
+        <Flex
+            flexDirection="column"
+            alignItems="center"
+            data-testid="wrapper"
+            variant={variant}
+        >
+            <Img
+                imgStyle={{ objectPosition: 'center', height: 'auto' }}
+                fixed={
+                    variant === 'small'
+                        ? (sourcesSmall as FixedObject[])
+                        : (sourcesBig as FixedObject[])
+                }
+            />
+            <Text>{name}</Text>
+        </Flex>
     )
 }
 

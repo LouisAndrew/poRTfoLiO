@@ -26,7 +26,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(width: 40, height: 40, quality: 100) {
+                                    fixed(width: 40, quality: 100) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -43,7 +43,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(width: 60, height: 60, quality: 100) {
+                                    fixed(width: 60, quality: 100) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -60,11 +60,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(
-                                        width: 100
-                                        height: 100
-                                        quality: 100
-                                    ) {
+                                    fixed(width: 100, quality: 100) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -81,11 +77,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(
-                                        width: 120
-                                        height: 120
-                                        quality: 100
-                                    ) {
+                                    fixed(width: 120, quality: 100) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -101,8 +93,6 @@ const useAllTechs = () => {
 
     useEffect(() => {
         const { techData, imgS, imgM, imgL, imgXS } = data as any
-
-        console.log({ techData, imgS, imgM, imgL, imgXS })
 
         const temp: Tech[] = techData.edges.map((edge: any, i: number) => {
             const techName = edge.node.frontmatter.tech_name
