@@ -1,5 +1,7 @@
 import React from 'react'
+
 import Hero from './hero'
+import About from './about'
 // import styling libs
 // import local components
 
@@ -11,6 +13,7 @@ const Homepage: React.FC<unknown> = () => {
         <>
             <Hero />
             <div style={{ height: '200vh', backgroundColor: '#faa' }} />
+            <About />
         </>
     )
 }

@@ -5,34 +5,31 @@ import renderer from 'react-test-renderer'
 import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import Hero from 'templates/homepage/hero'
-// import '/__mocks__/window.js'
+import About from 'templates/homepage/about'
 
 import * as Gatsby from 'gatsby'
 
 const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')
 
-const mockHeroContent = 'Hello, World!'
-const mockHeroHeadline = 'I am headline'
+const mockAboutcontent = 'Hello, World!'
 
-describe('Hero', () => {
-    const Element = <Hero />
+describe('About', () => {
+    const Element = <About />
 
     afterEach(cleanup)
     beforeEach(() => {
         useStaticQuery.mockImplementationOnce(() => ({
-            heroData: {
+            aboutData: {
                 frontmatter: {
-                    hero: {
-                        hero_content: mockHeroContent,
-                        hero_headline: mockHeroHeadline,
+                    about: {
+                        about_content: mockAboutcontent,
                     },
                 },
             },
             imgS: {
                 frontmatter: {
-                    hero: {
-                        hero_imgs: [
+                    about: {
+                        about_imgs: [
                             {
                                 childImageSharp: {
                                     fixed: {},
@@ -44,8 +41,8 @@ describe('Hero', () => {
             },
             imgM: {
                 frontmatter: {
-                    hero: {
-                        hero_imgs: [
+                    about: {
+                        about_imgs: [
                             {
                                 childImageSharp: {
                                     fixed: {},
@@ -57,8 +54,8 @@ describe('Hero', () => {
             },
             imgL: {
                 frontmatter: {
-                    hero: {
-                        hero_imgs: [
+                    about: {
+                        about_imgs: [
                             {
                                 childImageSharp: {
                                     fixed: {},
@@ -70,8 +67,8 @@ describe('Hero', () => {
             },
             imgXL: {
                 frontmatter: {
-                    hero: {
-                        hero_imgs: [
+                    about: {
+                        about_imgs: [
                             {
                                 childImageSharp: {
                                     fixed: {},
@@ -89,22 +86,20 @@ describe('Hero', () => {
         ReactDOM.render(Element, div)
     })
 
-    it('Should render the headline and content correctly', () => {
-        const { queryByText, getByTestId } = render(Element)
+    it('Should render the "about me" content correctly', () => {
+        const { getByTestId } = render(Element)
 
-        const headline = queryByText(mockHeroHeadline)
-        const content = getByTestId('content')
+        const aboutMeContent = getByTestId('content')
 
-        expect(headline).toBeInTheDocument()
-        expect(content).toHaveTextContent(mockHeroContent)
+        expect(aboutMeContent).toHaveTextContent(mockAboutcontent)
     })
 
     it('matches snapshot', () => {
         const run = true
 
-        if (run) {
-            const tree = renderer.create(Element).toJSON()
-            expect(tree).toMatchSnapshot()
-        }
+        expect(run).toBeTruthy()
+
+        const tree = renderer.create(Element).toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })

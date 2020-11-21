@@ -14,7 +14,7 @@ export default {
     heading: {
         fontFamily: 'heading',
         fontWeight: 'bold',
-        fontSize: [3, 3, 6],
+        fontSize: ['3vh', 3, 5, 5, 5, 6],
         color: 'primary',
     },
     /**
@@ -22,7 +22,7 @@ export default {
      */
     body: {
         fontFamily: 'body',
-        fontSize: ['2vh', 1, 4, 4, 4, 6],
+        fontSize: ['2vh', 1, 4, 4, 4, 5],
         color: 'text',
     },
     /**
