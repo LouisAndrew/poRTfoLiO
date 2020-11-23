@@ -7,7 +7,11 @@ import Cursor from 'components/cursor'
 
 import { ContextProvider } from 'context'
 import WithTheme from './with-theme'
+import { useGoogleFonts } from 'helper/hooks/use-google-fonts'
 // Components
+
+// global styling
+import './index.scss'
 
 const Layout: React.FC = ({ children }) => {
     // State to determine if custom cursor is to be used.
@@ -23,6 +27,9 @@ const Layout: React.FC = ({ children }) => {
             }
         }
     `)
+
+    // apply custom fonts
+    useGoogleFonts()
 
     return (
         <ContextProvider>

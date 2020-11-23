@@ -1,0 +1,48 @@
+// custom styling for iph 5s
+@media screen and (max-width: 600px) and (max-height: 400px) and (orientation: landscape) {
+    .hero__flex-wrapper {
+        flex-direction: row !important;
+
+        .hero__details-box {
+            margin-left: 16px;
+
+            h1,
+            p {
+                text-align: left !important;
+            }
+
+            h1 {
+                font-size: 18px !important;
+            }
+
+            p {
+                font-size: 12px !important;
+            }
+        }
+    }
+}
+
+// custom styling for taller phones on landscape
+@media screen and (min-width: 800px) and (max-height: 460px) and (orientation: landscape) {
+    .hero__flex-wrapper {
+        flex-direction: row !important;
+
+        .hero__details-box {
+            margin-left: 32px !important;
+            margin-top: 0 !important;
+
+            h1,
+            p {
+                text-align: left !important;
+            }
+
+            h1 {
+                font-size: 24px !important;
+            }
+
+            p {
+                font-size: 16px !important;
+            }
+        }
+    }
+}

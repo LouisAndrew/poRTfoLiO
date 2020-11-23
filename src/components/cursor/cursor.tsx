@@ -108,7 +108,10 @@ const Cursor: React.FC<unknown> = () => {
      * @param ev Mouse event
      */
     const onMouseMove = (ev: MouseEvent) => {
-        setPosition({ x: ev.clientX, y: ev.clientY })
+        const scrollTop = window.scrollY
+        const scrollLeft = window.scrollX
+
+        setPosition({ x: ev.clientX + scrollLeft, y: ev.clientY + scrollTop })
     }
 
     /**
@@ -150,7 +153,6 @@ const Cursor: React.FC<unknown> = () => {
      * Function to display custom cursor when user's native cursor is in view
      */
     const displayCursor = () => {
-        console.log('hide')
         setIsHidden(false)
     }
 

@@ -1,0 +1,68 @@
+// iphone 5s portrait
+@media screen and (max-height: 600px) and (max-width: 340px) and (orientation: portrait) {
+    .scroller {
+        top: 24px !important;
+    }
+}
+
+// iphone 5s on landscape
+@media screen and (max-width: 600px) and (max-height: 400px) and (orientation: landscape) {
+    .scroller {
+        top: 16px !important;
+
+        .scroller__box {
+            height: 24px;
+            width: 12px;
+        }
+
+        .scroller__thumb {
+            height: 6px;
+            width: 6px;
+        }
+    }
+}
+
+// taller phones on landscape
+@media screen and (min-width: 800px) and (max-height: 460px) and (orientation: landscape) {
+    .scroller {
+        top: 32px !important;
+
+        h4 {
+            font-size: 12px;
+        }
+
+        .scroller__box {
+            height: 24px;
+            width: 14px;
+        }
+
+        .scroller__thumb {
+            height: 6px;
+            width: 6px;
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .scroller {
+        top: 128px !important;
+
+        h4 {
+            font-size: 24px;
+        }
+
+        .scroller__box {
+            height: 56px;
+            width: 30px;
+
+            border-radius: 16px;
+            border-width: 4px;
+        }
+
+        .scroller__thumb {
+            height: 18px;
+            width: 18px;
+            left: 53%;
+        }
+    }
+}
