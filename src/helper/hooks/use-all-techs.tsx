@@ -60,7 +60,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(width: 100, quality: 100) {
+                                    fixed(width: 80, quality: 80) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -86,13 +86,30 @@ const useAllTechs = () => {
                     }
                 }
             }
+            imgXL: allMarkdownRemark(
+                filter: { frontmatter: { template_key: { eq: "tech" } } }
+            ) {
+                edges {
+                    node {
+                        frontmatter {
+                            tech_logo {
+                                childImageSharp {
+                                    fixed(width: 150, quality: 100) {
+                                        ...GatsbyImageSharpFixed
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     `)
 
     const [techs, setTechs] = useState<Tech[]>([])
 
     useEffect(() => {
-        const { techData, imgS, imgM, imgL, imgXS } = data as any
+        const { techData, imgS, imgM, imgL, imgXS, imgXL } = data as any
 
         const temp: Tech[] = techData.edges.map((edge: any, i: number) => {
             const techName = edge.node.frontmatter.tech_name
@@ -104,7 +121,8 @@ const useAllTechs = () => {
                 imgM.edges[i].node.frontmatter.tech_logo.childImageSharp.fixed
             const l =
                 imgL.edges[i].node.frontmatter.tech_logo.childImageSharp.fixed
-            const xl: FixedObject[] = []
+            const xl: FixedObject[] =
+                imgXL.edges[i].node.frontmatter.tech_logo.childImageSharp.fixed
 
             return {
                 techName,

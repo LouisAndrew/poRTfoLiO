@@ -38,7 +38,7 @@ export default {
     utils: {
         fontFamily: 'body',
         fontWeight: 'bold',
-        fontSize: [1, 1, 2],
+        fontSize: [1, 1, 2, 3, 3, 5],
     },
     links: {
         fontFamilt: 'body',

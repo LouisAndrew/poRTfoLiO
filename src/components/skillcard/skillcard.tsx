@@ -30,30 +30,45 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
 
     const {
         techName: name,
-        techLogo: { xs, s, l },
+        techLogo: { xs, s, l, m, xl },
     } = tech
 
-    const sourcesSmall = [{ ...s, media: '(max-width: 640px)' }, l] as unknown
+    const sourcesSmall = [
+        { ...s, media: '(max-width: 640px)' },
+        { ...s, media: '(max-width: 832px) and (orientation: landscape)' },
+        { ...m, media: '(max-width: 1040px)' },
+        { ...xl, media: '(min-width: 1952px)' },
+        l,
+    ] as unknown
     const sourcesBig = [{ ...xs, media: '(max-width: 640px)' }, l] as unknown
 
     return (
         <Flex
             flexDirection="column"
             alignItems="center"
+            justifyContent="space-between"
             data-testid="wrapper"
             bg="secondary"
             variant={`skillcard-${variant}`}
             sx={{ borderRadius: 8 }}
+            className="skillcard"
         >
-            <Img
-                imgStyle={{ objectPosition: 'center', height: 'auto' }}
-                fixed={
-                    variant === 'small'
-                        ? (sourcesSmall as FixedObject[])
-                        : (sourcesBig as FixedObject[])
+            <Flex
+                variant="center"
+                minHeight={
+                    variant === 'small' ? [60, 60, 80, 120, 120, 150] : [40]
                 }
-            />
-            <Text variant="utils" mt={[3]}>
+            >
+                <Img
+                    imgStyle={{ objectPosition: 'center', height: 'auto' }}
+                    fixed={
+                        variant === 'small'
+                            ? (sourcesSmall as FixedObject[])
+                            : (sourcesBig as FixedObject[])
+                    }
+                />
+            </Flex>
+            <Text variant="utils" mt={[3, 3, 4]}>
                 {name}
             </Text>
         </Flex>

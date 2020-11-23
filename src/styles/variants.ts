@@ -1,7 +1,12 @@
 export default {
+    center: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     wrapper: {
         justifyContent: 'center',
         width: '100vw',
+        pt: ['unset', 'unset', 'unset', 'unset', 'unset', 5],
         '& > div': {
             maxWidth: ['85%', '85%', '85%', '85%', 1024, 1640],
         },
@@ -11,7 +16,9 @@ export default {
         py: [3, 3, 4],
     },
     'skillcard-small': {
-        width: ['45%', '45%', '23%'],
-        py: [3, 3, 4],
+        width: ['48%', '23%', '23%'],
+        // height: ['35vw'],
+        py: [3, 4, 4, 4, 4, 5],
+        my: [2],
     },
 }
