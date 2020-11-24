@@ -70,7 +70,6 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                 svg: {
                     height: [25, 25, 25, 30],
                     width: [25, 25, 25, 30],
-                    transition: '0.2s',
                     path: { fill: 'text' },
                 },
                 '&:hover': {
@@ -78,6 +77,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                         height: [30, 30, 30, 40],
                         width: [30, 30, 30, 40],
                         path: { fill: 'primary' },
+                        transition: '200ms',
                     },
                 },
             }}

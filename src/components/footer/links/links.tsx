@@ -1,15 +1,28 @@
-
 import React from 'react'
 // import styling libs
+import { Box, Link } from 'rebass'
 // import local components
 
-type Props = {
-
+/**
+ * Comopnent to wrap links within the site
+ */
+const Links: React.FC<unknown> = () => {
+    return (
+        <Box>
+            <Link variant="text.links" as="a" mt={[0]}>
+                HOME
+            </Link>
+            <Link variant="text.links" as="a">
+                MY PROJECTS
+            </Link>
+            <Link variant="text.links" as="a">
+                ABOUT ME
+            </Link>
+            <Link variant="text.links" as="a">
+                CONTACT
+            </Link>
+        </Box>
+    )
 }
 
-const Links: React.FC<Props> = () => {
-
-	return <></>
-}
-
-export {Links}
+export { Links }
