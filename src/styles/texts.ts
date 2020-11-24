@@ -41,8 +41,11 @@ export default {
         fontSize: [1, 1, 2, 3, 3, 5],
     },
     links: {
-        fontFamilt: 'body',
+        fontFamily: 'body',
         fontWeight: 300,
         fontSize: [3, 3, 6],
+        display: 'block',
+        color: 'primary',
+        mt: [4, 4, 3, 3, 3, 4],
     },
 }
