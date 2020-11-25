@@ -37,7 +37,11 @@ const EmailMe: React.FC<unknown> = () => {
     } = data.emailData.frontmatter.contact as any
 
     return (
-        <Box id="contact">
+        <Box
+            id="contact"
+            width={['unset', '50%']}
+            sx={{ textAlign: ['center', 'left'] }}
+        >
             <Heading variant="heading">
                 {contactHeadline.split('\\n').map((text: string, i: number) => (
                     <React.Fragment key={`contact-heading-${i}`}>
@@ -46,7 +50,13 @@ const EmailMe: React.FC<unknown> = () => {
                     </React.Fragment>
                 ))}
             </Heading>
-            <Text variant="body" as="p" data-testid="content">
+            <Text
+                variant="body"
+                as="p"
+                data-testid="content"
+                mt={[3]}
+                mb={[3, 4]}
+            >
                 {contactContent}
             </Text>
             <Link
@@ -54,7 +64,10 @@ const EmailMe: React.FC<unknown> = () => {
                 href={`mailto:${email}`}
                 sx={{ textDecoration: 'none' }}
             >
-                <Button>
+                <Button
+                    width={['100%', 'fit-content']}
+                    sx={{ justifyContent: 'center' }}
+                >
                     <AiFillMail />
                     {btnText}
                 </Button>

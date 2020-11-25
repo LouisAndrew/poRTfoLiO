@@ -43,9 +43,9 @@ export default {
     links: {
         fontFamily: 'body',
         fontWeight: 300,
-        fontSize: [3, 3, 6],
+        fontSize: [3, 3, 5, 5, 30, 40],
         display: 'block',
         color: 'primary',
-        mt: [4, 4, 3, 3, 3, 4],
+        mt: [4, 4, 4, 4, 24],
     },
 }

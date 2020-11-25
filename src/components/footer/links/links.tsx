@@ -8,8 +8,8 @@ import { Box, Link } from 'rebass'
  */
 const Links: React.FC<unknown> = () => {
     return (
-        <Box>
-            <Link variant="text.links" as="a" mt={[0]}>
+        <Box id="links" ml={[48, 48, 4, 5, 5, 6]} mt={[2]}>
+            <Link variant="text.links" as="a" mt={[0, 0, 0, 0, 0]}>
                 HOME
             </Link>
             <Link variant="text.links" as="a">

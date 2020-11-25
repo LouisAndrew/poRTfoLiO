@@ -2,10 +2,11 @@
 
 exports[`Links matches snapshot 1`] = `
 <div
-  className="css-vurnku"
+  className="css-1862937"
+  id="links"
 >
   <a
-    className="css-yc6oq3"
+    className="css-11jg8jj"
   >
     HOME
   </a>

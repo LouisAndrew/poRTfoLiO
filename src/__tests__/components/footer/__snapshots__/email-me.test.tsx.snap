@@ -2,7 +2,7 @@
 
 exports[`EmailMe matches snapshot 1`] = `
 <div
-  className="css-vurnku"
+  className="css-1if8s2k"
   id="contact"
 >
   <h2
@@ -12,7 +12,7 @@ exports[`EmailMe matches snapshot 1`] = `
     <br />
   </h2>
   <p
-    className="css-vurnku"
+    className="css-fukuwa"
     data-testid="content"
   >
     Content
@@ -22,7 +22,7 @@ exports[`EmailMe matches snapshot 1`] = `
     href="mailto:john@doe.com"
   >
     <button
-      className="css-vhv7r1"
+      className="css-1arr93k"
     >
       <svg
         fill="currentColor"

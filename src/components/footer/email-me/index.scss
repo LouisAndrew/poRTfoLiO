@@ -1,6 +1,9 @@
 // iphone 5s in landscape
 @media screen and (max-width: 600px) and (max-height: 400px) and (orientation: landscape) {
     #contact {
+        width: 50%;
+        text-align: left;
+
         h2 {
             font-size: 18px;
         }

@@ -74,3 +74,5 @@ describe('EmailMe', () => {
         }
     })
 })
+
+export { mockButtonText, mockContactContent, mockContactHeadline, mockEmail }
