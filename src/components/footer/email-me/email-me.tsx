@@ -1,15 +1,66 @@
-
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
+import { Box, Heading, Text, Button, Link } from 'rebass'
+import { AiFillMail } from 'react-icons/ai'
 // import local components
 
-type Props = {
+// custom styling for ipohne 5s
+import './index.scss'
 
+/**
+ * Contact element to provide user a quick accesss to developer's email.
+ */
+const EmailMe: React.FC<unknown> = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            emailData: markdownRemark(
+                frontmatter: { template_key: { eq: "page" } }
+            ) {
+                frontmatter {
+                    contact {
+                        button_text
+                        contact_content
+                        contact_headline
+                        email
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        button_text: btnText,
+        contact_content: contactContent,
+        contact_headline: contactHeadline,
+        email,
+    } = data.emailData.frontmatter.contact as any
+
+    return (
+        <Box id="contact">
+            <Heading variant="heading">
+                {contactHeadline.split('\\n').map((text: string, i: number) => (
+                    <React.Fragment key={`contact-heading-${i}`}>
+                        {text}
+                        <br />
+                    </React.Fragment>
+                ))}
+            </Heading>
+            <Text variant="body" as="p" data-testid="content">
+                {contactContent}
+            </Text>
+            <Link
+                as="a"
+                href={`mailto:${email}`}
+                sx={{ textDecoration: 'none' }}
+            >
+                <Button>
+                    <AiFillMail />
+                    {btnText}
+                </Button>
+            </Link>
+        </Box>
+    )
 }
 
-const EmailMe: React.FC<Props> = () => {
-
-	return <></>
-}
-
-export {EmailMe}
+export { EmailMe }
