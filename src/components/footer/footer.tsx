@@ -14,14 +14,19 @@ import './index.scss'
  */
 const Footer: React.FC<unknown> = () => {
     return (
-        <Flex variant="wrapper" as="footer" py={[0, 4, 4, 5, 5, 6]}>
+        <Flex
+            variant="wrapper"
+            as="footer"
+            py={[5, 5, 5, 5, 5, 6]}
+            bg="secondary"
+        >
             <Flex
                 className="footer__inner-section"
                 flexDirection={['column-reverse', 'row']}
                 justifyContent={['space-between']}
                 width="100%"
             >
-                <Flex py={[4, 0]}>
+                <Flex pt={[4, 0]}>
                     <Socials />
                     <Links />
                 </Flex>

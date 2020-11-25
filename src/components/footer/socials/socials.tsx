@@ -59,7 +59,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
             target="_blank"
             data-testid={socialKey}
             as="a"
-            bg="secondary"
+            bg="background"
             height={[50, 50, 60, 60, 60, 80]}
             width={[50, 50, 60, 60, 60, 80]}
             mt={[2]}
