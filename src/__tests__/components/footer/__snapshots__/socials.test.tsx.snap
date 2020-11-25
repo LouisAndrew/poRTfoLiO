@@ -5,7 +5,7 @@ exports[`Socials matches snapshot 1`] = `
   className="css-vurnku"
 >
   <a
-    className="css-1gt2085"
+    className="css-2jrb9h"
     data-testid="github"
     href="http://localhost"
     target="_blank"
@@ -30,7 +30,7 @@ exports[`Socials matches snapshot 1`] = `
     </svg>
   </a>
   <a
-    className="css-1gt2085"
+    className="css-2jrb9h"
     data-testid="dribbble"
     href="http://google.com"
     target="_blank"

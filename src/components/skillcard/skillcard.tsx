@@ -44,19 +44,28 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
 
     return (
         <Flex
-            flexDirection="column"
+            flexDirection={['column', 'row', 'row']}
             alignItems="center"
-            // justifyContent="space-between"
             data-testid="wrapper"
             variant={`skillcard-${variant}`}
-            sx={{ borderRadius: 8 }}
+            sx={{ borderRadius: 8, flexShrink: 0 }}
             className="skillcard"
-            // width={variant === 'small' ? 'unset' : ['50%']}
+            width={variant === 'small' ? ['unset'] : ['33%', '50%', '33%']}
         >
-            <Box p={[3]} bg="secondary" sx={{ borderRadius: 8, flexShrink: 0 }}>
+            <Box
+                p={[3]}
+                bg="secondary"
+                sx={{
+                    borderRadius: 8,
+                    flexShrink: 0,
+                    borderWidth: 1,
+                    borderStyle: 'solid',
+                    borderColor: 'accent',
+                }}
+            >
                 <Flex
                     variant="center"
-                    minHeight={
+                    height={
                         variant === 'small'
                             ? [60, 60, 80, 120, 120, 150]
                             : [40, 60]
@@ -72,8 +81,7 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                     />
                 </Flex>
             </Box>
-            <Text variant="utils" mt={[3, 3, 4]}>
-                {/* <Text variant="utils" ml={[24]}> */}
+            <Text variant="utils" mt={[3, 0, 0]} ml={[0, 4, 24, 4]}>
                 {name}
             </Text>
         </Flex>

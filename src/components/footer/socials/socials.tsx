@@ -59,7 +59,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
             target="_blank"
             data-testid={socialKey}
             as="a"
-            bg="accent"
+            bg="background"
             height={[50, 50, 60, 60, 60, 80]}
             width={[50, 50, 60, 60, 60, 80]}
             mt={[2]}
@@ -67,6 +67,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
             sx={{
                 display: 'flex',
                 borderRadius: 8,
+
                 svg: {
                     height: [25, 25, 25, 30, 30, 50],
                     width: [25, 25, 25, 30, 30, 50],

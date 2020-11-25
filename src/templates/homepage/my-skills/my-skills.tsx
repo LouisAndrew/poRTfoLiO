@@ -37,7 +37,11 @@ const MySkills: React.FC<unknown> = () => {
                     mt={[4]}
                     mb={[5]}
                     flexWrap="wrap"
-                    justifyContent={['space-between']}
+                    justifyContent={[
+                        'flex-start',
+                        'flex-start',
+                        'space-between',
+                    ]}
                 >
                     {mySkills.map(skill => (
                         <Skillcard

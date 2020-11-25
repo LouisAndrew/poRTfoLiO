@@ -26,7 +26,7 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
     // const { title, description } = data.site.siteMetadata as any;
 
     const lightColors: ColorMode = {
-        accent: '#F5F5F5',
+        accent: '#FEFEFE',
         background: '#F9F9F9',
         primary: '#000000',
         text: '#646464',
