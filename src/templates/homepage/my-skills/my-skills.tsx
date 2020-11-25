@@ -43,6 +43,7 @@ const MySkills: React.FC<unknown> = () => {
                         <Skillcard
                             techName={skill}
                             key={`homepage-skill-${skill}`}
+                            variant="big"
                         />
                     ))}
                 </Flex>

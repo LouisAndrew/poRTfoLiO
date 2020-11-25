@@ -36,7 +36,7 @@ export default {
      * Used on other utilities text element
      */
     utils: {
-        fontFamily: 'body',
+        fontFamily: 'heading',
         fontWeight: 'bold',
         fontSize: [1, 1, 2, 3, 3, 5],
     },
