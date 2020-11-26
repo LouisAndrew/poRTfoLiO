@@ -31,6 +31,7 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         primary: '#000000',
         text: '#646464',
         secondary: '#ECECEC',
+        transHeader: 'rgba(255, 255, 255, 0.5)',
     }
 
     const darkColors: ColorMode = {
@@ -39,6 +40,7 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         primary: '#F9F9F9',
         text: '#ABABAB',
         secondary: '#232323',
+        transHeader: 'rgba(0, 0, 0, 0.5)',
     }
 
     return (

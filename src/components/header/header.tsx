@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
+import Img from 'gatsby-image'
 import { Box, Flex } from 'rebass'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 // import local components
@@ -15,32 +17,61 @@ import './index.scss'
  * Header component to render on top of screen
  */
 const Header: React.FC<unknown> = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            logoImg: markdownRemark(
+                frontmatter: { template_key: { eq: "page" } }
+            ) {
+                frontmatter {
+                    hero {
+                        hero_imgs {
+                            childImageSharp {
+                                fixed(width: 40, height: 40, quality: 100) {
+                                    ...GatsbyImageSharpFixed
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
     const [openNav, setOpenNav] = useState(false)
     const { isHeroNotVisible } = useContext(PageContext)
 
-    // contains logo and links
-
     return (
-        <Flex variant="navWrapper" as="header">
-            <Flex
-                width="100%"
-                px={[3]}
-                py={[3]}
-                alignItems="center"
-                sx={{ position: 'fixed', zIndex: 2, transition: '200ms' }}
-                bg={isHeroNotVisible ? 'accent' : 'transparent'}
-            >
-                <Box
+        <Flex
+            variant="navWrapper"
+            as="header"
+            sx={{
+                position: 'fixed',
+                zIndex: 2,
+                transition: '200ms',
+                backdropFilter: isHeroNotVisible ? 'blur(4px)' : 'unset',
+            }}
+            bg={isHeroNotVisible ? 'transHeader' : 'transparent'}
+        >
+            <Flex width="100%" px={[3]} py={[3]} alignItems="center">
+                <Flex
+                    variant="center"
                     bg="secondary"
                     height={[48]}
                     width={[48]}
                     sx={{
                         borderRadius: '50%',
                         flexShrink: 0,
-                        transition: '200ms',
+                        transition: '300ms',
                         opacity: isHeroNotVisible ? 1 : 0,
                     }}
-                ></Box>
+                >
+                    <Img
+                        fixed={
+                            data.logoImg.frontmatter.hero.hero_imgs[0]
+                                .childImageSharp.fixed
+                        }
+                    />
+                </Flex>
                 <Box width="100%" />
                 <Flex
                     flexDirection={['column', 'column', 'row']}

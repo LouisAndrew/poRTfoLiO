@@ -16,5 +16,12 @@ const base = {
 export default {
     primary: {
         ...base,
+        bg: 'primary',
+        color: 'background',
+        svg: {
+            path: {
+                color: 'background',
+            },
+        },
     },
 }
