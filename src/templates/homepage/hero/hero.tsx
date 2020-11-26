@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import Img, { FixedObject } from 'gatsby-image'
 import { Box, Heading, Flex, Text } from 'rebass'
 // import local components
+import Scroller from 'components/scroller'
+
+import PageContext from 'context'
 
 // custom very specific styling
 import './index.scss'
-import Scroller from 'components/scroller'
 
 /**
  * Hero section of the mainpage
@@ -111,6 +113,9 @@ const Hero: React.FC<unknown> = () => {
     const { hero_content: heroContent, hero_headline: heroHeadline } = pageData
     const [scrollTop, setScrollTop] = useState(0)
     const [heroHeight, setHeroHeight] = useState(0)
+    const [percentage, setPercentage] = useState(0)
+
+    const { setIsHeroNotVisible } = useContext(PageContext)
 
     const heroRef = React.createRef<HTMLDivElement>()
 
@@ -127,6 +132,14 @@ const Hero: React.FC<unknown> = () => {
         }
     }, [])
 
+    useEffect(() => {
+        setPercentage(scrollTop / heroHeight)
+    }, [scrollTop, heroHeight])
+
+    useEffect(() => {
+        setIsHeroNotVisible(percentage >= 1)
+    }, [percentage])
+
     /**
      * Function to get the height of hero element.
      */
@@ -135,8 +148,6 @@ const Hero: React.FC<unknown> = () => {
             setHeroHeight(heroRef.current.scrollHeight)
         }
     }
-
-    const percentage = scrollTop / heroHeight
 
     // TODO: add custom styling for iphone 5
     return (

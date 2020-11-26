@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 // import styling libs
 import { Box, Flex } from 'rebass'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 // import local components
 import Links from './links'
 import ThemeSwitcher from './theme-switcher'
+
+import PageContext from 'context'
 
 // custom styling for larger phones
 import './index.scss'
@@ -14,6 +16,7 @@ import './index.scss'
  */
 const Header: React.FC<unknown> = () => {
     const [openNav, setOpenNav] = useState(false)
+    const { isHeroNotVisible } = useContext(PageContext)
 
     // contains logo and links
 
@@ -24,13 +27,19 @@ const Header: React.FC<unknown> = () => {
                 px={[3]}
                 py={[3]}
                 alignItems="center"
-                sx={{ position: 'fixed', zIndex: 2 }}
+                sx={{ position: 'fixed', zIndex: 2, transition: '200ms' }}
+                bg={isHeroNotVisible ? 'accent' : 'transparent'}
             >
                 <Box
                     bg="secondary"
                     height={[48]}
                     width={[48]}
-                    sx={{ borderRadius: '50%', flexShrink: 0 }}
+                    sx={{
+                        borderRadius: '50%',
+                        flexShrink: 0,
+                        transition: '200ms',
+                        opacity: isHeroNotVisible ? 1 : 0,
+                    }}
                 ></Box>
                 <Box width="100%" />
                 <Flex

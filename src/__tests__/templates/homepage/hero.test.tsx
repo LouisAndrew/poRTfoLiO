@@ -6,6 +6,7 @@ import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 import Hero from 'templates/homepage/hero'
+import withContext from 'helper/utils/with-context'
 // import '/__mocks__/window.js'
 
 import * as Gatsby from 'gatsby'
@@ -16,7 +17,9 @@ const mockHeroContent = 'Hello, World!'
 const mockHeroHeadline = 'I am headline'
 
 describe('Hero', () => {
-    const Element = <Hero />
+    const Element = withContext({
+        children: <Hero />,
+    })
 
     afterEach(cleanup)
     beforeEach(() => {

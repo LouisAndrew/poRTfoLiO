@@ -7,12 +7,38 @@ type CustomCursorState = {
 }
 
 export type Context = {
+    /**
+     * If the current page is using light theme
+     */
     lightTheme: boolean
+    /**
+     * States of the current user (is hidden / clicking / hovering)
+     */
     cursorState: CustomCursorState
+    /**
+     * Attr to determine if the hero section is visible within the viewport
+     */
+    isHeroNotVisible: boolean
+    /**
+     * Function to set state of the current custom cursor (if it is clickign)
+     */
     setIsClicking: (isClicking: boolean) => void
+    /**
+     * Function to set state of the current custom cursor (if it is hovering)
+     */
     setIsHovering: (isHovering: boolean) => void
+    /**
+     * Function to set state of the current custom cursor (if it is hidden)
+     */
     setIsHidden: (isHidden: boolean) => void
+    /**
+     * function to set the current theme.
+     */
     setTheme: (setToLight: boolean) => void
+    /**
+     * Function to set the current identifier, IF the hero section is not visible within the viewport
+     */
+    setIsHeroNotVisible: (heroNotVisible: boolean) => void
 }
 
 const customCursorInitial = {
@@ -24,10 +50,12 @@ const customCursorInitial = {
 export const defaultValues = {
     lightTheme: true,
     cursorState: customCursorInitial,
+    isHeroNotVisible: false,
     setIsClicking: () => {},
     setIsHovering: () => {},
     setIsHidden: () => {},
     setTheme: () => {},
+    setIsHeroNotVisible: () => {},
 }
 
 const PageContext = React.createContext<Context>(defaultValues)
@@ -37,6 +65,7 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
     const [cursorState, setCursorState] = useState<CustomCursorState>(
         customCursorInitial
     )
+    const [isHeroNotVisible, setIsHeroNotVisible] = useState(false)
 
     /**
      * Function to set the custom cursor state based on its current clicking behavior
@@ -79,6 +108,8 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
                 setIsHovering,
                 setIsHidden,
                 setTheme,
+                isHeroNotVisible,
+                setIsHeroNotVisible,
             }}
         >
             {children}
