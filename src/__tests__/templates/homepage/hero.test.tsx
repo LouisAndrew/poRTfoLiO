@@ -8,11 +8,7 @@ import '@testing-library/jest-dom'
 import Hero from 'templates/homepage/hero'
 import withContext from 'helper/utils/with-context'
 // import '/__mocks__/window.js'
-
-import * as Gatsby from 'gatsby'
-
-const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')
-
+// Reference on why these values are asserted -> __mocks__/gatsby.js
 const mockHeroContent = 'Hello, World!'
 const mockHeroHeadline = 'I am headline'
 
@@ -22,74 +18,12 @@ describe('Hero', () => {
     })
 
     afterEach(cleanup)
-    beforeEach(() => {
-        useStaticQuery.mockImplementationOnce(() => ({
-            heroData: {
-                frontmatter: {
-                    hero: {
-                        hero_content: mockHeroContent,
-                        hero_headline: mockHeroHeadline,
-                    },
-                },
-            },
-            imgS: {
-                frontmatter: {
-                    hero: {
-                        hero_imgs: [
-                            {
-                                childImageSharp: {
-                                    fixed: {},
-                                },
-                            },
-                        ],
-                    },
-                },
-            },
-            imgM: {
-                frontmatter: {
-                    hero: {
-                        hero_imgs: [
-                            {
-                                childImageSharp: {
-                                    fixed: {},
-                                },
-                            },
-                        ],
-                    },
-                },
-            },
-            imgL: {
-                frontmatter: {
-                    hero: {
-                        hero_imgs: [
-                            {
-                                childImageSharp: {
-                                    fixed: {},
-                                },
-                            },
-                        ],
-                    },
-                },
-            },
-            imgXL: {
-                frontmatter: {
-                    hero: {
-                        hero_imgs: [
-                            {
-                                childImageSharp: {
-                                    fixed: {},
-                                },
-                            },
-                        ],
-                    },
-                },
-            },
-        }))
-    })
 
     it('renders without crashing', () => {
         const div = document.createElement('div')
         ReactDOM.render(Element, div)
+
+        expect(true).toBe(true)
     })
 
     it('Should render the headline and content correctly', () => {

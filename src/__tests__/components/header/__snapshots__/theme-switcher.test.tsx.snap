@@ -30,7 +30,7 @@ exports[`ThemeSwitcher matches snapshot 1`] = `
     </svg>
   </div>
   <p
-    className="css-77za41"
+    className="css-we7pb2"
   >
     Go dark
   </p>

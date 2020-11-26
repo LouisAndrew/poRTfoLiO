@@ -49,5 +49,67 @@ module.exports = {
                 },
             },
         },
+
+        // forced to write the hero-page-query mock here.
+        heroData: {
+            frontmatter: {
+                hero: {
+                    hero_content: 'Hello, World!', // hard coded from hero.test.tsx
+                    hero_headline: 'I am headline', // Also hard coded from hero.test.tsx
+                },
+            },
+        },
+        imgS: {
+            frontmatter: {
+                hero: {
+                    hero_imgs: [
+                        {
+                            childImageSharp: {
+                                fixed: {},
+                            },
+                        },
+                    ],
+                },
+            },
+        },
+        imgM: {
+            frontmatter: {
+                hero: {
+                    hero_imgs: [
+                        {
+                            childImageSharp: {
+                                fixed: {},
+                            },
+                        },
+                    ],
+                },
+            },
+        },
+        imgL: {
+            frontmatter: {
+                hero: {
+                    hero_imgs: [
+                        {
+                            childImageSharp: {
+                                fixed: {},
+                            },
+                        },
+                    ],
+                },
+            },
+        },
+        imgXL: {
+            frontmatter: {
+                hero: {
+                    hero_imgs: [
+                        {
+                            childImageSharp: {
+                                fixed: {},
+                            },
+                        },
+                    ],
+                },
+            },
+        },
     })),
 }

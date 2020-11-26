@@ -66,7 +66,7 @@ const ThemeSwitcher: React.FC<unknown> = () => {
                 sx={{
                     maxWidth: ['unset', 'unset', 0],
                     overflow: 'hidden',
-                    transition: '100ms',
+                    transition: '300ms',
                 }}
             >
                 {lightTheme ? 'Go dark' : 'Light it up'}

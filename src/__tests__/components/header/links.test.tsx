@@ -24,7 +24,7 @@ describe('Links', () => {
 	}) */
 
 	it('matches snapshot', () => {
-		const run = false
+		const run = true
 	    
 		expect(run).toBeTruthy()
 

@@ -123,6 +123,8 @@ const Header: React.FC<unknown> = () => {
                     }}
                     sx={{
                         display: ['block', 'block', 'none'],
+                        opacity: openNav ? 0 : 1,
+                        transition: '200ms',
                         svg: {
                             height: 24,
                             width: 24,

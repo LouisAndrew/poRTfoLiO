@@ -18,10 +18,5 @@ export default {
         ...base,
         bg: 'primary',
         color: 'background',
-        svg: {
-            path: {
-                color: 'background',
-            },
-        },
     },
 }
