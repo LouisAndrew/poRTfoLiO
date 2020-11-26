@@ -70,7 +70,7 @@ describe('ThemeSwitcher', () => {
     })
 
     it('matches snapshot', () => {
-        const run = false
+        const run = true
 
         expect(run).toBeTruthy()
 
