@@ -33,6 +33,11 @@ collections:
             fields:
                 - { label: Screenshot, name: screenshot, widget: image }
                 - {
+                      label: 'Screenshot mobile',
+                      name: screenshot_mobile,
+                      widget: image,
+                  }
+                - {
                       label: 'Screenshot label',
                       name: screenshot_label,
                       widget: string,
