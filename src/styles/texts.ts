@@ -36,13 +36,16 @@ export default {
      * Used on other utilities text element
      */
     utils: {
-        fontFamily: 'body',
+        fontFamily: 'heading',
         fontWeight: 'bold',
-        fontSize: [1, 1, 2, 3, 3, 5],
+        fontSize: [0, 0, 2, 3, 3, 5],
     },
     links: {
-        fontFamilt: 'body',
+        fontFamily: 'body',
         fontWeight: 300,
-        fontSize: [3, 3, 6],
+        fontSize: [3, 3, 5, 5, 30, 40],
+        display: 'block',
+        color: 'primary',
+        mt: [4, 4, 4, 4, 24],
     },
 }

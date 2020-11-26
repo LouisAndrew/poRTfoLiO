@@ -1,6 +1,6 @@
 import React from 'react'
 // import styling libs
-import { Flex, Text } from 'rebass'
+import { Flex, Text, Box } from 'rebass'
 import Img, { FixedObject } from 'gatsby-image'
 // import local components
 import { useAllTechs } from 'helper/hooks/use-all-techs'
@@ -40,35 +40,48 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
         { ...xl, media: '(min-width: 1952px)' },
         l,
     ] as unknown
-    const sourcesBig = [{ ...xs, media: '(max-width: 640px)' }, l] as unknown
+    const sourcesBig = [{ ...xs, media: '(max-width: 640px)' }, s] as unknown
 
     return (
         <Flex
-            flexDirection="column"
+            flexDirection={['column', 'row', 'row']}
             alignItems="center"
-            justifyContent="space-between"
             data-testid="wrapper"
-            bg="secondary"
             variant={`skillcard-${variant}`}
-            sx={{ borderRadius: 8 }}
+            sx={{ borderRadius: 8, flexShrink: 0 }}
             className="skillcard"
+            width={variant === 'small' ? ['unset'] : ['33%', '50%', '33%']}
         >
-            <Flex
-                variant="center"
-                minHeight={
-                    variant === 'small' ? [60, 60, 80, 120, 120, 150] : [40]
-                }
+            <Box
+                p={[3]}
+                bg="secondary"
+                sx={{
+                    borderRadius: 8,
+                    flexShrink: 0,
+                    borderWidth: 1,
+                    borderStyle: 'solid',
+                    borderColor: 'accent',
+                }}
             >
-                <Img
-                    imgStyle={{ objectPosition: 'center', height: 'auto' }}
-                    fixed={
+                <Flex
+                    variant="center"
+                    height={
                         variant === 'small'
-                            ? (sourcesSmall as FixedObject[])
-                            : (sourcesBig as FixedObject[])
+                            ? [60, 60, 80, 120, 120, 150]
+                            : [40, 60]
                     }
-                />
-            </Flex>
-            <Text variant="utils" mt={[3, 3, 4]}>
+                >
+                    <Img
+                        imgStyle={{ objectPosition: 'center', height: 'auto' }}
+                        fixed={
+                            variant === 'small'
+                                ? (sourcesSmall as FixedObject[])
+                                : (sourcesBig as FixedObject[])
+                        }
+                    />
+                </Flex>
+            </Box>
+            <Text variant="utils" mt={[3, 0, 0]} ml={[0, 4, 24, 4]}>
                 {name}
             </Text>
         </Flex>

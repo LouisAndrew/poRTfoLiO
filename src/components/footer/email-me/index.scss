@@ -1,11 +1,15 @@
+// iphone 5s in landscape
 @media screen and (max-width: 600px) and (max-height: 400px) and (orientation: landscape) {
-    #skills {
+    #contact {
+        width: 50%;
+        text-align: left;
+
         h2 {
             font-size: 18px;
         }
 
-        // .skillcard {
-        //     width: 23%;
-        // }
+        p {
+            font-size: 14px;
+        }
     }
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+// import { useStaticQuery, graphql } from 'gatsby'
 
 import { Box } from 'rebass'
 
 import Cursor from 'components/cursor'
+import Footer from 'components/footer'
 
 import { ContextProvider } from 'context'
 import WithTheme from './with-theme'
@@ -17,16 +18,19 @@ const Layout: React.FC = ({ children }) => {
     // State to determine if custom cursor is to be used.
     const [applyCustomCursor, setApplyCustomCursor] = useState(true)
 
-    const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                    description
-                }
-            }
-        }
-    `)
+    // const data = useStaticQuery(graphql`
+    //     query SiteTitleQuery {
+    //         site {
+    //             siteMetadata {
+    //                 title
+    //                 description
+    //             }
+    //         }
+    //     }
+    // `)
+
+    // ignore this line, purposed to avoid err msg
+    console.log(setApplyCustomCursor)
 
     // apply custom fonts
     useGoogleFonts()
@@ -44,6 +48,7 @@ const Layout: React.FC = ({ children }) => {
                 }}
             >
                 <Box as="main">{children}</Box>
+                <Footer />
                 {applyCustomCursor && <Cursor />}
             </WithTheme>
         </ContextProvider>

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Links matches snapshot 1`] = `
+<div
+  className="css-1862937"
+  id="links"
+>
+  <a
+    className="css-11jg8jj"
+  >
+    HOME
+  </a>
+  <a
+    className="css-vurnku"
+  >
+    MY PROJECTS
+  </a>
+  <a
+    className="css-vurnku"
+  >
+    ABOUT ME
+  </a>
+  <a
+    className="css-vurnku"
+  >
+    CONTACT
+  </a>
+</div>
+`;

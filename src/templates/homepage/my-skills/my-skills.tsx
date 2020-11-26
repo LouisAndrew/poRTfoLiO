@@ -34,14 +34,20 @@ const MySkills: React.FC<unknown> = () => {
                     Some Things I'm Familiar With
                 </Heading>
                 <Flex
-                    my={[4]}
+                    mt={[4]}
+                    mb={[5]}
                     flexWrap="wrap"
-                    justifyContent={['space-between']}
+                    justifyContent={[
+                        'flex-start',
+                        'flex-start',
+                        'space-between',
+                    ]}
                 >
                     {mySkills.map(skill => (
                         <Skillcard
                             techName={skill}
                             key={`homepage-skill-${skill}`}
+                            variant="big"
                         />
                     ))}
                 </Flex>
