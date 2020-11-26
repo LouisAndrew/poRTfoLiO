@@ -5,6 +5,7 @@ import { Box } from 'rebass'
 
 import Cursor from 'components/cursor'
 import Footer from 'components/footer'
+import Header from 'components/header'
 
 import { ContextProvider } from 'context'
 import WithTheme from './with-theme'
@@ -47,6 +48,7 @@ const Layout: React.FC = ({ children }) => {
                     },
                 }}
             >
+                <Header />
                 <Box as="main">{children}</Box>
                 <Footer />
                 {applyCustomCursor && <Cursor />}

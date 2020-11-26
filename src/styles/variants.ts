@@ -21,4 +21,12 @@ export default {
         py: [3, 4, 4, 4, 4, 5],
         my: [2],
     },
+    navWrapper: {
+        justifyContent: 'center',
+        width: '100vw',
+        pt: ['unset', 'unset', 'unset', 'unset', 'unset', 5],
+        '& > div': {
+            maxWidth: ['100%', '100%', '100%', '100%', 1060, 1800],
+        },
+    },
 }

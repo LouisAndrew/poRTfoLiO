@@ -48,4 +48,11 @@ export default {
         color: 'primary',
         mt: [4, 4, 4, 4, 24],
     },
+    headerLinks: {
+        fontFamily: 'heading',
+        fontWeight: 'bold',
+        mx: [0, 0, 3],
+        my: [3, 3, 0],
+        fontSize: [4, 4, 2],
+    },
 }
