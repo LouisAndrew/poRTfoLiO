@@ -6,7 +6,7 @@ type CustomCursorState = {
     isHidden: boolean
 }
 
-type Context = {
+export type Context = {
     lightTheme: boolean
     cursorState: CustomCursorState
     setIsClicking: (isClicking: boolean) => void
@@ -21,14 +21,16 @@ const customCursorInitial = {
     isHidden: false,
 }
 
-const PageContext = React.createContext<Context>({
+export const defaultValues = {
     lightTheme: true,
     cursorState: customCursorInitial,
     setIsClicking: () => {},
     setIsHovering: () => {},
     setIsHidden: () => {},
     setTheme: () => {},
-})
+}
+
+const PageContext = React.createContext<Context>(defaultValues)
 
 const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
     const [lightTheme, setLightTheme] = useState(true)

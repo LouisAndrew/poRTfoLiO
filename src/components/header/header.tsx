@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 // import styling libs
-import { Button, Box, Flex } from 'rebass'
+import { Box, Flex } from 'rebass'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 // import local components
 import Links from './links'
+import ThemeSwitcher from './theme-switcher'
 
 // custom styling for larger phones
 import './index.scss'
@@ -73,7 +74,8 @@ const Header: React.FC<unknown> = () => {
                         <AiOutlineClose />
                     </Box>
                     <Links />
-                    <Button mt={[3, 3, 0]}>Theme switcher</Button>
+                    {/* <Button mt={[3, 3, 0]}>Theme switcher</Button> */}
+                    <ThemeSwitcher />
                 </Flex>
                 <Box
                     onClick={() => {

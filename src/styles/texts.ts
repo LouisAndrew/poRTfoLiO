@@ -39,6 +39,7 @@ export default {
         fontFamily: 'heading',
         fontWeight: 'bold',
         fontSize: [0, 0, 2, 3, 3, 5],
+        color: 'primary',
     },
     links: {
         fontFamily: 'body',
@@ -54,5 +55,6 @@ export default {
         mx: [0, 0, 3],
         my: [3, 3, 0],
         fontSize: [4, 4, 2],
+        color: 'primary',
     },
 }
