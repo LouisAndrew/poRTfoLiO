@@ -1,0 +1,18 @@
+@media screen and (min-width: 800px) and (max-height: 460px) and (orientation: landscape) {
+    header {
+        .links-and-theme {
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// iphone 5s ond lanscape
+@media screen and (max-width: 600px) and (max-height: 400px) and (orientation: landscape) {
+    header .links-and-theme {
+        a {
+            margin: 8px 0;
+        }
+    }
+}

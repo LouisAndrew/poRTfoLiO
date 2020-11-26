@@ -96,7 +96,7 @@ exports[`Hero matches snapshot 1`] = `
         role="button"
       >
         <div
-          className="scroller__thumb css-4qqs2h"
+          className="scroller__thumb css-atwtvm"
           data-testid="scroller-thumb"
         />
       </div>
