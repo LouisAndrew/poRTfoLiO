@@ -1,15 +1,58 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { FluidObject } from 'gatsby-image'
 
 import { Project } from './project'
 import Layout from 'layout'
 
+type Screenshot = {
+    screenshotLabel: string
+    screenshot: {
+        childImageSharp: {
+            fluid: FluidObject
+        }
+    }
+    screenshotMobile: {
+        childImageSharp: {
+            fluid: FluidObject
+        }
+    }
+}
+
+type QueryData = {
+    desc: string
+    finishedDate: string
+    previewDesc: string
+    projectName: string
+    projectScreenshots: Screenshot[]
+    repoUrl: string
+    webUrl: string
+    techs: string[]
+}
+
+/**
+ * Template for all projectpage
+ */
 const ProjectPage = (props: any) => {
     const {
         data: { projectData },
     } = props
 
-    console.log(projectData)
+    const frontmatter = projectData.frontmatter
+    const data: QueryData = {
+        ...frontmatter,
+        previewDesc: frontmatter.preview_desc,
+        projectName: frontmatter.project_name,
+        projectScreenshots: frontmatter.project_screenshots.map((p: any) => ({
+            ...p,
+            screenshotLabel: p.screenshot_label,
+            screenshotMobile: p.screenshot_mobile,
+        })),
+        repoUrl: frontmatter.repo_url,
+        webUrl: frontmatter.web_url,
+    }
+
+    console.log(data)
 
     return (
         <Layout>
