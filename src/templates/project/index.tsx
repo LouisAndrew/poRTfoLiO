@@ -80,6 +80,13 @@ export const query = graphql`
                             }
                         }
                     }
+                    screenshot_mobile {
+                        childImageSharp {
+                            fluid(maxWidth: 400, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
                 }
                 techs
                 web_url
