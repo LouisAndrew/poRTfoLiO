@@ -4,17 +4,18 @@ import { Box } from 'rebass'
 // import local components
 import PageContext from 'context'
 
-type CursorPosition = {
-    x: number
-    y: number
-}
+// type CursorPosition = {
+//     x: number
+//     y: number
+// }
 
 /**
  * Custom cursor component
  * ⚠ Limited rendering. Not available on all browsers
  */
 const Cursor: React.FC<unknown> = () => {
-    const [position, setPosition] = useState<CursorPosition>({ x: 0, y: 0 })
+    // const [position, setPosition] = useState<CursorPosition>({ x: 0, y: 0 })\
+    // const [el, setEl] = useState<HTMLElement | null>(null)
     const {
         lightTheme,
         cursorState,
@@ -108,10 +109,17 @@ const Cursor: React.FC<unknown> = () => {
      * @param ev Mouse event
      */
     const onMouseMove = (ev: MouseEvent) => {
-        const scrollTop = window.scrollY
-        const scrollLeft = window.scrollX
+        // const scrollTop = window.scrollY
+        // const scrollLeft = window.scrollX
+        // setPosition({ x: ev.clientX + scrollLeft, y: ev.clientY + scrollTop })
+        // eslint-disable-next-line
 
-        setPosition({ x: ev.clientX + scrollLeft, y: ev.clientY + scrollTop })
+        const cursor = document.getElementById('cursor')
+
+        if (cursor) {
+            cursor.style.left = `${ev.clientX}px`
+            cursor.style.top = `${ev.clientY}px`
+        }
     }
 
     /**
@@ -162,12 +170,13 @@ const Cursor: React.FC<unknown> = () => {
             width={40}
             // bg={isHovering || isClicking ? 'background' : 'unset'}
             bg={`rgba(${lightTheme ? '255, 255, 255' : '0, 0, 0'}, 0.35)`}
+            id="cursor"
             sx={{
                 borderWidth: 2,
                 borderStyle: 'solid',
                 borderColor: 'text',
                 borderRadius: '100%',
-                position: 'absolute',
+                position: 'fixed',
                 pointerEvents: 'none',
                 transition: 'all 0.15s ease, opacity 0.25s',
                 zIndex: 9999,
@@ -176,9 +185,8 @@ const Cursor: React.FC<unknown> = () => {
                 transform: `translate(-50%, -50%) scale(${
                     isClicking ? '0.5' : isHovering ? '1.5' : '1'
                 })`,
-                left: position.x,
-                top: position.y,
-                // backdropFilter: 'blur(1px)',
+                top: 0,
+                left: 0,
             }}
         />
     )
