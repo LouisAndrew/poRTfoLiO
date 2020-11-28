@@ -15,7 +15,7 @@ import PageContext from 'context'
  */
 const Cursor: React.FC<unknown> = () => {
     // const [position, setPosition] = useState<CursorPosition>({ x: 0, y: 0 })\
-    const [el, setEl] = useState<HTMLElement | null>(null)
+    // const [el, setEl] = useState<HTMLElement | null>(null)
     const {
         lightTheme,
         cursorState,
@@ -29,9 +29,6 @@ const Cursor: React.FC<unknown> = () => {
     useEffect(() => {
         addEventListeners()
         addListenersLinks()
-
-        const cursor = document.getElementById('cursor')
-        setEl(cursor)
 
         return () => {
             removeEventListeners()
@@ -120,8 +117,8 @@ const Cursor: React.FC<unknown> = () => {
         const cursor = document.getElementById('cursor')
 
         if (cursor) {
-            cursor.style.left = `${ev.pageX}px`
-            cursor.style.top = `${ev.pageY}px`
+            cursor.style.left = `${ev.clientX}px`
+            cursor.style.top = `${ev.clientY}px`
         }
     }
 
@@ -179,7 +176,7 @@ const Cursor: React.FC<unknown> = () => {
                 borderStyle: 'solid',
                 borderColor: 'text',
                 borderRadius: '100%',
-                position: 'absolute',
+                position: 'fixed',
                 pointerEvents: 'none',
                 transition: 'all 0.15s ease, opacity 0.25s',
                 zIndex: 9999,
