@@ -1,9 +1,10 @@
 import React from 'react'
 // import styling libs
 import { Box, Heading } from 'rebass'
+import { QueryData } from '.'
 // import local components
 
-type Props = {}
+type Props = QueryData
 
 /**
  * Wrapper component for project page. Used to view individual project

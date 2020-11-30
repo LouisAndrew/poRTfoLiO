@@ -5,7 +5,7 @@ import { FluidObject } from 'gatsby-image'
 import { Project } from './project'
 import Layout from 'layout'
 
-type Screenshot = {
+export type Screenshot = {
     screenshotLabel: string
     screenshot: {
         childImageSharp: {
@@ -19,7 +19,7 @@ type Screenshot = {
     }
 }
 
-type QueryData = {
+export type QueryData = {
     desc: string
     finishedDate: string
     previewDesc: string
@@ -52,11 +52,9 @@ const ProjectPage = (props: any) => {
         webUrl: frontmatter.web_url,
     }
 
-    console.log(data)
-
     return (
         <Layout>
-            <Project />
+            <Project {...data} />
         </Layout>
     )
 }
