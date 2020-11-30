@@ -64,7 +64,10 @@ const ProjectPage = (props: any) => {
             (p: any, index: number) => ({
                 screenshotLabel: p.screenshot_label,
                 sources: [
-                    { ...imgS[index], media: '(max-width: 48em)' },
+                    {
+                        ...imgS[index],
+                        media: '(max-width: 48em) and (orientation: portrait)',
+                    },
                     {
                         ...imgM[index],
                         media: '(max-width: 60em) and (orientation: landscape)',

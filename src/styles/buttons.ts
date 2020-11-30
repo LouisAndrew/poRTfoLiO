@@ -6,6 +6,9 @@ const base = {
     py: [2, 12, 12, 12, 12, 3],
     px: [3, 3, 24, 24, 24, 4],
     borderRadius: [4, 4, 4, 4, 4, 8],
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'transparent',
     svg: {
         height: [18, 18, 24, 24, 24, 32],
         width: [18, 18, 24, 24, 24, 32],
@@ -18,5 +21,11 @@ export default {
         ...base,
         bg: 'primary',
         color: 'background',
+    },
+    secondary: {
+        ...base,
+        bg: 'background',
+        color: 'primary',
+        borderColor: 'primary',
     },
 }
