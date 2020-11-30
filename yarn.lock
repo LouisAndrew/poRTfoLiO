@@ -12487,6 +12487,11 @@ markdown-table@^2.0.0:
   dependencies:
     repeat-string "^1.0.0"
 
+markdown-to-jsx@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.1.0.tgz#6f9b3be27560fab3f240ae253e63e52d811eb027"
+  integrity sha512-f0LxzbmLfInOSmTC/BaMB44RVmPN2cQom9D4pQzp6c5pOmO0yjxWMDJs78JSSLmncn+bi0Qy0VlJjsRVk8AUpg==
+
 material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"

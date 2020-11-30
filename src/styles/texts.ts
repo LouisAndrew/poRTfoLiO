@@ -57,4 +57,28 @@ export default {
         fontSize: [4, 4, 2],
         color: 'primary',
     },
+    articleLink: {
+        color: 'text',
+        textDecoration: 'none',
+        position: 'relative',
+        zIndex: 2,
+        '&:before': {
+            content: '""',
+            display: 'block',
+            width: '100%',
+            height: 4,
+            bg: 'linkColor',
+            position: 'absolute',
+            left: 0,
+            bottom: '4px',
+            opacity: 0.7,
+            transition: '200ms',
+            zIndex: -1,
+        },
+        '&:hover': {
+            '&:before': {
+                height: '100%',
+            },
+        },
+    },
 }

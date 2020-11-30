@@ -25,6 +25,8 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
 
     // const { title, description } = data.site.siteMetadata as any;
 
+    const linkColor = '#aec6cf'
+
     const lightColors: ColorMode = {
         accent: '#b9b9b9',
         background: '#F9F9F9',
@@ -32,6 +34,7 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         text: '#646464',
         secondary: '#ECECEC',
         transHeader: 'rgba(255, 255, 255, 0.5)',
+        linkColor,
     }
 
     const darkColors: ColorMode = {
@@ -41,6 +44,7 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
         text: '#ABABAB',
         secondary: '#232323',
         transHeader: 'rgba(0, 0, 0, 0.5)',
+        linkColor,
     }
 
     return (
