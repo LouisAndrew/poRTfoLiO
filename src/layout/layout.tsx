@@ -42,6 +42,8 @@ const Layout: React.FC = ({ children }) => {
                 sx={{
                     cursor: applyCustomCursor ? 'none' : 'unset',
                     position: 'relative',
+                    maxWidth: '100vw',
+                    overflowX: 'hidden',
                     'cursor:hover': applyCustomCursor ? 'none' : 'unset',
                     'a, button': {
                         cursor: applyCustomCursor ? 'none' : 'unset',
