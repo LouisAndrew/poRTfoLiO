@@ -100,20 +100,6 @@ export const query = graphql`
                 project_name
                 project_screenshots {
                     screenshot_label
-                    screenshot {
-                        childImageSharp {
-                            fluid(maxWidth: 400, quality: 100) {
-                                ...GatsbyImageSharpFluid
-                            }
-                        }
-                    }
-                    screenshot_mobile {
-                        childImageSharp {
-                            fluid(maxWidth: 400, quality: 100) {
-                                ...GatsbyImageSharpFluid
-                            }
-                        }
-                    }
                 }
                 techs
                 web_url
