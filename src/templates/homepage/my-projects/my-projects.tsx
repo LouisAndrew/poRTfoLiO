@@ -15,16 +15,6 @@ export type ProjectPreviewData = {
 }
 
 /**
- * Function that transforms a project name to a slug (identic to function at gatsby-node.js)
- * @param name
- */
-export const nameToSlug = (name: string) =>
-    name
-        .toLowerCase()
-        .split(' ')
-        .join('_')
-
-/**
  * Helper function to get fluid img from query..
  * @param queryResult Result of the query to graphql store
  * @returns array of fluid images.
