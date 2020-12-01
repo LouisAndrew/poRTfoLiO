@@ -167,7 +167,13 @@ const Hero: React.FC<unknown> = () => {
                     <Box
                         bg="secondary"
                         width="fit-content"
-                        sx={{ borderRadius: '50%', flexShrink: 0 }}
+                        sx={{
+                            borderRadius: '50%',
+                            flexShrink: 0,
+                            borderColor: 'accent',
+                            borderStyle: 'solid',
+                            borderWidth: 1,
+                        }}
                     >
                         <Img fixed={sources} />
                     </Box>

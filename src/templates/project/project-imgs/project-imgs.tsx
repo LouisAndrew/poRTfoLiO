@@ -40,6 +40,10 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
                     top: '50%',
                     transform: 'translateY(-70%)',
                     bg: 'transHeader',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    py: [2],
                     svg: {
                         height: 24,
                         width: 24,
@@ -79,12 +83,16 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
                         </Slide>
                     ))}
                 </Slider>
-                <ButtonBack className="carousel-button back">
-                    <AiOutlineLeft />
-                </ButtonBack>
-                <ButtonNext className="carousel-button next">
-                    <AiOutlineRight />
-                </ButtonNext>
+                {screenshots.length > 1 && (
+                    <ButtonBack className="carousel-button back">
+                        <AiOutlineLeft />
+                    </ButtonBack>
+                )}
+                {screenshots.length > 1 && (
+                    <ButtonNext className="carousel-button next">
+                        <AiOutlineRight />
+                    </ButtonNext>
+                )}
                 <DotGroup className="carousel-dot" />
             </CarouselProvider>
         </Box>

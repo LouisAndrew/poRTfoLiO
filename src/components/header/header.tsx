@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import Img from 'gatsby-image'

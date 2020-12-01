@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 type CustomCursorState = {
     isClicking: boolean
@@ -66,6 +66,7 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
         customCursorInitial
     )
     const [isHeroNotVisible, setIsHeroNotVisible] = useState(false)
+    const [persisted, setPersisted] = useState(false)
 
     /**
      * Function to set the custom cursor state based on its current clicking behavior
@@ -97,6 +98,34 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
      */
     const setTheme = (setToLight: boolean) => {
         setLightTheme(setToLight)
+    }
+
+    useEffect(() => {
+        const localStorageData = localStorage.getItem('theme') // get localstorage state for theme
+        console.log(localStorageData)
+        if (localStorageData) {
+            // set the theme if there's any value for theme in localstorage
+            console.log('persisting ' + localStorageData)
+            setLightTheme(localStorageData === 'light')
+        }
+
+        setPersisted(true)
+    }, [])
+
+    useEffect(() => {
+        if (persisted) {
+            console.log('persisted, changing to: ' + lightTheme)
+            // persisting theme state everytime theme changes
+            persistTheme(lightTheme)
+        }
+    }, [lightTheme])
+
+    /**
+     * Function to persist theme in localStorage
+     * @param usingLightTheme: true, if currenttheme setted is light
+     */
+    const persistTheme = (usingLightTheme: boolean) => {
+        localStorage.setItem('theme', usingLightTheme ? 'light' : 'dark')
     }
 
     return (
