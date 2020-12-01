@@ -3,7 +3,10 @@ import { get } from 'lodash'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import { FluidObject } from 'gatsby-image'
+import { Flex, Heading } from 'rebass'
 // import local components
+
+import ProjectPreview from './project-preview'
 
 export type ProjectPreviewData = {
     projectName: string
@@ -21,14 +24,12 @@ export type ProjectPreviewData = {
  */
 const getImgFromQuery = (queryResult: any) => {
     const imgs = queryResult.edges.map((edge: any) => edge.node)
-    // return imgs.map((projectImg: any) => {
-    //     const img = get(projectImg, 'frontmatter.project_screenshots')
-    //     return img.map((dt: any) => get(dt, 'screenshot.childImageSharp.fluid'))
-    // })
-    return imgs.map((projectImg: any) => {
-        const img = get(projectImg, 'frontmatter.project_screenshots[0]')
-        return img
-    })
+    return imgs.map((projectImg: any) =>
+        get(
+            projectImg,
+            'frontmatter.project_screenshots[0].screenshot.childImageSharp.fluid'
+        )
+    )
 }
 
 /**
@@ -80,7 +81,7 @@ const MyProjects: React.FC<unknown> = () => {
                             project_screenshots {
                                 screenshot {
                                     childImageSharp {
-                                        fluid(maxWidth: 700, quality: 100) {
+                                        fluid(maxWidth: 70, quality: 100) {
                                             ...GatsbyImageSharpFluid
                                         }
                                     }
@@ -164,7 +165,27 @@ const MyProjects: React.FC<unknown> = () => {
 
     console.log(data)
 
-    return <></>
+    return (
+        <Flex variant="wrapper">
+            <Flex
+                width="100%"
+                flexDirection="column"
+                sx={{
+                    a: {
+                        width: ['100%', '100%', '100%', '100%'],
+                        textDecoration: 'none',
+                    },
+                }}
+            >
+                <Heading as="h2" variant="heading" textAlign="center" mb={[48]}>
+                    My Projects
+                </Heading>
+                {data.map((dt: ProjectPreviewData) => (
+                    <ProjectPreview {...dt} />
+                ))}
+            </Flex>
+        </Flex>
+    )
 }
 
 export { MyProjects }

@@ -28,11 +28,11 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
     const linkColor = '#aec6cf'
 
     const lightColors: ColorMode = {
-        accent: '#b9b9b9',
+        accent: '#e4e4e4',
         background: '#F9F9F9',
         primary: '#000000',
         text: '#646464',
-        secondary: '#ECECEC',
+        secondary: '#ffffff',
         transHeader: 'rgba(255, 255, 255, 0.5)',
         linkColor,
     }

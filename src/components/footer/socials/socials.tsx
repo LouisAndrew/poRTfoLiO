@@ -42,7 +42,11 @@ const Socials: React.FC<unknown> = () => {
     return (
         <Box>
             {socials.map((social: { link: string; social_key: socialKeys }) => (
-                <SocialCard link={social.link} socialKey={social.social_key} />
+                <SocialCard
+                    key={social.link}
+                    link={social.link}
+                    socialKey={social.social_key}
+                />
             ))}
         </Box>
     )
@@ -67,6 +71,9 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
             sx={{
                 display: 'flex',
                 borderRadius: 8,
+                borderStyle: 'solid',
+                borderWidth: 1,
+                borderColor: 'accent',
 
                 svg: {
                     height: [25, 25, 25, 30, 30, 50],

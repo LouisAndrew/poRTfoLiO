@@ -19,6 +19,12 @@ const Footer: React.FC<unknown> = () => {
             as="footer"
             py={[5, 5, 5, 5, 5, 6]}
             bg="secondary"
+            sx={{
+                borderWidth: 0,
+                borderStyle: 'solid',
+                borderTopWidth: 1,
+                borderColor: 'accent',
+            }}
         >
             <Flex
                 className="footer__inner-section"

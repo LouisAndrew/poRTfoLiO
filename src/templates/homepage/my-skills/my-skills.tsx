@@ -26,11 +26,7 @@ const MySkills: React.FC<unknown> = () => {
     return (
         <Flex variant="wrapper" id="skills">
             <Box width="100%">
-                <Heading
-                    as="h2"
-                    variant="heading"
-                    textAlign={['center', 'left']}
-                >
+                <Heading as="h2" variant="heading" textAlign="center">
                     Some Things I'm Familiar With
                 </Heading>
                 <Flex

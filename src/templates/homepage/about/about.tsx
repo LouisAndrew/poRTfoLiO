@@ -106,9 +106,9 @@ const About: React.FC<unknown> = () => {
                 <Heading
                     as="h2"
                     variant="heading"
-                    textAlign={['center', 'center', 'left']}
+                    textAlign="center"
                     mb={[48]}
-                    mt={[5]}
+                    // mt={[5]}
                 >
                     About me
                 </Heading>
