@@ -3,11 +3,15 @@ import React, { useContext, useEffect } from 'react'
 import { Flex, Box, Heading, Button, Text, Link } from 'rebass'
 import { AiOutlineGlobal, AiFillCode } from 'react-icons/ai'
 import Markdown from 'markdown-to-jsx'
-
-import ProjectImgs from './project-imgs'
 // import local components
+import ProjectImgs from './project-imgs'
+import Skillcard from 'components/skillcard'
+
 import PageContext from 'context'
 import { QueryData } from '.'
+
+// custom styling for small phones.
+import './index.scss'
 
 type Props = QueryData
 
@@ -22,6 +26,7 @@ const Project: React.FC<Props> = ({
     projectScreenshots,
     repoUrl,
     webUrl,
+    techs,
 }) => {
     const { setIsHeroNotVisible } = useContext(PageContext)
 
@@ -29,18 +34,25 @@ const Project: React.FC<Props> = ({
         setIsHeroNotVisible(true) // set hero to not visible when component is rendered
     }, [])
 
+    console.log(techs)
+
     return (
-        <Flex variant="wrapper" py={[96, 96, 96, 96, 96, 7]}>
+        <Flex
+            className="project"
+            variant="wrapper"
+            py={[96, 96, 96, 96, 96, 7]}
+        >
             <Box width="100%">
                 <ProjectImgs screenshots={projectScreenshots} />
                 <Box width="100%">
                     <Flex flexDirection="column" alignItems={['center']}>
-                        <Heading mt={[3]} mb={[2]}>
+                        <Heading mt={[3]} mb={[2]} as="h2">
                             {projectName}
                         </Heading>
                         <Flex>
                             <Link
                                 href={webUrl}
+                                target="_blank"
                                 as="a"
                                 sx={{ textDecoration: 'none' }}
                             >
@@ -51,6 +63,7 @@ const Project: React.FC<Props> = ({
                             {repoUrl && (
                                 <Link
                                     href={repoUrl}
+                                    target="_blank"
                                     as="a"
                                     sx={{ textDecoration: 'none' }}
                                     ml={[2]}
@@ -121,6 +134,19 @@ const Project: React.FC<Props> = ({
                             }}
                             children={desc}
                         />
+                    </Box>
+                    <Box width="100%" mt={[4]}>
+                        <Heading variant="heading" textAlign="center" as="h2">
+                            Techonologies Used
+                        </Heading>
+                        <Flex mt={[3, 3, 2]}>
+                            {techs.map(tech => (
+                                <Skillcard
+                                    techName={tech}
+                                    key={`technologies-${projectName}-${tech}`}
+                                />
+                            ))}
+                        </Flex>
                     </Box>
                 </Box>
             </Box>

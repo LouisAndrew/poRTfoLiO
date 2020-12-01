@@ -50,6 +50,7 @@ const Header: React.FC<unknown> = () => {
                 transition: '200ms',
                 backdropFilter: isHeroNotVisible ? 'blur(4px)' : 'unset',
             }}
+            pt={[0, 0, 0, 0, 0, 0]}
             bg={isHeroNotVisible ? 'transHeader' : 'transparent'}
         >
             <Flex width="100%" px={[3]} py={[3]} alignItems="center">

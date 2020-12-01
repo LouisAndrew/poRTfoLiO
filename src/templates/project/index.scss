@@ -1,0 +1,27 @@
+// specific for very small phones
+@media screen and (max-width: 330px) {
+    .project {
+        button {
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) and (max-height: 400px) and (orientation: landscape) {
+    .project {
+        h2 {
+            font-size: 18px;
+        }
+
+        #desc {
+            p,
+            span {
+                font-size: 14px !important;
+            }
+        }
+
+        .skillcard {
+            width: 33%;
+        }
+    }
+}
