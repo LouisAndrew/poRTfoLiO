@@ -7,6 +7,8 @@ import Img from 'gatsby-image'
 
 import { ProjectPreviewData } from '../my-projects'
 
+import './index.scss'
+
 /**
  * Function that transforms a project name to a slug (identic to function at gatsby-node.js)
  * @param name
