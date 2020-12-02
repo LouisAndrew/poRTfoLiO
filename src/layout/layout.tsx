@@ -51,7 +51,9 @@ const Layout: React.FC = ({ children }) => {
                 }}
             >
                 <Header />
-                <Box as="main">{children}</Box>
+                <Box as="main" sx={{ scrollBehavior: 'smooth' }}>
+                    {children}
+                </Box>
                 <Footer />
                 {applyCustomCursor && <Cursor />}
             </WithTheme>

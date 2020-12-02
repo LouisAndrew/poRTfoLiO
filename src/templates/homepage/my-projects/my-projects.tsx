@@ -163,10 +163,8 @@ const MyProjects: React.FC<unknown> = () => {
         }
     })
 
-    console.log(data)
-
     return (
-        <Flex variant="wrapper">
+        <Flex variant="wrapper" id="projects">
             <Flex
                 width="100%"
                 flexDirection="column"
