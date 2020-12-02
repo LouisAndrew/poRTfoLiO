@@ -48,10 +48,11 @@ const Header: React.FC<unknown> = () => {
                 position: 'fixed',
                 zIndex: 2,
                 transition: '200ms',
-                backdropFilter: isHeroNotVisible ? 'blur(4px)' : 'unset',
+                // backdropFilter: isHeroNotVisible ? 'blur(4px)' : 'unset',
+                backdropFilter: 'blur(4px)',
             }}
             pt={[0, 0, 0, 0, 0, 0]}
-            bg={isHeroNotVisible ? 'transHeader' : 'transparent'}
+            bg="transHeader"
         >
             <Flex width="100%" px={[3]} py={[3]} alignItems="center">
                 <Flex
