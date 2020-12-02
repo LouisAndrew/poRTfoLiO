@@ -7,21 +7,25 @@ exports[`Links matches snapshot 1`] = `
 >
   <a
     className="css-vurnku"
+    href="/#hero"
   >
     HOME
   </a>
   <a
     className="css-vurnku"
+    href="/#projects"
   >
     MY PROJECTS
   </a>
   <a
     className="css-vurnku"
+    href="/#about"
   >
     ABOUT ME
   </a>
   <a
     className="css-vurnku"
+    href="/#contact"
   >
     CONTACT
   </a>
