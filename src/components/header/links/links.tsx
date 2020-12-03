@@ -1,27 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 // import styling libs
 // import { Link as GatsbyLink } from 'gatsby'
-import { Flex, Link } from 'rebass'
+import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { Flex } from 'rebass'
 // import local components
-
+import PageContext from 'context'
+import texts from 'styles/texts'
 /**
  * Component that contains link within the site. to be rendered on header!
  */
 const Links: React.FC<unknown> = () => {
+    const [location, setLocation] = useState('/')
+    const { setIsHovering } = useContext(PageContext)
+
+    useEffect(() => {
+        setLocation(window.location.pathname)
+    }, [])
+
+    const inRoot = location === '/'
+
+    const LINKS = [
+        { text: 'HOME', path: '/#hero' },
+        { text: 'MY PROJECTS', path: '/#projects' },
+        { text: 'ABOUT ME', path: '/#about' },
+    ]
+
     return (
-        <Flex as="nav" id="links" flexDirection={['column', 'column', 'row']}>
-            <Link variant="text.headerLinks" as="a" href="/#hero">
-                HOME
-            </Link>
-            <Link variant="text.headerLinks" as="a" href="/#projects">
-                MY PROJECTS
-            </Link>
-            <Link variant="text.headerLinks" as="a" href="/#about">
-                ABOUT ME
-            </Link>
-            <Link variant="text.headerLinks" as="a" href="/#contact">
-                CONTACT
-            </Link>
+        <Flex
+            as="nav"
+            id="links"
+            flexDirection={['column', 'column', 'row']}
+            sx={{ '& a': { ...texts.headerLinks } }}
+        >
+            {LINKS.map(link => {
+                return inRoot ? (
+                    // gatsby link => why custom cursor not identifying it?
+                    <Link
+                        key={`header-link-${link.path}`}
+                        to={link.path}
+                        onMouseEnter={() => {
+                            setIsHovering(true)
+                        }}
+                        onMouseLeave={() => {
+                            setIsHovering(false)
+                        }}
+                    >
+                        {link.text}
+                    </Link>
+                ) : (
+                    <AniLink
+                        key={`header-link-${link.path}`}
+                        fade={true}
+                        to={link.path}
+                        onMouseEnter={() => {
+                            setIsHovering(true)
+                        }}
+                        onMouseLeave={() => {
+                            setIsHovering(false)
+                        }}
+                    >
+                        {link.text}
+                    </AniLink>
+                )
+            })}
+            <Link to="#contact">CONTACT</Link>
         </Flex>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 // import styling libs
 import { Flex, Box, Heading, Text, Button } from 'rebass'
 import Img from 'gatsby-image'
@@ -108,11 +109,11 @@ const ProjectPreview: React.FC<Props> = ({
                 <Text as="p" variant="body" data-testid="misc">
                     {previewDesc}
                 </Text>
-                <Link to={nameToSlug(projectName)}>
+                <AniLink fade={true} to={nameToSlug(projectName)}>
                     <Button width="100%" sx={{ justifyContent: 'center' }}>
                         View Project
                     </Button>
-                </Link>
+                </AniLink>
             </Box>
         </Flex>
     )

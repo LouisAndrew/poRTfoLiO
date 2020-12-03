@@ -2,30 +2,32 @@
 
 exports[`Links matches snapshot 1`] = `
 <div
-  className="css-1862937"
+  className="css-zj03ei"
   id="links"
 >
   <a
-    className="css-11jg8jj"
     href="/#hero"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     HOME
   </a>
   <a
-    className="css-vurnku"
     href="/#projects"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     MY PROJECTS
   </a>
   <a
-    className="css-vurnku"
     href="/#about"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     ABOUT ME
   </a>
   <a
-    className="css-vurnku"
-    href="/#contact"
+    href="#contact"
   >
     CONTACT
   </a>

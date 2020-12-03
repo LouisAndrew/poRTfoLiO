@@ -83,30 +83,32 @@ exports[`Header matches snapshot 1`] = `
         </svg>
       </div>
       <nav
-        className="css-d2po4m"
+        className="css-1i25jz0"
         id="links"
       >
         <a
-          className="css-vurnku"
           href="/#hero"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           HOME
         </a>
         <a
-          className="css-vurnku"
           href="/#projects"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           MY PROJECTS
         </a>
         <a
-          className="css-vurnku"
           href="/#about"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           ABOUT ME
         </a>
         <a
-          className="css-vurnku"
-          href="/#contact"
+          href="#contact"
         >
           CONTACT
         </a>

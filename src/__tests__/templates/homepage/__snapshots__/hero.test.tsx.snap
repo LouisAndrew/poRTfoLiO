@@ -12,7 +12,7 @@ exports[`Hero matches snapshot 1`] = `
       className="hero__flex-wrapper css-1d2tbd8"
     >
       <div
-        className="css-g67hsy"
+        className="css-1rikcx"
       >
         <div
           className=" gatsby-image-wrapper"

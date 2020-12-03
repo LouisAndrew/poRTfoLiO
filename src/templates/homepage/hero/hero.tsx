@@ -6,6 +6,8 @@ import { Box, Heading, Flex, Text } from 'rebass'
 // import local components
 import Scroller from 'components/scroller'
 
+import { TweenLite } from 'gsap'
+
 import PageContext from 'context'
 
 // custom very specific styling
@@ -118,12 +120,19 @@ const Hero: React.FC<unknown> = () => {
     const { setIsHeroNotVisible } = useContext(PageContext)
 
     const heroRef = React.createRef<HTMLDivElement>()
+    const heroImgRef = React.createRef<HTMLDivElement>()
+    // const contentRef = React.createRef<HTMLDivElement>()
 
     useEffect(() => {
         getHeight()
         window.addEventListener('scroll', () => {
             setScrollTop(window.scrollY)
         })
+
+        // add animations.
+        if (heroImgRef.current) {
+            TweenLite.from(heroImgRef.current, 0.8, { opacity: 0 })
+        }
 
         return () => {
             window.removeEventListener('scroll', () => {
@@ -167,6 +176,7 @@ const Hero: React.FC<unknown> = () => {
                     <Box
                         bg="secondary"
                         width="fit-content"
+                        ref={heroImgRef}
                         sx={{
                             borderRadius: '50%',
                             flexShrink: 0,

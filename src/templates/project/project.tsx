@@ -28,19 +28,23 @@ const Project: React.FC<Props> = ({
     webUrl,
     techs,
 }) => {
+    // const [opacity, setOpacity] = useState(1)
     const { setIsHeroNotVisible } = useContext(PageContext)
 
     useEffect(() => {
         setIsHeroNotVisible(true) // set hero to not visible when component is rendered
-    }, [])
 
-    console.log(techs)
+        // return () => {
+        //     setOpacity(0)
+        // }
+    }, [])
 
     return (
         <Flex
             className="project"
             variant="wrapper"
             py={[96, 96, 96, 96, 96, 7]}
+            // sx={{ opacity, transition: '500ms' }}
         >
             <Box width="100%">
                 <ProjectImgs screenshots={projectScreenshots} />

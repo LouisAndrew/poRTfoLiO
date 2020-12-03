@@ -102,10 +102,8 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
 
     useEffect(() => {
         const localStorageData = localStorage.getItem('theme') // get localstorage state for theme
-        console.log(localStorageData)
         if (localStorageData) {
             // set the theme if there's any value for theme in localstorage
-            console.log('persisting ' + localStorageData)
             setLightTheme(localStorageData === 'light')
         }
 
@@ -114,7 +112,6 @@ const ContextProvider: React.FC<{ children: any }> = ({ children }) => {
 
     useEffect(() => {
         if (persisted) {
-            console.log('persisted, changing to: ' + lightTheme)
             // persisting theme state everytime theme changes
             persistTheme(lightTheme)
         }
