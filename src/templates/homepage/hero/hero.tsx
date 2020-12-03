@@ -10,7 +10,7 @@ import { TweenLite } from 'gsap'
 
 import PageContext from 'context'
 
-// custom very specific styling
+// custom very specific styling and animation
 import './index.scss'
 
 /**
@@ -121,7 +121,7 @@ const Hero: React.FC<unknown> = () => {
 
     const heroRef = React.createRef<HTMLDivElement>()
     const heroImgRef = React.createRef<HTMLDivElement>()
-    // const contentRef = React.createRef<HTMLDivElement>()
+    const contentRef = React.createRef<HTMLDivElement>()
 
     useEffect(() => {
         getHeight()
@@ -129,9 +129,19 @@ const Hero: React.FC<unknown> = () => {
             setScrollTop(window.scrollY)
         })
 
+        const imgEl = heroImgRef.current
+        const contentEl = contentRef.current
+
         // add animations.
-        if (heroImgRef.current) {
-            TweenLite.from(heroImgRef.current, 0.8, { opacity: 0 })
+        if (imgEl && contentEl) {
+            console.log('animating')
+
+            TweenLite.from(imgEl, 0.8, { opacity: 0 })
+            TweenLite.from(contentEl, 0.8, {
+                opacity: 0,
+                y: 50,
+                delay: 0.4,
+            })
         }
 
         return () => {
@@ -197,8 +207,21 @@ const Hero: React.FC<unknown> = () => {
                         }}
                         width="100%"
                         className="hero__details-box"
+                        ref={contentRef}
                     >
                         <Heading as="h1" variant="primHeading" my={[3, 3, 4]}>
+                            Hello{' '}
+                            <span
+                                role="img"
+                                id="hello"
+                                style={{
+                                    display: 'inline-block',
+                                    transition: '200ms',
+                                }}
+                            >
+                                👋
+                            </span>
+                            <br />
                             {heroHeadline
                                 .split('\\n')
                                 .map((text: string, i: number) => (

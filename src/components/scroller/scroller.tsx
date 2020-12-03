@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import styling libs
 import { Box, Text } from 'rebass'
+import { TweenLite } from 'gsap'
 // import local components
 
 // custom stylings
@@ -19,7 +20,15 @@ type Props = {
 const Scroller: React.FC<Props> = ({ percentage }) => {
     // console.log({ percentage, defaultPercentage })
 
+    const scrollerRef = React.createRef<HTMLDivElement>()
+
     const transformY = percentage < 0 ? 0 : percentage
+
+    useEffect(() => {
+        if (scrollerRef.current) {
+            TweenLite.from(scrollerRef.current, 0.7, { opacity: 0, delay: 1.6 })
+        }
+    }, [])
 
     return (
         <Box
@@ -29,6 +38,7 @@ const Scroller: React.FC<Props> = ({ percentage }) => {
             }}
             role="complementary"
             className="scroller"
+            ref={scrollerRef}
         >
             <Text variant="utils" as="h4">
                 SCROLL DOWN TO SEE MY PROJECTS

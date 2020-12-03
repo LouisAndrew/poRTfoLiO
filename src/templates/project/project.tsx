@@ -50,7 +50,7 @@ const Project: React.FC<Props> = ({
                 <ProjectImgs screenshots={projectScreenshots} />
                 <Box width="100%">
                     <Flex flexDirection="column" alignItems={['center']}>
-                        <Heading mt={[3]} mb={[2]} as="h2">
+                        <Heading mt={[3]} mb={4} as="h2">
                             {projectName}
                         </Heading>
                         <Flex>
