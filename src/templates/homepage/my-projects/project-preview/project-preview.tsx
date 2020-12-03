@@ -41,8 +41,6 @@ const ProjectPreview: React.FC<Props> = ({
         const contentEl = contentRef.current
 
         if (wrapperEl && buttonEl && contentEl) {
-            console.log('a')
-
             TweenLite.from(buttonEl, 0.6, {
                 opacity: 0,
                 scrollTrigger: {

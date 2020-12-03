@@ -8,6 +8,7 @@ import Img, { FixedObject } from 'gatsby-image'
 
 // custom styling
 import './index.scss'
+import GatsbyImage from 'gatsby-image'
 
 /**
  * About me section component.
@@ -102,12 +103,30 @@ const About: React.FC<unknown> = () => {
     ]
 
     const wrapperRef = React.createRef<HTMLDivElement>()
+    const flexRef = React.createRef<HTMLDivElement>()
+    const contentRef = React.createRef<HTMLParagraphElement>()
 
     useEffect(() => {
-        if (wrapperRef.current) {
-            TweenLite.to(wrapperRef.current, 1, {
-                scrollTrigger: wrapperRef.current,
-                x: 500,
+        const wrapperEl = wrapperRef.current
+        const flexEl = flexRef.current
+        const contentEl = contentRef.current
+
+        if (wrapperEl && flexEl && contentEl) {
+            TweenLite.from(flexEl, 1, {
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'top center',
+                },
+                opacity: 0,
+            })
+            TweenLite.from(contentEl, 0.6, {
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'top center',
+                },
+                opacity: 0,
+                x: 20,
+                delay: 0.5,
             })
         }
     }, [])
@@ -133,6 +152,7 @@ const About: React.FC<unknown> = () => {
                     flexDirection={['column', 'column', 'row']}
                     alignItems="center"
                     mb={[5]}
+                    ref={flexRef}
                 >
                     <Img
                         fixed={sources}
@@ -146,6 +166,7 @@ const About: React.FC<unknown> = () => {
                         ml={[0, 0, 5]}
                         data-testid="content"
                         as="p"
+                        ref={contentRef}
                     >
                         {pageData.about_content}
                     </Text>
