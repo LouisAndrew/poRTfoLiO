@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
+import { TweenLite } from 'gsap'
 import { Flex, Heading, Text } from 'rebass'
 import Img, { FixedObject } from 'gatsby-image'
 // import local components
@@ -100,15 +101,49 @@ const About: React.FC<unknown> = () => {
         imgL as FixedObject,
     ]
 
+    const wrapperRef = React.createRef<HTMLDivElement>()
+    const flexRef = React.createRef<HTMLDivElement>()
+    const contentRef = React.createRef<HTMLParagraphElement>()
+
+    useEffect(() => {
+        const wrapperEl = wrapperRef.current
+        const flexEl = flexRef.current
+        const contentEl = contentRef.current
+
+        if (wrapperEl && flexEl && contentEl) {
+            TweenLite.from(flexEl, 1, {
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'top center',
+                },
+                opacity: 0,
+            })
+            TweenLite.from(contentEl, 0.6, {
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'top center',
+                },
+                opacity: 0,
+                x: 20,
+                delay: 0.5,
+            })
+        }
+    }, [])
+
     return (
-        <Flex variant="wrapper" alignItems={['center']} id="about">
+        <Flex
+            ref={wrapperRef}
+            variant="wrapper"
+            alignItems={['center']}
+            id="about"
+        >
             <Flex flexDirection="column">
                 <Heading
                     as="h2"
                     variant="heading"
-                    textAlign={['center', 'center', 'left']}
+                    textAlign="center"
                     mb={[48]}
-                    mt={[5]}
+                    // mt={[5]}
                 >
                     About me
                 </Heading>
@@ -116,6 +151,7 @@ const About: React.FC<unknown> = () => {
                     flexDirection={['column', 'column', 'row']}
                     alignItems="center"
                     mb={[5]}
+                    ref={flexRef}
                 >
                     <Img
                         fixed={sources}
@@ -129,6 +165,7 @@ const About: React.FC<unknown> = () => {
                         ml={[0, 0, 5]}
                         data-testid="content"
                         as="p"
+                        ref={contentRef}
                     >
                         {pageData.about_content}
                     </Text>

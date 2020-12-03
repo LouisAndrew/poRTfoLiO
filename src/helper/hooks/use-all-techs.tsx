@@ -26,7 +26,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(width: 40, quality: 100) {
+                                    fixed(width: 30, quality: 100) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -43,7 +43,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(width: 60, quality: 100) {
+                                    fixed(width: 40, quality: 100) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }
@@ -60,7 +60,7 @@ const useAllTechs = () => {
                         frontmatter {
                             tech_logo {
                                 childImageSharp {
-                                    fixed(width: 80, quality: 80) {
+                                    fixed(width: 60, quality: 80) {
                                         ...GatsbyImageSharpFixed
                                     }
                                 }

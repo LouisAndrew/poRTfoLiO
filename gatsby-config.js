@@ -68,7 +68,7 @@ module.exports = {
             resolve: 'gatsby-plugin-root-import',
             options: {
                 pages: path.join(__dirname, 'src/pages'),
-                styles: path.join(__dirname, 'src /pages'),
+                styles: path.join(__dirname, 'src/styles'),
                 components: path.join(__dirname, 'src/components'),
                 layout: path.join(__dirname, 'src/layout'),
                 templates: path.join(__dirname, 'src/templates'),
@@ -135,5 +135,6 @@ module.exports = {
         `gatsby-plugin-offline`,
         'gatsby-plugin-theme-ui',
         'gatsby-plugin-sass',
+        `gatsby-plugin-transition-link`,
     ],
 }

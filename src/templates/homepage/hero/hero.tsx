@@ -6,9 +6,11 @@ import { Box, Heading, Flex, Text } from 'rebass'
 // import local components
 import Scroller from 'components/scroller'
 
+import { TweenLite } from 'gsap'
+
 import PageContext from 'context'
 
-// custom very specific styling
+// custom very specific styling and animation
 import './index.scss'
 
 /**
@@ -118,12 +120,29 @@ const Hero: React.FC<unknown> = () => {
     const { setIsHeroNotVisible } = useContext(PageContext)
 
     const heroRef = React.createRef<HTMLDivElement>()
+    const heroImgRef = React.createRef<HTMLDivElement>()
+    const contentRef = React.createRef<HTMLDivElement>()
 
     useEffect(() => {
         getHeight()
         window.addEventListener('scroll', () => {
             setScrollTop(window.scrollY)
         })
+
+        const imgEl = heroImgRef.current
+        const contentEl = contentRef.current
+
+        // add animations.
+        if (imgEl && contentEl) {
+            console.log('animating')
+
+            TweenLite.from(imgEl, 0.8, { opacity: 0 })
+            TweenLite.from(contentEl, 0.8, {
+                opacity: 0,
+                y: 50,
+                delay: 0.4,
+            })
+        }
 
         return () => {
             window.removeEventListener('scroll', () => {
@@ -167,7 +186,14 @@ const Hero: React.FC<unknown> = () => {
                     <Box
                         bg="secondary"
                         width="fit-content"
-                        sx={{ borderRadius: '50%', flexShrink: 0 }}
+                        ref={heroImgRef}
+                        sx={{
+                            borderRadius: '50%',
+                            flexShrink: 0,
+                            borderColor: 'accent',
+                            borderStyle: 'solid',
+                            borderWidth: 1,
+                        }}
                     >
                         <Img fixed={sources} />
                     </Box>
@@ -181,8 +207,26 @@ const Hero: React.FC<unknown> = () => {
                         }}
                         width="100%"
                         className="hero__details-box"
+                        ref={contentRef}
                     >
-                        <Heading as="h1" variant="primHeading" my={[3, 3, 4]}>
+                        <Heading
+                            as="h1"
+                            variant="primHeading"
+                            data-testid="heading"
+                            my={[3, 3, 4]}
+                        >
+                            Hello{' '}
+                            <span
+                                role="img"
+                                id="hello"
+                                style={{
+                                    display: 'inline-block',
+                                    transition: '200ms',
+                                }}
+                            >
+                                👋
+                            </span>
+                            <br />
                             {heroHeadline
                                 .split('\\n')
                                 .map((text: string, i: number) => (

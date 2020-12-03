@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import { useStaticQuery, graphql } from 'gatsby'
 
+import { gsap, ScrollTrigger } from 'gsap/all'
 import { Box } from 'rebass'
 
 import Cursor from 'components/cursor'
@@ -31,7 +32,7 @@ const Layout: React.FC = ({ children }) => {
     // `)
 
     // ignore this line, purposed to avoid err msg
-    console.log(setApplyCustomCursor)
+    gsap.registerPlugin(ScrollTrigger)
 
     // apply custom fonts
     useGoogleFonts()
@@ -42,6 +43,8 @@ const Layout: React.FC = ({ children }) => {
                 sx={{
                     cursor: applyCustomCursor ? 'none' : 'unset',
                     position: 'relative',
+                    maxWidth: '100vw',
+                    overflowX: 'hidden',
                     'cursor:hover': applyCustomCursor ? 'none' : 'unset',
                     'a, button': {
                         cursor: applyCustomCursor ? 'none' : 'unset',
@@ -49,7 +52,9 @@ const Layout: React.FC = ({ children }) => {
                 }}
             >
                 <Header />
-                <Box as="main">{children}</Box>
+                <Box as="main" sx={{ scrollBehavior: 'smooth' }}>
+                    {children}
+                </Box>
                 <Footer />
                 {applyCustomCursor && <Cursor />}
             </WithTheme>

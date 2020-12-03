@@ -12,7 +12,7 @@ exports[`Hero matches snapshot 1`] = `
       className="hero__flex-wrapper css-1d2tbd8"
     >
       <div
-        className="css-g67hsy"
+        className="css-1rikcx"
       >
         <div
           className=" gatsby-image-wrapper"
@@ -70,7 +70,23 @@ exports[`Hero matches snapshot 1`] = `
       >
         <h1
           className="css-b5c2cb"
+          data-testid="heading"
         >
+          Hello
+           
+          <span
+            id="hello"
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "transition": "200ms",
+              }
+            }
+          >
+            👋
+          </span>
+          <br />
           I am headline
           <br />
         </h1>

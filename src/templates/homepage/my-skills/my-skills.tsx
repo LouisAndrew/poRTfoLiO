@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
+import { TweenLite } from 'gsap'
 import { Box, Flex, Heading } from 'rebass'
 // import local components
 import Skillcard from 'components/skillcard'
@@ -23,14 +24,30 @@ const MySkills: React.FC<unknown> = () => {
 
     const mySkills: string[] = data.markdownRemark.frontmatter.skills
 
+    // const wrapperRef = React.createRef<HTMLDivElement>()
+    const flexRef = React.createRef<HTMLDivElement>()
+
+    useEffect(() => {
+        const flexEl = flexRef.current
+
+        if (flexEl) {
+            // wait for 100 ms before applying animation to the child nodes -> if not, the child nodes of flexEl wouldnot be rendered yet.
+            setTimeout(() => {
+                flexEl.childNodes.forEach((child, index) => {
+                    TweenLite.to(child, 0.4, {
+                        scrollTrigger: flexEl,
+                        opacity: 1,
+                        delay: 0.2 * index,
+                    })
+                })
+            }, 100)
+        }
+    }, [])
+
     return (
         <Flex variant="wrapper" id="skills">
             <Box width="100%">
-                <Heading
-                    as="h2"
-                    variant="heading"
-                    textAlign={['center', 'left']}
-                >
+                <Heading as="h2" variant="heading" textAlign="center">
                     Some Things I'm Familiar With
                 </Heading>
                 <Flex
@@ -42,6 +59,8 @@ const MySkills: React.FC<unknown> = () => {
                         'flex-start',
                         'space-between',
                     ]}
+                    sx={{ '& > div': { opacity: 0 } }}
+                    ref={flexRef}
                 >
                     {mySkills.map(skill => (
                         <Skillcard

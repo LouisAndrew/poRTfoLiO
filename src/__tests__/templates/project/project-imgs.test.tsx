@@ -6,13 +6,24 @@ import renderer from 'react-test-renderer'
 import { cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-import Links from 'components/header/links'
-import withContext from 'helper/utils/with-context'
+import ProjectImgs from 'templates/project/project-imgs'
 
-describe('Links', () => {
-    const Element = withContext({
-        children: <Links />,
-    })
+// export type Screenshot = {
+//     screenshotLabel: string
+//     screenshot: {
+//         childImageSharp: {
+//             fluid: FluidObject
+//         }
+//     }
+//     screenshotMobile: {
+//         childImageSharp: {
+//             fluid: FluidObject
+//         }
+//     }
+// }
+
+describe('ProjectImgs', () => {
+    const Element = <ProjectImgs screenshots={[]} />
 
     afterEach(cleanup)
 

@@ -46,3 +46,31 @@
         }
     }
 }
+
+// @keyframes hello-anim {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+
+//     33% {
+//         transform: rotate(-20deg);
+//     }
+
+//     66% {
+//         transform: rotate(20deg);
+//     }
+
+//     100% {
+//         transform: rotate(0deg);
+//     }
+// }
+
+// #hello {
+//     // animation: hello-anim 1s ease-in 2s;
+//     // animation: 1s ease-in 2s 3 forwards both hello-anim;
+//     animation-name: hello-anim;
+//     animation-duration: 2s;
+//     animation-iteration-count: 0;
+//     animation-timing-function: linear;
+//     animation-delay: 1.6s;
+// }

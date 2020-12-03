@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectImgs matches snapshot 1`] = `
+<div
+  className="css-14g88gs"
+>
+  <div
+    className="carousel"
+  >
+    <div
+      aria-live="polite"
+      className="horizontalSlider___281Ls carousel__slider carousel__slider--horizontal carousel-slide"
+      onKeyDown={[Function]}
+      role="listbox"
+      style={Object {}}
+      tabIndex={0}
+    >
+      <div
+        className="carousel__slider-tray-wrapper carousel__slider-tray-wrap--horizontal"
+        style={Object {}}
+      >
+        <ul
+          className="sliderTray___-vHFQ sliderAnimation___300FY carousel__slider-tray carousel__slider-tray--horizontal"
+          onClickCapture={[Function]}
+          onMouseDown={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "flexDirection": "row",
+              "transform": "translateX(NaN%) translateX(0px)",
+              "width": "0%",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="carousel__dot-group carousel-dot"
+    />
+  </div>
+</div>
+`;

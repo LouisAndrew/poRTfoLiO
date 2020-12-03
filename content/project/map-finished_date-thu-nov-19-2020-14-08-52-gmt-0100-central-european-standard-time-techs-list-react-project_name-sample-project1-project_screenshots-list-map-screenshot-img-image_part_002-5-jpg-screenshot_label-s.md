@@ -3,7 +3,7 @@ project_name: Sample Project1
 project_screenshots:
   - screenshot: /img/image_part_002-5-.jpg
     screenshot_label: Sample Image
-    screenshot_mobile: /img/download.jfif
+    screenshot_mobile: /img/mobile.jpg
   - screenshot_label: Another sample image
     screenshot_mobile: /img/10ba096333497214fecdb3f6c4a899cf.jpg
     screenshot: /img/smokefilledsnoqualmievalley_w3840_cw3840_ch2160_cx3840_cy0.jpg
