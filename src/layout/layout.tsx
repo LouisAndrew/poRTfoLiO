@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import { useStaticQuery, graphql } from 'gatsby'
 
+import { gsap, ScrollTrigger } from 'gsap/all'
 import { Box } from 'rebass'
 
 import Cursor from 'components/cursor'
@@ -31,7 +32,7 @@ const Layout: React.FC = ({ children }) => {
     // `)
 
     // ignore this line, purposed to avoid err msg
-    console.log(setApplyCustomCursor)
+    gsap.registerPlugin(ScrollTrigger)
 
     // apply custom fonts
     useGoogleFonts()

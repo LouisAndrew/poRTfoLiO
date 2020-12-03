@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
+import { TweenLite } from 'gsap'
 import { Flex, Heading, Text } from 'rebass'
 import Img, { FixedObject } from 'gatsby-image'
 // import local components
@@ -100,8 +101,24 @@ const About: React.FC<unknown> = () => {
         imgL as FixedObject,
     ]
 
+    const wrapperRef = React.createRef<HTMLDivElement>()
+
+    useEffect(() => {
+        if (wrapperRef.current) {
+            TweenLite.to(wrapperRef.current, 1, {
+                scrollTrigger: wrapperRef.current,
+                x: 500,
+            })
+        }
+    }, [])
+
     return (
-        <Flex variant="wrapper" alignItems={['center']} id="about">
+        <Flex
+            ref={wrapperRef}
+            variant="wrapper"
+            alignItems={['center']}
+            id="about"
+        >
             <Flex flexDirection="column">
                 <Heading
                     as="h2"

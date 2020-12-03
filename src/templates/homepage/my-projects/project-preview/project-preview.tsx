@@ -1,5 +1,6 @@
-import React from 'react'
-// import { Link } from 'gatsby'
+import React, { useEffect } from 'react'
+
+import { TweenLite } from 'gsap'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 // import styling libs
 import { Flex, Box, Heading, Text, Button } from 'rebass'
@@ -30,6 +31,34 @@ const ProjectPreview: React.FC<Props> = ({
     previewDesc,
     projectScreenshot,
 }) => {
+    const wrapperRef = React.createRef<HTMLDivElement>()
+    const headingRef = React.createRef<HTMLHeadingElement>()
+    const contentRef = React.createRef<HTMLParagraphElement>()
+
+    useEffect(() => {
+        const wrapperEl = wrapperRef.current
+
+        if (wrapperEl) {
+            TweenLite.from(headingRef, 0.6, {
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'bottom bottom',
+                    end: '+=100',
+                },
+            })
+            TweenLite.from(contentRef, 0.2, {
+                opacity: 0,
+                x: 10,
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'bottom bottom',
+                    end: '+=100',
+                },
+            })
+        }
+    }, [])
+
     return (
         <Flex
             flexDirection={['column', 'column', 'column', 'row']}
@@ -38,7 +67,9 @@ const ProjectPreview: React.FC<Props> = ({
                 borderRadius: 16,
                 overflow: 'hidden',
                 boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.1)',
+                opacity: 0,
             }}
+            ref={wrapperRef}
         >
             <Box
                 // variant="center"
@@ -103,10 +134,11 @@ const ProjectPreview: React.FC<Props> = ({
                     variant="heading"
                     data-testid="name"
                     mb={[2, 2, 3, 4]}
+                    ref={headingRef}
                 >
                     {projectName}
                 </Heading>
-                <Text as="p" variant="body" data-testid="misc">
+                <Text as="p" variant="body" data-testid="misc" ref={contentRef}>
                     {previewDesc}
                 </Text>
                 <AniLink fade={true} to={nameToSlug(projectName)}>
