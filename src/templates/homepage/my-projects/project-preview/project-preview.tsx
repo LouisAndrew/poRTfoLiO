@@ -32,24 +32,19 @@ const ProjectPreview: React.FC<Props> = ({
     projectScreenshot,
 }) => {
     const wrapperRef = React.createRef<HTMLDivElement>()
-    const headingRef = React.createRef<HTMLHeadingElement>()
+    const buttonRef = React.createRef<HTMLButtonElement>()
     const contentRef = React.createRef<HTMLParagraphElement>()
 
     useEffect(() => {
         const wrapperEl = wrapperRef.current
+        const buttonEl = buttonRef.current
+        const contentEl = contentRef.current
 
-        if (wrapperEl) {
-            TweenLite.from(headingRef, 0.6, {
+        if (wrapperEl && buttonEl && contentEl) {
+            console.log('a')
+
+            TweenLite.from(buttonEl, 0.6, {
                 opacity: 0,
-                scrollTrigger: {
-                    trigger: wrapperEl,
-                    start: 'bottom bottom',
-                    end: '+=100',
-                },
-            })
-            TweenLite.from(contentRef, 0.2, {
-                opacity: 0,
-                x: 10,
                 scrollTrigger: {
                     trigger: wrapperEl,
                     start: 'bottom bottom',
@@ -67,7 +62,6 @@ const ProjectPreview: React.FC<Props> = ({
                 borderRadius: 16,
                 overflow: 'hidden',
                 boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.1)',
-                opacity: 0,
             }}
             ref={wrapperRef}
         >
@@ -134,7 +128,6 @@ const ProjectPreview: React.FC<Props> = ({
                     variant="heading"
                     data-testid="name"
                     mb={[2, 2, 3, 4]}
-                    ref={headingRef}
                 >
                     {projectName}
                 </Heading>
@@ -142,7 +135,11 @@ const ProjectPreview: React.FC<Props> = ({
                     {previewDesc}
                 </Text>
                 <AniLink fade={true} to={nameToSlug(projectName)}>
-                    <Button width="100%" sx={{ justifyContent: 'center' }}>
+                    <Button
+                        ref={buttonRef}
+                        width="100%"
+                        sx={{ justifyContent: 'center' }}
+                    >
                         View Project
                     </Button>
                 </AniLink>
