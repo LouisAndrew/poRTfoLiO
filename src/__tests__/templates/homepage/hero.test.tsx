@@ -10,7 +10,7 @@ import withContext from 'helper/utils/with-context'
 // import '/__mocks__/window.js'
 // Reference on why these values are asserted -> __mocks__/gatsby.js
 const mockHeroContent = 'Hello, World!'
-const mockHeroHeadline = 'I am headline'
+// const mockHeroHeadline = 'I am headline'
 
 describe('Hero', () => {
     const Element = withContext({
@@ -27,9 +27,9 @@ describe('Hero', () => {
     })
 
     it('Should render the headline and content correctly', () => {
-        const { queryByText, getByTestId } = render(Element)
+        const { queryByTestId, getByTestId } = render(Element)
 
-        const headline = queryByText(mockHeroHeadline)
+        const headline = queryByTestId('heading')
         const content = getByTestId('content')
 
         expect(headline).toBeInTheDocument()

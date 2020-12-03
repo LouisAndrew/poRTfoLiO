@@ -209,7 +209,12 @@ const Hero: React.FC<unknown> = () => {
                         className="hero__details-box"
                         ref={contentRef}
                     >
-                        <Heading as="h1" variant="primHeading" my={[3, 3, 4]}>
+                        <Heading
+                            as="h1"
+                            variant="primHeading"
+                            data-testid="heading"
+                            my={[3, 3, 4]}
+                        >
                             Hello{' '}
                             <span
                                 role="img"

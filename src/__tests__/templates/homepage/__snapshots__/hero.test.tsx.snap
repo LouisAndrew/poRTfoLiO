@@ -70,7 +70,23 @@ exports[`Hero matches snapshot 1`] = `
       >
         <h1
           className="css-b5c2cb"
+          data-testid="heading"
         >
+          Hello
+           
+          <span
+            id="hello"
+            role="img"
+            style={
+              Object {
+                "display": "inline-block",
+                "transition": "200ms",
+              }
+            }
+          >
+            👋
+          </span>
+          <br />
           I am headline
           <br />
         </h1>

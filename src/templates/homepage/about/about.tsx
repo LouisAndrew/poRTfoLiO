@@ -8,7 +8,6 @@ import Img, { FixedObject } from 'gatsby-image'
 
 // custom styling
 import './index.scss'
-import GatsbyImage from 'gatsby-image'
 
 /**
  * About me section component.
