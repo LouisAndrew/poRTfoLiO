@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 // import styling libs
+import { TweenLite } from 'gsap'
 import { Flex, Box, Heading, Button, Text, Link } from 'rebass'
 import { AiOutlineGlobal, AiFillCode } from 'react-icons/ai'
 import Markdown from 'markdown-to-jsx'
@@ -31,8 +32,28 @@ const Project: React.FC<Props> = ({
     // const [opacity, setOpacity] = useState(1)
     const { setIsHeroNotVisible } = useContext(PageContext)
 
+    const flexRef = React.createRef<HTMLDivElement>()
+
     useEffect(() => {
         setIsHeroNotVisible(true) // set hero to not visible when component is rendered
+
+        // animating
+        const flexEl = flexRef.current
+        if (flexEl) {
+            // waiting for flexEl children to be rendered first
+            setTimeout(() => {
+                flexEl.childNodes.forEach((child, index) => {
+                    TweenLite.from(child, 0.4, {
+                        scrollTrigger: {
+                            trigger: flexEl,
+                            start: 'bottom bottom',
+                        },
+                        opacity: 0,
+                        delay: 0.2 * index,
+                    })
+                })
+            }, 100)
+        }
 
         // return () => {
         //     setOpacity(0)
@@ -143,7 +164,7 @@ const Project: React.FC<Props> = ({
                         <Heading variant="heading" textAlign="center" as="h2">
                             Techonologies Used
                         </Heading>
-                        <Flex mt={[3, 3, 2]}>
+                        <Flex mt={[3, 3, 2]} ref={flexRef}>
                             {techs.map(tech => (
                                 <Skillcard
                                     techName={tech}

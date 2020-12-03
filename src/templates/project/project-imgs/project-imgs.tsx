@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import styling libs
+import { TweenLite } from 'gsap'
 import {
     CarouselProvider,
     Slider,
@@ -29,6 +30,17 @@ type Props = {
  * Component to render the snapshot / screenshot of the project to be shown..
  */
 const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
+    const imgRef = React.createRef<HTMLDivElement>()
+
+    useEffect(() => {
+        const imgEl = imgRef.current
+        if (imgEl) {
+            TweenLite.from(imgEl, 1, {
+                opacity: 0,
+            })
+        }
+    }, [])
+
     return (
         <Box
             pb={[24, 24, 4]}
@@ -53,6 +65,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
                     '&.next': { right: 0 },
                 },
             }}
+            ref={imgRef}
         >
             <CarouselProvider
                 naturalSlideWidth={1920}
