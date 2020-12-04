@@ -81,7 +81,7 @@ const MyProjects: React.FC<unknown> = () => {
                             project_screenshots {
                                 screenshot {
                                     childImageSharp {
-                                        fluid(maxWidth: 70, quality: 100) {
+                                        fluid(maxWidth: 700, quality: 100) {
                                             ...GatsbyImageSharpFluid
                                         }
                                     }
@@ -100,7 +100,11 @@ const MyProjects: React.FC<unknown> = () => {
                             project_screenshots {
                                 screenshot {
                                     childImageSharp {
-                                        fluid(maxWidth: 700, quality: 100) {
+                                        fluid(
+                                            maxWidth: 600
+                                            maxHeight: 400
+                                            quality: 90
+                                        ) {
                                             ...GatsbyImageSharpFluid
                                         }
                                     }

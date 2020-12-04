@@ -44,7 +44,7 @@ export type Context = {
 const customCursorInitial = {
     isClicking: false,
     isHovering: false,
-    isHidden: false,
+    isHidden: true,
 }
 
 export const defaultValues = {

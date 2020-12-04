@@ -77,7 +77,7 @@ const ProjectPreview: React.FC<Props> = ({
                 sx={{
                     overflow: 'hidden',
                     flexShrink: 0,
-                    border: '1px solid transparent',
+                    // border: '1px solid transparent',
                 }}
             >
                 <Img
@@ -95,13 +95,10 @@ const ProjectPreview: React.FC<Props> = ({
                     height: 'fit-container',
                     width: '100%',
                     textAlign: ['center', 'center', 'left'],
-                    borderStyle: 'solid',
-                    borderWidth: 1,
                     borderRadius: 16,
                     borderTopRightRadius: [0, 0, 0, 16],
                     borderBottomLeftRadius: [16, 16, 16, 0],
                     borderTopLeftRadius: 0,
-                    borderColor: 'secondary',
                     position: 'relative',
                     a: {
                         width: '100%',

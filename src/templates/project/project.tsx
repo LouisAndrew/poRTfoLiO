@@ -164,7 +164,12 @@ const Project: React.FC<Props> = ({
                         <Heading variant="heading" textAlign="center" as="h2">
                             Techonologies Used
                         </Heading>
-                        <Flex mt={[3, 3, 2]} ref={flexRef}>
+                        <Flex
+                            mt={[3, 3, 2]}
+                            ref={flexRef}
+                            flexWrap="wrap"
+                            id="techs-used"
+                        >
                             {techs.map(tech => (
                                 <Skillcard
                                     techName={tech}

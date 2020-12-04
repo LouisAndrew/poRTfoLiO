@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import { useStaticQuery, graphql } from 'gatsby'
 
 import { gsap, ScrollTrigger } from 'gsap/all'
@@ -36,6 +36,45 @@ const Layout: React.FC = ({ children }) => {
 
     // apply custom fonts
     useGoogleFonts()
+
+    // copy pasted from https://dev.to/andrewchmr/awesome-animated-cursor-with-react-hooks-5ec3
+    const isMobile = () => {
+        const ua = navigator.userAgent
+        return /Android|Mobi/i.test(ua) // returns if the user agent is a mobile device
+    }
+
+    /**
+     * Function to check if the cursor should be rendered when the page first loaded
+     */
+
+    const checkCursor = () => {
+        if (typeof navigator !== 'undefined' && isMobile()) {
+            setApplyCustomCursor(false)
+        }
+    }
+
+    useEffect(() => {
+        // checking if the custom cursor should be rendered.
+        checkCursor()
+
+        const removeCursor = () => {
+            setApplyCustomCursor(false)
+        }
+
+        const showCursor = () => {
+            setApplyCustomCursor(true)
+        }
+
+        // also, removing cursor when display is touched
+        document.addEventListener('touchstart', removeCursor)
+        // and adding it when display is not touched anymore..
+        document.addEventListener('touchend', showCursor)
+
+        return () => {
+            document.removeEventListener('touchstart', removeCursor)
+            document.removeEventListener('touchend', showCursor)
+        }
+    }, [])
 
     return (
         <ContextProvider>
