@@ -50,12 +50,15 @@ const Layout: React.FC = ({ children }) => {
     const checkCursor = () => {
         if (typeof navigator !== 'undefined' && isMobile()) {
             setApplyCustomCursor(false)
+            return true
         }
+
+        return false
     }
 
     useEffect(() => {
-        // checking if the custom cursor should be rendered.
-        checkCursor()
+        // no listener needed if the userAgent is clearly an ihpone / android.
+        const noListenerNeeded = checkCursor() // checking if the custom cursor should be rendered.
 
         const removeCursor = () => {
             setApplyCustomCursor(false)
@@ -65,14 +68,18 @@ const Layout: React.FC = ({ children }) => {
             setApplyCustomCursor(true)
         }
 
-        // also, removing cursor when display is touched
-        document.addEventListener('touchstart', removeCursor)
-        // and adding it when display is not touched anymore..
-        document.addEventListener('touchend', showCursor)
+        if (!noListenerNeeded) {
+            // also, removing cursor when display is touched
+            document.addEventListener('touchstart', removeCursor)
+            // and adding it when display is not touched anymore..
+            document.addEventListener('touchend', showCursor)
+        }
 
         return () => {
-            document.removeEventListener('touchstart', removeCursor)
-            document.removeEventListener('touchend', showCursor)
+            if (!noListenerNeeded) {
+                document.removeEventListener('touchstart', removeCursor)
+                document.removeEventListener('touchend', showCursor)
+            }
         }
     }, [])
 
