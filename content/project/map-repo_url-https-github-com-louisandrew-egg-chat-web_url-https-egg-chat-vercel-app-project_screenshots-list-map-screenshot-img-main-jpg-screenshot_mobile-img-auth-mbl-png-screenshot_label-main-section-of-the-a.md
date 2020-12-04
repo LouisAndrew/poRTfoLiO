@@ -1,7 +1,7 @@
 ---
 project_name: Egg.Chat
 project_screenshots:
-  - screenshot: /img/desktop-6.png
+  - screenshot: /img/desktop-7.png
     screenshot_mobile: /img/auth-mbl.png
     screenshot_label: Main section of the app
   - screenshot: /img/auth.png
