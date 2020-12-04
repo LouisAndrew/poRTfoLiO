@@ -23,6 +23,7 @@ type Props = QueryData
 const Project: React.FC<Props> = ({
     desc,
     // finishedDate,
+    projectGif,
     projectName,
     projectScreenshots,
     repoUrl,
@@ -68,7 +69,10 @@ const Project: React.FC<Props> = ({
             // sx={{ opacity, transition: '500ms' }}
         >
             <Box width="100%">
-                <ProjectImgs screenshots={projectScreenshots} />
+                <ProjectImgs
+                    screenshots={projectScreenshots}
+                    gifs={projectGif}
+                />
                 <Box width="100%">
                     <Flex flexDirection="column" alignItems={['center']}>
                         <Heading mt={[3]} mb={4} as="h2">

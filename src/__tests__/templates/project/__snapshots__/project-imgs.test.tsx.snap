@@ -2,7 +2,7 @@
 
 exports[`ProjectImgs matches snapshot 1`] = `
 <div
-  className="css-14g88gs"
+  className="css-81yc90"
 >
   <div
     className="carousel"
@@ -30,16 +30,59 @@ exports[`ProjectImgs matches snapshot 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": "translateX(NaN%) translateX(0px)",
-              "width": "0%",
+              "transform": "translateX(0%) translateX(0px)",
+              "width": "100%",
             }
           }
-        />
+        >
+          <li
+            aria-selected={true}
+            className="slide___3-Nqo slideHorizontal___1NzNV carousel__slide carousel__slide--visible"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            role="option"
+            style={
+              Object {
+                "paddingBottom": "66.69921875%",
+                "width": "100%",
+              }
+            }
+            tabIndex={0}
+          >
+            <div
+              className="slideInner___2mfX9 carousel__inner-slide slide"
+              style={Object {}}
+            >
+              <div
+                className="css-jo4y7f"
+              >
+                <img
+                  className="css-alel0z"
+                  src=""
+                />
+                <img
+                  className="css-1ud12dr"
+                  src=""
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div
       className="carousel__dot-group carousel-dot"
-    />
+    >
+      <button
+        aria-label="slide dot"
+        className="dot___3c3SI carousel__dot carousel__dot--0 carousel__dot--selected"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        <span />
+      </button>
+    </div>
   </div>
 </div>
 `;

@@ -26,6 +26,13 @@ collections:
       create: true
       fields:
           - { label: 'Project Name', name: project_name, widget: string }
+          - label: 'Project GIF'
+            name: project_gif
+            widget: list
+            summary: '{{fields.image}}'
+            fields:
+                - { label: GIF, name: gif, widget: image }
+                - { label: 'GIF mobile', name: gif_mobile, widget: image }
           - label: 'Project Screenshots'
             name: 'project_screenshots'
             widget: 'list'

@@ -18,6 +18,10 @@ export type QueryData = {
     previewDesc: string
     projectName: string
     projectScreenshots: Screenshot[]
+    projectGif: {
+        gif: string
+        gifMobile: string
+    }
     repoUrl: string
     webUrl: string
     techs: string[]
@@ -56,6 +60,8 @@ const ProjectPage = (props: any) => {
     const imgL = getImgFromQuery(false, imgLQuery)
     const imgXL = getImgFromQuery(false, imgXLQuery)
 
+    console.log(frontmatter)
+
     const data: QueryData = {
         ...frontmatter,
         previewDesc: frontmatter.preview_desc,
@@ -77,6 +83,10 @@ const ProjectPage = (props: any) => {
                 ] as FluidObject[],
             })
         ),
+        projectGif: {
+            gif: frontmatter.project_gif[0].gif.publicURL,
+            gifMobile: frontmatter.project_gif[0].gif_mobile.publicURL,
+        },
         repoUrl: frontmatter.repo_url,
         webUrl: frontmatter.web_url,
     }
@@ -100,6 +110,14 @@ export const query = graphql`
                 project_name
                 project_screenshots {
                     screenshot_label
+                }
+                project_gif {
+                    gif {
+                        publicURL
+                    }
+                    gif_mobile {
+                        publicURL
+                    }
                 }
                 techs
                 web_url
