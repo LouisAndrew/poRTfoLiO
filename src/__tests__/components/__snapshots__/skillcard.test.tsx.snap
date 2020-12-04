@@ -2,14 +2,14 @@
 
 exports[`Skillcard matches snapshot 1`] = `
 <div
-  className="skillcard css-oi5jmq"
+  className="skillcard css-1h9yvc9"
   data-testid="wrapper"
 >
   <div
-    className="css-1mdmbe0"
+    className="css-1gr8mow"
   >
     <div
-      className="css-au2wti"
+      className="css-11jm3zi"
     >
       <div
         className=" gatsby-image-wrapper"
@@ -61,7 +61,7 @@ exports[`Skillcard matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="css-1sgz1lk"
+    className="css-vurnku"
   >
     React
   </div>

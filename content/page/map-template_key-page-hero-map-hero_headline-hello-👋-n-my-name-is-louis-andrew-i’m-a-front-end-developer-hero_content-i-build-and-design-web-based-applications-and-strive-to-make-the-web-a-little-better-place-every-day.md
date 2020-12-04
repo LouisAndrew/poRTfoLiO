@@ -18,7 +18,7 @@ skills:
     - HTML
     - React
     - SASS
-    - Typescript
+    - TS
     - Figma
     - NodeJS
 social:
