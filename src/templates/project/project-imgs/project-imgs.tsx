@@ -9,7 +9,7 @@ import {
     ButtonNext,
     DotGroup,
 } from 'pure-react-carousel'
-import { Box } from 'rebass'
+import { Box, Image } from 'rebass'
 import Img from 'gatsby-image'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
@@ -24,12 +24,16 @@ type Props = {
      * Screenshots of the project (contains mobile img and label)
      */
     screenshots: Screenshot[]
+    gifs: {
+        gif: string
+        gifMobile: string
+    }
 }
 
 /**
  * Component to render the snapshot / screenshot of the project to be shown..
  */
-const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
+const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
     const imgRef = React.createRef<HTMLDivElement>()
 
     useEffect(() => {
@@ -70,7 +74,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
             <CarouselProvider
                 naturalSlideWidth={1024}
                 naturalSlideHeight={683}
-                totalSlides={screenshots.length}
+                totalSlides={screenshots.length + 1}
                 // hasMasterSpinner={true}
                 infinite={true}
             >
@@ -97,6 +101,45 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
                             </Box>
                         </Slide>
                     ))}
+                    <Slide index={screenshots.length} innerClassName="slide">
+                        <Box
+                            height={[
+                                '70vh',
+                                '100vh',
+                                'calc(0.66 * 85vw)',
+                                'calc(0.66 * 85vw)',
+                                683,
+                                1094,
+                            ]}
+                            width="100%"
+                            bg="accent"
+                        >
+                            <Image
+                                src={gifs.gif}
+                                height="100%"
+                                width="100%"
+                                // sx={{ display: ['none', 'block'] }}
+                                css={`
+                                    display: block;
+                                    @media screen and (max-width: 48em) and (orientation: portrait) {
+                                        display: none;
+                                    }
+                                `}
+                            />
+                            <Image
+                                src={gifs.gifMobile}
+                                height="100%"
+                                width="100%"
+                                // sx={{ display: ['block', 'none'] }}
+                                css={`
+                                    display: none;
+                                    @media screen and (max-width: 48em) and (orientation: portrait) {
+                                        display: block;
+                                    }
+                                `}
+                            />
+                        </Box>
+                    </Slide>
                 </Slider>
                 {screenshots.length > 1 && (
                     <ButtonBack className="carousel-button back">
