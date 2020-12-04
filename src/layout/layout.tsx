@@ -56,6 +56,24 @@ const Layout: React.FC = ({ children }) => {
     useEffect(() => {
         // checking if the custom cursor should be rendered.
         checkCursor()
+
+        const removeCursor = () => {
+            setApplyCustomCursor(false)
+        }
+
+        const showCursor = () => {
+            setApplyCustomCursor(true)
+        }
+
+        // also, removing cursor when display is touched
+        document.addEventListener('touchstart', removeCursor)
+        // and adding it when display is not touched anymore..
+        document.addEventListener('touchend', showCursor)
+
+        return () => {
+            document.removeEventListener('touchstart', removeCursor)
+            document.removeEventListener('touchend', showCursor)
+        }
     }, [])
 
     return (
