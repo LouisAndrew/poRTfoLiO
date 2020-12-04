@@ -68,9 +68,11 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
             ref={imgRef}
         >
             <CarouselProvider
-                naturalSlideWidth={1920}
-                naturalSlideHeight={1280}
+                naturalSlideWidth={1024}
+                naturalSlideHeight={683}
                 totalSlides={screenshots.length}
+                // hasMasterSpinner={true}
+                infinite={true}
             >
                 <Slider className="carousel-slide">
                     {screenshots.map((s, i) => (
@@ -82,7 +84,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots }) => {
                                     'calc(0.66 * 85vw)',
                                     'calc(0.66 * 85vw)',
                                     683,
-                                    683,
+                                    1094,
                                 ]}
                                 width="100%"
                                 bg="accent"

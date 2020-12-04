@@ -70,7 +70,7 @@ const ProjectPage = (props: any) => {
                     },
                     {
                         ...imgM[index],
-                        media: '(max-width: 60em) and (orientation: landscape)',
+                        media: '(max-width: 64em)',
                     },
                     { ...imgXL[index], media: '(min-width: 122em)' },
                     imgL[index],
@@ -113,7 +113,7 @@ export const query = graphql`
                 project_screenshots {
                     screenshot_mobile {
                         childImageSharp {
-                            fluid(maxWidth: 400, quality: 100) {
+                            fluid(maxWidth: 400, quality: 90) {
                                 ...GatsbyImageSharpFluid
                             }
                         }
@@ -128,7 +128,7 @@ export const query = graphql`
                 project_screenshots {
                     screenshot {
                         childImageSharp {
-                            fluid(maxWidth: 700, quality: 100) {
+                            fluid(maxWidth: 760, quality: 90) {
                                 ...GatsbyImageSharpFluid
                             }
                         }
@@ -143,7 +143,7 @@ export const query = graphql`
                 project_screenshots {
                     screenshot {
                         childImageSharp {
-                            fluid(maxWidth: 700, quality: 100) {
+                            fluid(maxWidth: 1024, maxHeight: 683, quality: 90) {
                                 ...GatsbyImageSharpFluid
                             }
                         }
@@ -158,7 +158,11 @@ export const query = graphql`
                 project_screenshots {
                     screenshot {
                         childImageSharp {
-                            fluid(maxWidth: 1100, quality: 100) {
+                            fluid(
+                                maxWidth: 1700
+                                maxHeight: 1094
+                                quality: 100
+                            ) {
                                 ...GatsbyImageSharpFluid
                             }
                         }
