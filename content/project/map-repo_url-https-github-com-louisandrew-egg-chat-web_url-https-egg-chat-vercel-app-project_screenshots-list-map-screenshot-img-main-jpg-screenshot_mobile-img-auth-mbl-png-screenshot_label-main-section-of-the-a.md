@@ -17,7 +17,7 @@ techs:
     - HTML
     - React
     - SASS
-    - Typescript
+    - TS
 finished_date: 2020-12-04T08:25:46.807Z
 desc: A
 web_url: https://egg-chat.vercel.app/

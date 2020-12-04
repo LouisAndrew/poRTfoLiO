@@ -48,6 +48,7 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
             alignItems="center"
             data-testid="wrapper"
             variant={`skillcard-${variant}`}
+            flexShrink={0}
             sx={{ borderRadius: 8, flexShrink: 0 }}
             className="skillcard"
             width={
@@ -55,7 +56,6 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                     ? ['50%', '33%', '33%', '25%']
                     : ['33%', '50%', '33%']
             }
-            justifyContent={variant === 'small' ? 'center' : 'unset'}
         >
             <Box
                 p={variant === 'small' ? [2] : [3]}
@@ -66,11 +66,19 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                     borderWidth: 1,
                     borderStyle: 'solid',
                     borderColor: 'accent',
+                    position: 'relative',
                 }}
+                mr={variant === 'small' ? [3] : [0, 4, 24, 4]}
+                ml={variant === 'small' ? '25%' : []}
             >
                 <Flex
                     variant="center"
                     height={
+                        variant === 'small'
+                            ? [30, 30, 40, 40, 40, 60]
+                            : [40, 60]
+                    }
+                    width={
                         variant === 'small'
                             ? [30, 30, 40, 40, 40, 60]
                             : [40, 60]
@@ -86,11 +94,7 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                     />
                 </Flex>
             </Box>
-            <Text
-                variant="utils"
-                mt={variant === 'small' ? [] : [3, 0, 0]}
-                ml={variant === 'small' ? [3] : [0, 4, 24, 4]}
-            >
+            <Text variant="utils" mt={variant === 'small' ? [] : [3, 0, 0]}>
                 {name}
             </Text>
         </Flex>
