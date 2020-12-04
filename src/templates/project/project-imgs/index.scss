@@ -38,12 +38,39 @@
         opacity: 0.5;
         transition: 0.2s;
 
+        &:last-of-type {
+            // opacity: 0;
+
+            background-color: transparent !important;
+            height: 0;
+            width: 0;
+
+            &:after {
+                content: 'GIF';
+                height: 4px;
+                width: 16px;
+                position: relative;
+                top: 5px;
+                left: -6px;
+                font-weight: 800;
+                opacity: 0.6;
+            }
+        }
+
         &:hover {
             opacity: 1;
+
+            &:after {
+                opacity: 1;
+            }
         }
 
         &.carousel__dot--selected {
             opacity: 1;
+
+            &:after {
+                opacity: 1;
+            }
         }
     }
 }

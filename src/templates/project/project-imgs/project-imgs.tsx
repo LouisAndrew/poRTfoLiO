@@ -50,7 +50,12 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
             pb={[24, 24, 4]}
             sx={{
                 position: 'relative',
-                '.carousel-dot': { 'button.carousel__dot': { bg: 'primary' } },
+                '.carousel-dot': {
+                    'button.carousel__dot': {
+                        bg: 'primary',
+                        '&:after': { color: 'primary' },
+                    },
+                },
                 '.carousel-button': {
                     position: 'absolute',
                     top: '50%',
@@ -151,6 +156,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                         <AiOutlineRight />
                     </ButtonNext>
                 )}
+
                 <DotGroup className="carousel-dot" />
             </CarouselProvider>
         </Box>
