@@ -1,26 +1,26 @@
 ---
 project_name: Egg.Chat
 project_gif:
-  - gif: /img/desktop.gif
-    gif_mobile: /img/10ba096333497214fecdb3f6c4a899cf.jpg
+    - gif: /img/desktop.gif
+      gif_mobile: /img/mobile.gif
 project_screenshots:
-  - screenshot: /img/desktop.gif
-    screenshot_mobile: /img/main-1-mbl.png
-    screenshot_label: Main section of the app
-  - screenshot: /img/auth.png
-    screenshot_mobile: /img/auth-mbl.png
-    screenshot_label: Authentication section
-  - screenshot: /img/searcg-user.png
-    screenshot_mobile: /img/searcg-user-mbl.png
-    screenshot_label: User could also add another chatroom
-  - screenshot: /img/mock.png
-    screenshot_mobile: /img/mock-mbl.png
-    screenshot_label: Sample pre-defined mock users are provided
+    - screenshot: /img/desktop.jpg
+      screenshot_mobile: /img/main-1-mbl.png
+      screenshot_label: Main section of the app
+    - screenshot: /img/auth.png
+      screenshot_mobile: /img/auth-mbl.png
+      screenshot_label: Authentication section
+    - screenshot: /img/searcg-user.png
+      screenshot_mobile: /img/searcg-user-mbl.png
+      screenshot_label: User could also add another chatroom
+    - screenshot: /img/mock.png
+      screenshot_mobile: /img/mock-mbl.png
+      screenshot_label: Sample pre-defined mock users are provided
 techs:
-  - HTML
-  - React
-  - SASS
-  - TS
+    - HTML
+    - React
+    - SASS
+    - TS
 finished_date: 2020-12-04T08:25:46.807Z
 desc: A
 web_url: https://egg-chat.vercel.app/
