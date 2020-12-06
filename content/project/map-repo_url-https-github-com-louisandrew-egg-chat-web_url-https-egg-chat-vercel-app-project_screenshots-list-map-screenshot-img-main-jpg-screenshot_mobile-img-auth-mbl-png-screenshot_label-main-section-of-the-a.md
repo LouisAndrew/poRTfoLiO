@@ -5,16 +5,16 @@ project_gif:
     gif_mobile: /img/mobile.gif
 project_screenshots:
   - screenshot: /img/main.png
-    screenshot_mobile: /img/auth-mbl.png
+    screenshot_mobile: /img/main-1-mbl.png
     screenshot_label: Main section of the app
   - screenshot: /img/auth.png
     screenshot_mobile: /img/auth-mbl.png
     screenshot_label: Authentication section
   - screenshot: /img/searcg-user.png
-    screenshot_mobile: /img/auth-mbl.png
+    screenshot_mobile: /img/searcg-user-mbl.png
     screenshot_label: User could also add another chatroom
   - screenshot: /img/mock.png
-    screenshot_mobile: /img/auth-mbl.png
+    screenshot_mobile: /img/mock-mbl.png
     screenshot_label: Sample pre-defined mock users are provided
 techs:
   - HTML
