@@ -23,8 +23,6 @@ const Footer: React.FC<unknown> = () => {
             TweenLite.to('#header-link-contact', 0.4, {
                 scrollTrigger: {
                     trigger: el,
-                    start: '-=100',
-                    end: '-=150',
                     toggleActions: 'play reverse play reverse',
                 },
                 opacity: 1,
@@ -39,6 +37,7 @@ const Footer: React.FC<unknown> = () => {
             py={[5, 5, 5, 5, 5, 6]}
             bg="secondary"
             ref={ref}
+            sx={{ borderColor: 'accent' }}
         >
             <Flex
                 className="footer__inner-section"
