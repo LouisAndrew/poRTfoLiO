@@ -34,33 +34,38 @@ const Links: React.FC<unknown> = () => {
             sx={{ '& a': { ...texts.headerLinks } }}
         >
             {LINKS.map(link => {
+                const { path, text } = link
+                const id = `header-link-${path.replace('/#', '')}` // replacing the /# into a empty string
+
                 return inRoot ? (
                     // gatsby link => why custom cursor not identifying it?
                     <Link
-                        key={`header-link-${link.path}`}
-                        to={link.path}
+                        key={`header-link-${path}`}
+                        to={path}
                         onMouseEnter={() => {
                             setIsHovering(true)
                         }}
                         onMouseLeave={() => {
                             setIsHovering(false)
                         }}
+                        id={id}
                     >
-                        {link.text}
+                        {text}
                     </Link>
                 ) : (
                     <AniLink
-                        key={`header-link-${link.path}`}
+                        key={`header-link-${path}`}
                         fade={true}
-                        to={link.path}
+                        to={path}
                         onMouseEnter={() => {
                             setIsHovering(true)
                         }}
                         onMouseLeave={() => {
                             setIsHovering(false)
                         }}
+                        id={id}
                     >
-                        {link.text}
+                        {text}
                     </AniLink>
                 )
             })}
