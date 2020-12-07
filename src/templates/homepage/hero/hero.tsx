@@ -195,7 +195,7 @@ const Hero: React.FC<unknown> = () => {
                             borderWidth: 1,
                         }}
                     >
-                        <Img fixed={sources} />
+                        <Img fixed={sources} alt="Cool-looking emoji of me" />
                     </Box>
                     <Box
                         mt={['2vh', 0, 4, 0]}

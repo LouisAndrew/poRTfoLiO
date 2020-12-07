@@ -51,6 +51,10 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
             sx={{
                 position: 'relative',
                 '.carousel-dot': {
+                    display: 'flex',
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     'button.carousel__dot': {
                         bg: 'primary',
                         '&:after': { color: 'primary' },
@@ -84,7 +88,6 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                 naturalSlideWidth={1024}
                 naturalSlideHeight={683}
                 totalSlides={screenshots.length + 1}
-                // hasMasterSpinner={true}
                 infinite={true}
             >
                 <Slider className="carousel-slide">
@@ -106,6 +109,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                                     style={{ height: '100%', width: '100%' }}
                                     imgStyle={{ objectPosition: 'center' }}
                                     fluid={s.sources}
+                                    alt={s.screenshotLabel}
                                 />
                             </Box>
                         </Slide>

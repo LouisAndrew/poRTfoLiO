@@ -84,6 +84,7 @@ const ProjectPreview: React.FC<Props> = ({
                     style={{ height: '100%', width: '100%' }}
                     imgStyle={{ objectPosition: 'center' }}
                     fluid={projectScreenshot.sources}
+                    alt={projectScreenshot.screenshotLabel}
                 />
             </Box>
             <Box

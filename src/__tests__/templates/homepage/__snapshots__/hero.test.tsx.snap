@@ -38,7 +38,7 @@ exports[`Hero matches snapshot 1`] = `
             />
             <source />
             <img
-              alt=""
+              alt="Cool-looking emoji of me"
               loading="lazy"
               onLoad={[Function]}
               style={
@@ -59,7 +59,7 @@ exports[`Hero matches snapshot 1`] = `
           <noscript
             dangerouslySetInnerHTML={
               Object {
-                "__html": "<picture><source media=\\"(max-width: 640px)\\" srcset=\\"undefined\\" /><source media=\\"(max-width: 840px) and (max-height: 420px) and (orientation: landscape)\\" srcset=\\"undefined\\" /><source media=\\"(min-width: 1952px)\\" srcset=\\"undefined\\" /><source srcset=\\"undefined\\" /><img loading=\\"lazy\\" src=\\"\\" alt=\\"\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                "__html": "<picture><source media=\\"(max-width: 640px)\\" srcset=\\"undefined\\" /><source media=\\"(max-width: 840px) and (max-height: 420px) and (orientation: landscape)\\" srcset=\\"undefined\\" /><source media=\\"(min-width: 1952px)\\" srcset=\\"undefined\\" /><source srcset=\\"undefined\\" /><img loading=\\"lazy\\" src=\\"\\" alt=\\"Cool-looking emoji of me\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
               }
             }
           />

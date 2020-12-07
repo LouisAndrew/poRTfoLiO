@@ -91,6 +91,7 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                                 ? (sourcesSmall as FixedObject[])
                                 : (sourcesBig as FixedObject[])
                         }
+                        alt={`${name} logo`}
                     />
                 </Flex>
             </Box>

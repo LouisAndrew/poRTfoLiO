@@ -157,6 +157,7 @@ const About: React.FC<unknown> = () => {
                         fixed={sources}
                         style={{ flexShrink: 0 }}
                         imgStyle={{ borderRadius: '50%', flexShrink: 0 }}
+                        alt="portrait of me"
                     />
                     <Text
                         textAlign={['center', 'center', 'left']}
