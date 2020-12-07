@@ -16,3 +16,9 @@
         }
     }
 }
+
+nav a {
+    &:hover {
+        opacity: 1 !important;
+    }
+}

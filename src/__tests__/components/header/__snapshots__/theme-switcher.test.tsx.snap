@@ -2,7 +2,7 @@
 
 exports[`ThemeSwitcher matches snapshot 1`] = `
 <div
-  className="css-ybup6i"
+  className="css-wtwfv3"
   onClick={[Function]}
   role="button"
 >

@@ -83,11 +83,12 @@ exports[`Header matches snapshot 1`] = `
         </svg>
       </div>
       <nav
-        className="css-1i25jz0"
+        className="css-azs354"
         id="links"
       >
         <a
           href="/#hero"
+          id="header-link-hero"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
@@ -95,6 +96,7 @@ exports[`Header matches snapshot 1`] = `
         </a>
         <a
           href="/#projects"
+          id="header-link-projects"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
@@ -102,6 +104,7 @@ exports[`Header matches snapshot 1`] = `
         </a>
         <a
           href="/#about"
+          id="header-link-about"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
@@ -109,12 +112,13 @@ exports[`Header matches snapshot 1`] = `
         </a>
         <a
           href="#contact"
+          id="header-link-contact"
         >
           CONTACT
         </a>
       </nav>
       <div
-        className="css-ybup6i"
+        className="css-wtwfv3"
         onClick={[Function]}
         role="button"
       >

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { TweenLite } from 'gsap'
+
 // import styling libs
 import Img, { FixedObject } from 'gatsby-image'
 import { Box, Heading, Flex, Text } from 'rebass'
 // import local components
 import Scroller from 'components/scroller'
-
-import { TweenLite } from 'gsap'
 
 import PageContext from 'context'
 
@@ -131,16 +131,27 @@ const Hero: React.FC<unknown> = () => {
 
         const imgEl = heroImgRef.current
         const contentEl = contentRef.current
+        const heroEl = heroRef.current
 
         // add animations.
-        if (imgEl && contentEl) {
-            console.log('animating')
-
+        if (imgEl && contentEl && heroEl) {
             TweenLite.from(imgEl, 0.8, { opacity: 0 })
             TweenLite.from(contentEl, 0.8, {
                 opacity: 0,
                 y: 50,
                 delay: 0.4,
+            })
+
+            // set the header-link-hero brightness to 1.
+            TweenLite.to('#header-link-hero', 0.4, {
+                scrollTrigger: {
+                    trigger: heroEl,
+                    start: 'top center',
+                    end: 'bottom center',
+                    // https://ihatetomatoes.net/scrolltrigger-tutorial-toggleactions-toggleclass/
+                    toggleActions: 'play reverse play reverse',
+                },
+                opacity: 1,
             })
         }
 

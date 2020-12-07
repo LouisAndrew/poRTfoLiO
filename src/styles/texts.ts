@@ -28,6 +28,7 @@ export default {
     /**
      * Used on buttons
      */
+
     buttons: {
         fontFamily: 'body',
         fontSize: [1, 1, 3],
@@ -56,10 +57,10 @@ export default {
         my: [3, 3, 0],
         fontSize: [4, 4, 2],
         color: 'primary',
-        filter: 'brightness(0.5)',
+        opacity: 0.6,
         transition: '200ms',
         '&:hover': {
-            filter: 'brightness(1)',
+            opacity: 1,
         },
     },
     articleLink: {

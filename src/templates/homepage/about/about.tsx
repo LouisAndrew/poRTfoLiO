@@ -118,6 +118,7 @@ const About: React.FC<unknown> = () => {
                 },
                 opacity: 0,
             })
+
             TweenLite.from(contentEl, 0.6, {
                 scrollTrigger: {
                     trigger: wrapperEl,
@@ -126,6 +127,18 @@ const About: React.FC<unknown> = () => {
                 opacity: 0,
                 x: 20,
                 delay: 0.5,
+            })
+
+            // set the opacity of header-link pointing to this section to 1.
+            TweenLite.to('#header-link-about', 0.4, {
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'top center',
+                    end: 'bottom center',
+                    // https://ihatetomatoes.net/scrolltrigger-tutorial-toggleactions-toggleclass/
+                    toggleActions: 'play reverse play reverse',
+                },
+                opacity: 1,
             })
         }
     }, [])

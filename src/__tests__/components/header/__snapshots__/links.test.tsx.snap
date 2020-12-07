@@ -2,11 +2,12 @@
 
 exports[`Links matches snapshot 1`] = `
 <nav
-  className="css-1i25jz0"
+  className="css-azs354"
   id="links"
 >
   <a
     href="/#hero"
+    id="header-link-hero"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
@@ -14,6 +15,7 @@ exports[`Links matches snapshot 1`] = `
   </a>
   <a
     href="/#projects"
+    id="header-link-projects"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
@@ -21,6 +23,7 @@ exports[`Links matches snapshot 1`] = `
   </a>
   <a
     href="/#about"
+    id="header-link-about"
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
@@ -28,6 +31,7 @@ exports[`Links matches snapshot 1`] = `
   </a>
   <a
     href="#contact"
+    id="header-link-contact"
   >
     CONTACT
   </a>

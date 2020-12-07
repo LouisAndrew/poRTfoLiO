@@ -69,7 +69,9 @@ const Links: React.FC<unknown> = () => {
                     </AniLink>
                 )
             })}
-            <Link to="#contact">CONTACT</Link>
+            <Link id="header-link-contact" to="#contact">
+                CONTACT
+            </Link>
         </Flex>
     )
 }

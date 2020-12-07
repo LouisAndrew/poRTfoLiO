@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { get } from 'lodash'
 import { useStaticQuery, graphql } from 'gatsby'
+import { TweenLite } from 'gsap'
+
 // import styling libs
 import { FluidObject } from 'gatsby-image'
 import { Flex, Heading } from 'rebass'
@@ -167,8 +169,28 @@ const MyProjects: React.FC<unknown> = () => {
         }
     })
 
+    const wrapperRef = React.createRef<HTMLDivElement>()
+
+    useEffect(() => {
+        // apply animation when the component is mounted
+        const wrapperEl = wrapperRef.current
+        if (wrapperEl) {
+            //  set opacity of link pointing to this section to 1.
+            TweenLite.to('#header-link-projects', 0.4, {
+                scrollTrigger: {
+                    trigger: wrapperEl,
+                    start: 'top center',
+                    end: 'bottom center',
+                    // https://ihatetomatoes.net/scrolltrigger-tutorial-toggleactions-toggleclass/
+                    toggleActions: 'play reverse play reverse',
+                },
+                opacity: 1,
+            })
+        }
+    }, [])
+
     return (
-        <Flex variant="wrapper" id="projects">
+        <Flex ref={wrapperRef} variant="wrapper" id="projects">
             <Flex
                 width="100%"
                 flexDirection="column"

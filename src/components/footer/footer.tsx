@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { TweenLite } from 'gsap'
 // import styling libs
 import { Flex } from 'rebass'
 // import local components
@@ -13,18 +14,31 @@ import './index.scss'
  * Footer reusablae component
  */
 const Footer: React.FC<unknown> = () => {
+    const ref = React.useRef<HTMLDivElement>()
+
+    // apply animation when the component is mounted
+    useEffect(() => {
+        const el = ref.current
+        if (el) {
+            TweenLite.to('#header-link-contact', 0.4, {
+                scrollTrigger: {
+                    trigger: el,
+                    // start: 'bottom bottom',
+                    // end: 'top bottom',
+                    toggleActions: 'play reverse play reverse',
+                },
+                opacity: 1,
+            })
+        }
+    }, [])
+
     return (
         <Flex
             variant="wrapper"
             as="footer"
             py={[5, 5, 5, 5, 5, 6]}
             bg="secondary"
-            sx={{
-                borderWidth: 0,
-                borderStyle: 'solid',
-                borderTopWidth: 1,
-                borderColor: 'accent',
-            }}
+            ref={ref}
         >
             <Flex
                 className="footer__inner-section"
