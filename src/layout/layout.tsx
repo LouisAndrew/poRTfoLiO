@@ -18,7 +18,7 @@ import './index.scss'
 
 const Layout: React.FC = ({ children }) => {
     // State to determine if custom cursor is to be used.
-    const [applyCustomCursor, setApplyCustomCursor] = useState(true)
+    const [applyCustomCursor, setApplyCustomCursor] = useState(false)
 
     // const data = useStaticQuery(graphql`
     //     query SiteTitleQuery {
@@ -58,7 +58,8 @@ const Layout: React.FC = ({ children }) => {
 
     useEffect(() => {
         // no listener needed if the userAgent is clearly an ihpone / android.
-        const noListenerNeeded = checkCursor() // checking if the custom cursor should be rendered.
+        // const noListenerNeeded = checkCursor() // checking if the custom cursor should be rendered.
+        const noListenerNeeded = true
 
         const removeCursor = () => {
             setApplyCustomCursor(false)
