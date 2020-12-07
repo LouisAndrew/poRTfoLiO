@@ -4,7 +4,7 @@ project_gif:
   - gif: /img/desktop_screen_record.mp4
     gif_mobile: /img/mobile_screen_record.mp4
 project_screenshots:
-  - screenshot: /img/main.jpg
+  - screenshot: /img/egg-chat__main.jpg
     screenshot_mobile: /img/main-1-mbl.png
     screenshot_label: Main section of the app
   - screenshot: /img/auth.png
@@ -17,9 +17,9 @@ project_screenshots:
     screenshot_mobile: /img/mock-mbl.png
     screenshot_label: Sample pre-defined mock users are provided
 techs:
-  - HTML
   - React
-  - SASS
+  - NextJS
+  - HTML
   - TS
 finished_date: 2020-12-04T08:25:46.807Z
 desc: A
