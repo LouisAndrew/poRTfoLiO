@@ -1,8 +1,8 @@
 ---
 project_name: Egg.Chat
 project_gif:
-  - gif: /img/desktop.gif
-    gif_mobile: /img/mobile.gif
+  - gif: /img/desktop_screen_record.mp4
+    gif_mobile: /img/mobile_screen_record.mp4
 project_screenshots:
   - screenshot: /img/main.png
     screenshot_mobile: /img/main-1-mbl.png
