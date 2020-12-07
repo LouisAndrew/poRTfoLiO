@@ -2,7 +2,7 @@
 
 exports[`ProjectImgs matches snapshot 1`] = `
 <div
-  className="css-81yc90"
+  className="css-notj9w"
 >
   <div
     className="carousel"
@@ -54,16 +54,32 @@ exports[`ProjectImgs matches snapshot 1`] = `
               style={Object {}}
             >
               <div
-                className="css-jo4y7f"
+                className="css-1lya75n"
               >
-                <img
-                  className="css-alel0z"
-                  src=""
-                />
-                <img
-                  className="css-1ud12dr"
-                  src=""
-                />
+                <video
+                  autoPlay={true}
+                  className="desktop-gif"
+                  loop={true}
+                  muted={true}
+                  playsInline={true}
+                >
+                  <source
+                    src=""
+                    type="video/mp4"
+                  />
+                </video>
+                <video
+                  autoPlay={true}
+                  className="mobile-gif"
+                  loop={true}
+                  muted={true}
+                  playsInline={true}
+                >
+                  <source
+                    src=""
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </div>
           </li>

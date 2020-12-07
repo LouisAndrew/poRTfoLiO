@@ -53,6 +53,7 @@
                 top: 5px;
                 left: -6px;
                 font-weight: 800;
+                font-family: 'Nunito', sans-serif;
                 opacity: 0.6;
             }
         }
@@ -79,4 +80,22 @@
     background: none;
     outline: none;
     border: none;
+}
+
+.desktop-gif {
+    display: block;
+}
+
+.mobile-gif {
+    display: none;
+}
+
+@media screen and (max-width: 48em) and (orientation: portrait) {
+    .desktop-gif {
+        display: none;
+    }
+
+    .mobile-gif {
+        display: block;
+    }
 }

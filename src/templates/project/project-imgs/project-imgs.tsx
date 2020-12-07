@@ -9,7 +9,7 @@ import {
     ButtonNext,
     DotGroup,
 } from 'pure-react-carousel'
-import { Box, Image } from 'rebass'
+import { Box } from 'rebass'
 import Img from 'gatsby-image'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
@@ -73,6 +73,10 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                     '&.back': { left: 0 },
                     '&.next': { right: 0 },
                 },
+                '& > video': {
+                    height: 1024,
+                    width: 683,
+                },
             }}
             ref={imgRef}
         >
@@ -118,31 +122,26 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                             ]}
                             width="100%"
                             bg="accent"
+                            sx={{ video: { height: '100%', width: '100%' } }}
                         >
-                            <Image
-                                src={gifs.gif}
-                                height="100%"
-                                width="100%"
-                                // sx={{ display: ['none', 'block'] }}
-                                css={`
-                                    display: block;
-                                    @media screen and (max-width: 48em) and (orientation: portrait) {
-                                        display: none;
-                                    }
-                                `}
-                            />
-                            <Image
-                                src={gifs.gifMobile}
-                                height="100%"
-                                width="100%"
-                                // sx={{ display: ['block', 'none'] }}
-                                css={`
-                                    display: none;
-                                    @media screen and (max-width: 48em) and (orientation: portrait) {
-                                        display: block;
-                                    }
-                                `}
-                            />
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="desktop-gif"
+                            >
+                                <source src={gifs.gif} type="video/mp4" />
+                            </video>
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="mobile-gif"
+                            >
+                                <source src={gifs.gifMobile} type="video/mp4" />
+                            </video>
                         </Box>
                     </Slide>
                 </Slider>
