@@ -94,7 +94,7 @@ const Layout: React.FC = ({ children }) => {
                     overflowX: 'hidden',
                     'cursor:hover': applyCustomCursor ? 'none' : 'unset',
                     'a, button': {
-                        cursor: applyCustomCursor ? 'none' : 'unset',
+                        cursor: applyCustomCursor ? 'none' : 'hover',
                     },
                 }}
             >
