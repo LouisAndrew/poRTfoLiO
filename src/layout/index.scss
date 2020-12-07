@@ -4,6 +4,20 @@ body {
     a {
         text-decoration: none;
     }
+
+    main {
+        button,
+        a {
+            cursor: pointer !important;
+        }
+
+        &.custom-cursor {
+            button,
+            a {
+                cursor: none !important;
+            }
+        }
+    }
 }
 
 * {

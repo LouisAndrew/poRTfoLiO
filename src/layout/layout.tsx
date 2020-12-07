@@ -92,14 +92,14 @@ const Layout: React.FC = ({ children }) => {
                     position: 'relative',
                     maxWidth: '100vw',
                     overflowX: 'hidden',
-                    'cursor:hover': applyCustomCursor ? 'none' : 'unset',
-                    'a, button': {
-                        cursor: applyCustomCursor ? 'none' : 'hover',
-                    },
                 }}
             >
                 <Header />
-                <Box as="main" sx={{ scrollBehavior: 'smooth' }}>
+                <Box
+                    as="main"
+                    className={applyCustomCursor ? 'custom-cursor' : ''}
+                    sx={{ scrollBehavior: 'smooth' }}
+                >
                     {children}
                 </Box>
                 <Footer />

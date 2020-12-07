@@ -6,6 +6,7 @@ import { get } from 'lodash'
 
 import { Project } from './project'
 import Layout from 'layout'
+import { SEO } from 'components/seo'
 
 export type Screenshot = {
     screenshotLabel: string
@@ -60,8 +61,6 @@ const ProjectPage = (props: any) => {
     const imgL = getImgFromQuery(false, imgLQuery)
     const imgXL = getImgFromQuery(false, imgXLQuery)
 
-    console.log(frontmatter)
-
     const data: QueryData = {
         ...frontmatter,
         previewDesc: frontmatter.preview_desc,
@@ -93,6 +92,10 @@ const ProjectPage = (props: any) => {
 
     return (
         <Layout>
+            <SEO
+                title={`Louis Andrew | ${data.projectName}`}
+                image={frontmatter.project_screenshots[0].publicURL}
+            />
             <Project {...data} />
         </Layout>
     )
@@ -110,6 +113,9 @@ export const query = graphql`
                 project_name
                 project_screenshots {
                     screenshot_label
+                    screenshot {
+                        publicURL
+                    }
                 }
                 project_gif {
                     gif {
