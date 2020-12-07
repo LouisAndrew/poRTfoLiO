@@ -31,8 +31,13 @@ collections:
             widget: list
             summary: '{{fields.image}}'
             fields:
-                - { label: GIF, name: gif, widget: image }
-                - { label: 'GIF mobile', name: gif_mobile, widget: image }
+                - { label: GIF, name: gif, widget: file, allow_multiple: false }
+                - {
+                      label: 'GIF mobile',
+                      name: gif_mobile,
+                      widget: file,
+                      allow_multiple: false,
+                  }
           - label: 'Project Screenshots'
             name: 'project_screenshots'
             widget: 'list'
