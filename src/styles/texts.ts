@@ -56,6 +56,11 @@ export default {
         my: [3, 3, 0],
         fontSize: [4, 4, 2],
         color: 'primary',
+        filter: 'brightness(0.5)',
+        transition: '200ms',
+        '&:hover': {
+            filter: 'brightness(1)',
+        },
     },
     articleLink: {
         color: 'text',

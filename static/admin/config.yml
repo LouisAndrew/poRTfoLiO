@@ -41,7 +41,7 @@ collections:
           - label: 'Project Screenshots'
             name: 'project_screenshots'
             widget: 'list'
-            summary: '{{fields.image}}'
+            summary: '{{fields.screenshot_label}}'
             fields:
                 - { label: Screenshot, name: screenshot, widget: image }
                 - {

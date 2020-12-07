@@ -62,7 +62,7 @@ const EmailMe: React.FC<unknown> = () => {
             <Link
                 as="a"
                 href={`mailto:${email}`}
-                sx={{ textDecoration: 'none' }}
+                sx={{ textDecoration: 'none', cursor: 'pointer' }}
             >
                 <Button
                     width={['100%', 'fit-content']}

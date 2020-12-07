@@ -19,6 +19,8 @@ const ThemeSwitcher: React.FC<unknown> = () => {
             mt={[2, 2, 0]}
             flexDirection={lightTheme ? 'row' : 'row-reverse'}
             sx={{
+                background: 'none',
+                px: 0,
                 borderStyle: 'solid',
                 borderWidth: 1,
                 borderLeftWidth: lightTheme ? [0, 0, 0] : [1, 1, 0],
@@ -29,6 +31,7 @@ const ThemeSwitcher: React.FC<unknown> = () => {
                 svg: { path: { fill: 'primary' } },
                 overflow: 'hidden',
                 height: [32],
+                cursor: 'pointer',
                 '&:hover': {
                     borderLeftWidth: lightTheme ? [0, 0, 0] : [1, 1, 1],
                     borderRightWidth: lightTheme ? [1, 1, 1] : [0, 0, 0],
