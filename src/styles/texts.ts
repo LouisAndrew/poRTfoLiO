@@ -51,7 +51,7 @@ export default {
         mt: [4, 4, 4, 4, 24],
     },
     headerLinks: {
-        fontFamily: 'heading',
+        fontFamily: 'body',
         fontWeight: 'bold',
         mx: [0, 0, 3],
         my: [3, 3, 0],
