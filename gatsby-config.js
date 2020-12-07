@@ -1,10 +1,16 @@
-const siteTitle = 'gatsby-starter-typescript-deluxe'
+const siteTitle = 'Louis Andrew | Portfolio Site'
 const siteDescription =
-    'A Gatsby starter with TypeScript, Storybook, Styled Components, Framer Motion, Jest, and more.'
-const siteAuthor = '@gojutin'
-const siteUrl = 'https://gatsby-starter-typescript-deluxe.netlify.com'
+    'Portfolio site of Louis Andrew 🚀. Showcasing my best works as beautiful as possible.'
+const siteAuthor = '@louisandrew'
+const siteUrl = 'https://louis-andrew.com'
 const siteImage = `${siteUrl}/icons/icon_512x512.png`
-const siteKeywords = ['gatsby', 'typescript', 'starter', 'javascript', 'react']
+const siteKeywords = [
+    'web-developer',
+    'front-end developer',
+    'front end',
+    'React',
+    'Portfolio',
+]
 
 const path = require('path')
 

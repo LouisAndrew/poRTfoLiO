@@ -56,6 +56,8 @@ const ProjectPage = (props: any) => {
 
     const frontmatter = projectData.frontmatter
 
+    console.log(frontmatter.project_screenshots[0])
+
     const imgS = getImgFromQuery(true, imgSQuery)
     const imgM = getImgFromQuery(false, imgMQuery)
     const imgL = getImgFromQuery(false, imgLQuery)
@@ -92,11 +94,9 @@ const ProjectPage = (props: any) => {
 
     const seoProps = {
         title: `Louis Andrew | ${data.projectName}`,
-        image: frontmatter.project_screenshots[0].publicURL,
+        image: `http://louis-andrew.com${frontmatter.project_screenshots[0].screenshot.publicURL}`,
         description: data.previewDesc,
     }
-
-    console.log(seoProps)
 
     return (
         <Layout>
