@@ -23,8 +23,8 @@ const Footer: React.FC<unknown> = () => {
             TweenLite.to('#header-link-contact', 0.4, {
                 scrollTrigger: {
                     trigger: el,
-                    start: '+=100',
-                    end: '-=100',
+                    start: '-=100',
+                    end: '-=150',
                     toggleActions: 'play reverse play reverse',
                 },
                 opacity: 1,
