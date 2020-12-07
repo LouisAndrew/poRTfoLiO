@@ -90,12 +90,17 @@ const ProjectPage = (props: any) => {
         webUrl: frontmatter.web_url,
     }
 
+    const seoProps = {
+        title: `Louis Andrew | ${data.projectName}`,
+        image: frontmatter.project_screenshots[0].publicURL,
+        description: data.previewDesc,
+    }
+
+    console.log(seoProps)
+
     return (
         <Layout>
-            <SEO
-                title={`Louis Andrew | ${data.projectName}`}
-                image={frontmatter.project_screenshots[0].publicURL}
-            />
+            <SEO {...seoProps} />
             <Project {...data} />
         </Layout>
     )
