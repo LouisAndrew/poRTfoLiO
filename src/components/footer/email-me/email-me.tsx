@@ -62,16 +62,16 @@ const EmailMe: React.FC<unknown> = () => {
             <Link
                 as="a"
                 href={`mailto:${email}`}
-                sx={{ textDecoration: 'none', cursor: 'pointer' }}
+                variant="buttons.secondary"
+                width={['100%', 'fit-content']}
+                sx={{
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                    justifyContent: 'center',
+                }}
             >
-                <Button
-                    width={['100%', 'fit-content']}
-                    sx={{ justifyContent: 'center' }}
-                    variant="secondary"
-                >
-                    <AiOutlineMail />
-                    {btnText}
-                </Button>
+                <AiOutlineMail />
+                {btnText}
             </Link>
         </Box>
     )
