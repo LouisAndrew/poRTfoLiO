@@ -52,12 +52,12 @@ export default {
     },
     headerLinks: {
         fontFamily: 'body',
-        fontWeight: 'bold',
+        fontWeight: 800,
         mx: [0, 0, 3],
         my: [3, 3, 0],
         fontSize: [4, 4, 2],
         color: 'primary',
-        opacity: 0.6,
+        opacity: 0.5,
         transition: '200ms',
         '&:hover': {
             opacity: 1,

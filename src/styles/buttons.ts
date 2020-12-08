@@ -14,6 +14,7 @@ const base = {
         width: [18, 18, 24, 24, 24, 32],
         mr: [12, 12, 3],
     },
+    cursor: 'pointer',
 }
 
 export default {

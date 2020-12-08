@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'gatsby'
 // import styling libs
 import { Box, Text } from 'rebass'
 import { TweenLite } from 'gsap'
@@ -22,7 +23,7 @@ const Scroller: React.FC<Props> = ({ percentage }) => {
 
     const scrollerRef = React.createRef<HTMLDivElement>()
 
-    const transformY = percentage < 0 ? 0 : percentage
+    const transformY = percentage < 0 ? 0 : percentage >= 1 ? 1 : percentage
 
     useEffect(() => {
         if (scrollerRef.current) {
@@ -31,53 +32,55 @@ const Scroller: React.FC<Props> = ({ percentage }) => {
     }, [])
 
     return (
-        <Box
-            sx={{
-                position: 'relative',
-                top: [64, 48, 64],
-            }}
-            role="complementary"
-            className="scroller"
-            ref={scrollerRef}
-        >
-            <Text variant="utils" as="h4">
-                SCROLL DOWN TO SEE MY PROJECTS
-            </Text>
+        <Link to="/#projects">
             <Box
-                mt={[2]}
-                height={[24, 24, 32]}
-                width={[14, 14, 18]}
-                mx="auto"
                 sx={{
-                    borderStyle: 'solid',
-                    borderWidth: 2,
-                    borderColor: 'primary',
-                    borderRadius: [8],
                     position: 'relative',
+                    top: [64, 48, 64],
                 }}
-                role="button"
-                className="scroller__box"
+                role="complementary"
+                className="scroller"
+                ref={scrollerRef}
             >
+                <Text variant="utils" as="h4">
+                    SCROLL DOWN TO SEE MY PROJECTS
+                </Text>
                 <Box
-                    height={[6, 6, 10]}
-                    width={[6, 6, 10]}
+                    mt={[2]}
+                    height={[24, 24, 32]}
+                    width={[14, 14, 18]}
                     mx="auto"
-                    bg="primary"
                     sx={{
-                        borderRadius: '50%',
-                        position: 'absolute',
-                        top: '2px',
-                        left: '50%',
-                        transition: '0.1s',
-                        transform: `translate(-50%, ${Math.floor(
-                            transformY * 100
-                        )}%)`,
+                        borderStyle: 'solid',
+                        borderWidth: 2,
+                        borderColor: 'primary',
+                        borderRadius: [8],
+                        position: 'relative',
                     }}
-                    className="scroller__thumb"
-                    data-testid="scroller-thumb"
-                />
+                    role="button"
+                    className="scroller__box"
+                >
+                    <Box
+                        height={[6, 6, 10]}
+                        width={[6, 6, 10]}
+                        mx="auto"
+                        bg="primary"
+                        sx={{
+                            borderRadius: '50%',
+                            position: 'absolute',
+                            top: '2px',
+                            left: '50%',
+                            transition: '0.1s',
+                            transform: `translate(-50%, ${Math.floor(
+                                transformY * 100
+                            )}%)`,
+                        }}
+                        className="scroller__thumb"
+                        data-testid="scroller-thumb"
+                    />
+                </Box>
             </Box>
-        </Box>
+        </Link>
     )
 }
 

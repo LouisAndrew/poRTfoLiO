@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import { Box, Heading, Text, Button, Link } from 'rebass'
-import { AiFillMail } from 'react-icons/ai'
+import { AiOutlineMail } from 'react-icons/ai'
 // import local components
 
 // custom styling for ipohne 5s
@@ -67,8 +67,9 @@ const EmailMe: React.FC<unknown> = () => {
                 <Button
                     width={['100%', 'fit-content']}
                     sx={{ justifyContent: 'center' }}
+                    variant="secondary"
                 >
-                    <AiFillMail />
+                    <AiOutlineMail />
                     {btnText}
                 </Button>
             </Link>

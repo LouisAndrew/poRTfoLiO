@@ -1,23 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Scroller matches snapshot 1`] = `
-<div
-  className="scroller css-1sfhpft"
-  role="complementary"
+<a
+  href="/#projects"
 >
-  <h4
-    className="css-vurnku"
-  >
-    SCROLL DOWN TO SEE MY PROJECTS
-  </h4>
   <div
-    className="scroller__box css-1o8ebip"
-    role="button"
+    className="scroller css-1sfhpft"
+    role="complementary"
   >
+    <h4
+      className="css-vurnku"
+    >
+      SCROLL DOWN TO SEE MY PROJECTS
+    </h4>
     <div
-      className="scroller__thumb css-16w70n9"
-      data-testid="scroller-thumb"
-    />
+      className="scroller__box css-1o8ebip"
+      role="button"
+    >
+      <div
+        className="scroller__thumb css-16w70n9"
+        data-testid="scroller-thumb"
+      />
+    </div>
   </div>
-</div>
+</a>
 `;
