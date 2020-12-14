@@ -3,7 +3,7 @@ const siteDescription =
     'Portfolio site of Louis Andrew 🚀. Showcasing my best works as beautiful as possible.'
 const siteAuthor = '@louisandrew'
 const siteUrl = 'https://louis-andrew.com'
-const siteImage = `${siteUrl}/icons/icon_512x512.png`
+const siteImage = `${siteUrl}/icons/icon_512x512.PNG`
 const siteKeywords = [
     'web-developer',
     'front-end developer',
@@ -89,13 +89,13 @@ module.exports = {
                 short_name: siteTitle,
                 description: siteDescription,
                 start_url: `/`,
-                background_color: `#663399`,
-                theme_color: `#663399`,
+                background_color: `#2b5797`,
+                theme_color: `#2b5797`,
                 display: `minimal-ui`,
                 icon: 'src/images/icon.png',
                 icons: [
                     {
-                        src: 'icons/icon_512x512.png',
+                        src: 'icons/icon_512x512.PNG',
                         sizes: '512x512',
                         types: 'image/png',
                     },
