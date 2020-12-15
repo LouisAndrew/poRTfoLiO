@@ -37,6 +37,9 @@ desc: >-
 
 
   The application is built with React, tailwind CSS as the CSS framework of choice and ffmpeg.wasm as the engine behind the video to gif conversion.
+
+
+  *PS: Screenshots provided for mobile devices were taken from a windows PC, because there aren't any mobile browser that compatible with the app right now.*
 web_url: https://vid-to-gif.vercel.app/
 repo_url: https://github.com/LouisAndrew/vid-to-gif
 preview_desc: Simple video to gif converter. Powered by webassembly and highly
