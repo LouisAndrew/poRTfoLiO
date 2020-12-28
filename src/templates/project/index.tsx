@@ -52,15 +52,13 @@ const getImgFromQuery = (isMobile: boolean, queryResult: any) => {
  */
 const ProjectPage = (props: any) => {
     const {
-        data: { projectData, imgSQuery, imgMQuery, imgLQuery, imgXLQuery },
+        data: { projectData, imgSQuery, imgLQuery, imgXLQuery },
     } = props
 
     const frontmatter = projectData.frontmatter
 
-    console.log(frontmatter.project_screenshots[0])
-
     const imgS = getImgFromQuery(true, imgSQuery)
-    const imgM = getImgFromQuery(false, imgMQuery)
+    // const imgM = getImgFromQuery(false, imgMQuery)
     const imgL = getImgFromQuery(false, imgLQuery)
     const imgXL = getImgFromQuery(false, imgXLQuery)
 
@@ -92,6 +90,7 @@ const ProjectPage = (props: any) => {
         },
         repoUrl: frontmatter.repo_url,
         webUrl: frontmatter.web_url,
+        finishedDate: frontmatter.finished_date,
     }
 
     const seoProps = {

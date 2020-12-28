@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
-import { Box, Heading, Text, Button, Link } from 'rebass'
+import { Box, Heading, Text, Link } from 'rebass'
 import { AiOutlineMail } from 'react-icons/ai'
 // import local components
 

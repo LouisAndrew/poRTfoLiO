@@ -65,6 +65,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                     width: '100%',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    bottom: [-24],
                     'button.carousel__dot': {
                         bg: 'primary',
                         '&:after': { color: 'primary' },
@@ -87,16 +88,6 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                     borderRadius: [4, 4, 4, 4, 4, 8],
                     '&.back': { left: ['8px', '8px', 16] },
                     '&.next': { right: ['8px', '8px', 16] },
-                },
-                '& > video': {
-                    height: [
-                        'calc(0.66 * 85vw)',
-                        'calc(0.66 * 85vw)',
-                        'calc(0.66 * 85vw)',
-                        'calc(0.66 * 85vw)',
-                        1024,
-                    ],
-                    width: ['85vw', '85vw', '85vw', '85vw', 683],
                 },
             }}
             ref={imgRef}
