@@ -4,7 +4,7 @@ project_gif:
   - gif: /img/desktop_screen_record.mp4
     gif_mobile: /img/mobile_screen_record.mp4
 project_screenshots:
-  - screenshot: /img/main.jpg
+  - screenshot: /img/desktop-21.png
     screenshot_mobile: /img/main-1-mbl.png
     screenshot_label: Main section of the app
   - screenshot: /img/auth.png
