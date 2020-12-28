@@ -13,7 +13,7 @@ export default {
      */
     heading: {
         fontFamily: 'heading',
-        fontWeight: 'bold',
+        fontWeight: 'heading',
         fontSize: ['3vh', 3, 5, 5, 5, 6],
         color: 'primary',
     },
@@ -52,7 +52,7 @@ export default {
     },
     headerLinks: {
         fontFamily: 'body',
-        fontWeight: 800,
+        fontWeight: 700,
         mx: [0, 0, 3],
         my: [3, 3, 0],
         fontSize: [4, 4, 2],

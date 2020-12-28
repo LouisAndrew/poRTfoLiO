@@ -47,9 +47,19 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
 
     return (
         <Box
-            pb={[24, 24, 4]}
+            pb={[48, 48, 4]}
+            width={['100vw', '100vw', '100vw', '100vw', '100%', '100%']}
+            height={[
+                'calc(0.66 * 100vw)',
+                'calc(0.66 * 100vw)',
+                'calc(0.66 * 100vw)',
+                'calc(0.66 * 100vw)',
+                683,
+                1094,
+            ]}
             sx={{
                 position: 'relative',
+                left: ['-7.5vw', '-7.5vw', '-7.5vw', '-7.5vw', 0],
                 '.carousel-dot': {
                     display: 'flex',
                     width: '100%',
@@ -63,23 +73,30 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                 '.carousel-button': {
                     position: 'absolute',
                     top: '50%',
-                    transform: 'translateY(-70%)',
+                    transform: 'translateY(-50%)',
                     bg: 'transHeader',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    py: [2],
+                    p: [2],
                     svg: {
-                        height: 24,
-                        width: 24,
+                        height: [12, 12, 16, 16, 16, 32],
+                        width: [12, 12, 16, 16, 16, 32],
                         fill: 'primary',
                     },
-                    '&.back': { left: 0 },
-                    '&.next': { right: 0 },
+                    borderRadius: [4, 4, 4, 4, 4, 8],
+                    '&.back': { left: ['8px', '8px', 16] },
+                    '&.next': { right: ['8px', '8px', 16] },
                 },
                 '& > video': {
-                    height: 1024,
-                    width: 683,
+                    height: [
+                        'calc(0.66 * 85vw)',
+                        'calc(0.66 * 85vw)',
+                        'calc(0.66 * 85vw)',
+                        'calc(0.66 * 85vw)',
+                        1024,
+                    ],
+                    width: ['85vw', '85vw', '85vw', '85vw', 683],
                 },
             }}
             ref={imgRef}
@@ -93,18 +110,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                 <Slider className="carousel-slide">
                     {screenshots.map((s, i) => (
                         <Slide index={i} innerClassName="slide">
-                            <Box
-                                height={[
-                                    '70vh',
-                                    '100vh',
-                                    'calc(0.66 * 85vw)',
-                                    'calc(0.66 * 85vw)',
-                                    683,
-                                    1094,
-                                ]}
-                                width="100%"
-                                bg="accent"
-                            >
+                            <Box height="100%" width="100%" bg="accent">
                                 <Img
                                     style={{ height: '100%', width: '100%' }}
                                     imgStyle={{ objectPosition: 'center' }}
@@ -116,14 +122,7 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                     ))}
                     <Slide index={screenshots.length} innerClassName="slide">
                         <Box
-                            height={[
-                                '70vh',
-                                '100vh',
-                                'calc(0.66 * 85vw)',
-                                'calc(0.66 * 85vw)',
-                                683,
-                                1094,
-                            ]}
+                            height="100%"
                             width="100%"
                             bg="accent"
                             sx={{ video: { height: '100%', width: '100%' } }}
@@ -136,15 +135,6 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                                 className="desktop-gif"
                             >
                                 <source src={gifs.gif} type="video/mp4" />
-                            </video>
-                            <video
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="mobile-gif"
-                            >
-                                <source src={gifs.gifMobile} type="video/mp4" />
                             </video>
                         </Box>
                     </Slide>

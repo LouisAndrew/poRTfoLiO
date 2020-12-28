@@ -179,7 +179,6 @@ const Hero: React.FC<unknown> = () => {
         }
     }
 
-    // TODO: add custom styling for iphone 5
     return (
         <Flex variant="wrapper" id="hero" ref={heroRef}>
             <Flex

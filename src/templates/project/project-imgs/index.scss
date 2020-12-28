@@ -1,20 +1,20 @@
 .slide,
 .carousel-slide {
-    height: 70vh;
+    height: calc(0.66 * 100vw);
 
-    @media screen and (min-width: 48em) and (orientation: landscape) and (max-width: 60em) {
-        height: 100vh;
+    @media only screen and (min-width: 24em) and (orientation: landscape) and (max-width: 60em) {
+        height: calc(0.66 * 100vw);
     }
 
-    @media screen and (min-width: 48em) {
-        height: calc(0.66 * 85vw);
+    @media only screen and (min-width: 48em) {
+        height: calc(0.66 * 100vw);
     }
 
-    @media screen and (min-width: 64em) {
+    @media only screen and (min-width: 64em) {
         height: 683px;
     }
 
-    @media screen and (min-width: 122em) {
+    @media only screen and (min-width: 122em) {
         height: 1093px;
     }
 }
@@ -80,22 +80,4 @@
     background: none;
     outline: none;
     border: none;
-}
-
-.desktop-gif {
-    display: block;
-}
-
-.mobile-gif {
-    display: none;
-}
-
-@media screen and (max-width: 48em) and (orientation: portrait) {
-    .desktop-gif {
-        display: none;
-    }
-
-    .mobile-gif {
-        display: block;
-    }
 }

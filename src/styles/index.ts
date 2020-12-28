@@ -11,13 +11,13 @@ const theme = {
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     fonts: {
         body: "'Nunito', sans-serif",
-        heading: "'Montserrat', sans-serif",
+        heading: "'Karla', sans-serif",
         monospace: 'Menlo, monospace',
     },
     fontWeights: {
         body: 400,
         heading: 700,
-        bold: 700,
+        bold: 800,
     },
     lineHeights: {
         body: 1.5,
