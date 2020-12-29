@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
-import { Link, Box } from 'rebass'
+import { Link, Flex } from 'rebass'
 import {
     AiFillGithub,
     AiFillLinkedin,
@@ -40,7 +40,7 @@ const Socials: React.FC<unknown> = () => {
     const socials = data.socialData.frontmatter.social
 
     return (
-        <Box>
+        <Flex mt={[4]} justifyContent={['center', 'unset']}>
             {socials.map((social: { link: string; social_key: socialKeys }) => (
                 <SocialCard
                     key={social.link}
@@ -48,7 +48,7 @@ const Socials: React.FC<unknown> = () => {
                     socialKey={social.social_key}
                 />
             ))}
-        </Box>
+        </Flex>
     )
 }
 
@@ -63,29 +63,30 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
             target="_blank"
             data-testid={socialKey}
             as="a"
-            bg="background"
-            height={[50, 50, 50, 50, 50, 80]}
-            width={[50, 50, 50, 50, 50, 80]}
-            mt={[2]}
+            bg="secondary"
+            height={[35, 35, 35, 35, 35, 80]}
+            width={[35, 35, 35, 35, 35, 80]}
+            mr={[3]}
             variant="center"
             sx={{
                 display: 'flex',
-                borderRadius: 4,
-                borderStyle: 'solid',
-                borderWidth: 1,
-                borderColor: 'accent',
+                borderRadius: '100%',
                 position: 'relative',
-
+                transition: '0.3s',
+                borderWidth: 2,
+                borderStyle: 'solid',
+                borderColor: 'primary',
                 svg: {
+                    transition: '0.2s',
                     height: [25, 25, 25, 25, 25, 50],
                     width: [25, 25, 25, 25, 25, 50],
-                    path: { fill: 'text' },
+                    path: { transition: '0.2s', fill: 'primary' },
                 },
                 '&:hover': {
+                    bg: 'primary',
+                    borderColor: 'transparent',
                     svg: {
-                        // height: [30, 30, 30, 40, 40, 60],
-                        // width: [30, 30, 30, 40, 40, 60],
-                        path: { fill: 'primary' },
+                        path: { fill: 'secondary' },
                         transition: '200ms',
                     },
                 },

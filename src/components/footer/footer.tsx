@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { TweenLite } from 'gsap'
 // import styling libs
-import { Flex } from 'rebass'
+import { Flex, Box } from 'rebass'
 // import local components
 import Socials from './socials'
 import Links from './links'
@@ -45,10 +45,10 @@ const Footer: React.FC<unknown> = () => {
                 justifyContent={['space-between']}
                 width="100%"
             >
-                <Flex pt={[4, 0]}>
-                    <Socials />
+                <Box width={['100%', '50%']} mt={[4, 0]} sx={{ flexGrow: 0 }}>
                     <Links />
-                </Flex>
+                    <Socials />
+                </Box>
                 <EmailMe />
             </Flex>
         </Flex>

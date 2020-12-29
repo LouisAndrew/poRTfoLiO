@@ -3,6 +3,9 @@ import text from './texts'
 import variants from './variants'
 
 const theme = {
+    root: {
+        bg: '#aec6cf',
+    },
     //             640,   832,     960,    1040,   1952px
     breakpoints: ['40em', '48em', '60em', '64em', '122em'],
     //          0,  1,  2,  3,  4,  5,  6,  7,  8

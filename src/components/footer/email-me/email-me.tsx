@@ -39,8 +39,8 @@ const EmailMe: React.FC<unknown> = () => {
 
     return (
         <Box
-            id="contact"
             width={['unset', '50%']}
+            id="contact"
             sx={{ textAlign: ['center', 'left'] }}
         >
             <Heading variant="heading">
@@ -63,8 +63,9 @@ const EmailMe: React.FC<unknown> = () => {
             <Button
                 as="a"
                 href={`mailto:${email}`}
-                width={['100%', 'fit-content']}
+                width="fit-content"
                 bg="linkColor"
+                mx={['auto', 'unset']}
                 color="#000"
                 sx={{
                     boxShadow: `6px 6px 0px ${
