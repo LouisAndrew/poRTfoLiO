@@ -69,7 +69,7 @@ exports[`Hero matches snapshot 1`] = `
         className="hero__details-box css-dg0yw"
       >
         <h1
-          className="css-b5c2cb"
+          className="css-pvzc1i"
           data-testid="heading"
         >
           Hello
@@ -87,8 +87,14 @@ exports[`Hero matches snapshot 1`] = `
             👋
           </span>
           <br />
-          I am headline
-          <br />
+          My name is
+           
+          <span
+            className="css-wgmbn4"
+          >
+            Louis Andrew
+          </span>
+          . I'm a front end developer.
         </h1>
         <p
           className="css-vurnku"

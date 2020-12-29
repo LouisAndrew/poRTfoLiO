@@ -30,20 +30,23 @@ const WithTheme: React.FC<Props> = ({ children, css, ...rest }) => {
     const lightColors: ColorMode = {
         accent: '#e4e4e4',
         background: '#F9F9F9',
-        primary: '#000000',
+        primary: '#2e2e2e',
         text: '#646464',
         secondary: '#ffffff',
         transHeader: 'rgba(255, 255, 255, 0.5)',
+        primaryHeading: '#000',
         linkColor,
     }
 
     const darkColors: ColorMode = {
         accent: '#3A3A3A',
         background: '#000000',
-        primary: '#F9F9F9',
+        primary: '#eeeeee',
         text: '#ABABAB',
         secondary: '#232323',
         transHeader: 'rgba(0, 0, 0, 0.5)',
+        primaryHeading: '#fff',
+
         linkColor,
     }
 

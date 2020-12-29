@@ -25,7 +25,6 @@ const Hero: React.FC<unknown> = () => {
                 frontmatter {
                     hero {
                         hero_content
-                        hero_headline
                     }
                 }
             }
@@ -112,7 +111,7 @@ const Hero: React.FC<unknown> = () => {
         } as FixedObject,
         imgL as FixedObject,
     ]
-    const { hero_content: heroContent, hero_headline: heroHeadline } = pageData
+    const { hero_content: heroContent } = pageData
     const [scrollTop, setScrollTop] = useState(0)
     const [heroHeight, setHeroHeight] = useState(0)
     const [percentage, setPercentage] = useState(0)
@@ -222,6 +221,7 @@ const Hero: React.FC<unknown> = () => {
                         <Heading
                             as="h1"
                             variant="primHeading"
+                            color="primary"
                             data-testid="heading"
                             my={[3, 3, 4]}
                         >
@@ -237,14 +237,22 @@ const Hero: React.FC<unknown> = () => {
                                 👋
                             </span>
                             <br />
-                            {heroHeadline
-                                .split('\\n')
-                                .map((text: string, i: number) => (
-                                    <React.Fragment key={`hero-heading-${i}`}>
-                                        {text}
-                                        <br />
-                                    </React.Fragment>
-                                ))}
+                            My name is{' '}
+                            <Text
+                                as="span"
+                                variant="articleLink"
+                                color="primaryHeading"
+                                sx={{
+                                    filter: 'brightness(1.1)',
+                                    '&:before': {
+                                        height: 8,
+                                    },
+                                    '&:hover': { '&:before': { height: 8 } },
+                                }}
+                            >
+                                Louis Andrew
+                            </Text>
+                            . I'm a front end developer.
                         </Heading>
                         <Text as="p" variant="body" data-testid="content">
                             {heroContent}
