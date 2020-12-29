@@ -32,23 +32,12 @@ collections:
             summary: '{{fields.image}}'
             fields:
                 - { label: GIF, name: gif, widget: file, allow_multiple: false }
-                - {
-                      label: 'GIF mobile',
-                      name: gif_mobile,
-                      widget: file,
-                      allow_multiple: false,
-                  }
           - label: 'Project Screenshots'
             name: 'project_screenshots'
             widget: 'list'
             summary: '{{fields.screenshot_label}}'
             fields:
                 - { label: Screenshot, name: screenshot, widget: image }
-                - {
-                      label: 'Screenshot mobile',
-                      name: screenshot_mobile,
-                      widget: image,
-                  }
                 - {
                       label: 'Screenshot label',
                       name: screenshot_label,
