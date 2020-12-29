@@ -247,7 +247,7 @@ const Hero: React.FC<unknown> = () => {
                                     '&:before': {
                                         height: 8,
                                     },
-                                    '&:hover': { '&:before': { height: 8 } },
+                                    '&:hover': { color: 'primaryHeading', '&:before': { height: 8 } },
                                 }}
                             >
                                 Louis Andrew

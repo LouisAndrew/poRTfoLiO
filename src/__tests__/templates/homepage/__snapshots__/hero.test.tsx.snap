@@ -90,7 +90,7 @@ exports[`Hero matches snapshot 1`] = `
           My name is
            
           <span
-            className="css-wgmbn4"
+            className="css-d33ata"
           >
             Louis Andrew
           </span>
