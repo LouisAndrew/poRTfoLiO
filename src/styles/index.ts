@@ -11,7 +11,7 @@ const theme = {
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     fonts: {
         body: "'Nunito', sans-serif",
-        heading: "'Karla', sans-serif",
+        heading: "'Libre Franklin', sans-serif",
         monospace: 'Menlo, monospace',
     },
     fontWeights: {

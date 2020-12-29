@@ -5,7 +5,7 @@ import { useEffect } from 'react'
  */
 const useGoogleFonts = () => {
     const LINK_URL =
-        'https://fonts.googleapis.com/css2?family=Karla:wght@400;700;800&family=Nunito:wght@300;400;700;800&display=swap'
+        'https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800&family=Nunito:wght@300;400;700;800&display=swap'
 
     const LINK_PRECONNECT_URL = 'https://fonts.gstatic.com'
 

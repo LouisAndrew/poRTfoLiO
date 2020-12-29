@@ -95,7 +95,11 @@ const Skillcard: React.FC<Props> = ({ techName, variant = 'small' }) => {
                     />
                 </Flex>
             </Box>
-            <Text variant="utils" mt={variant === 'small' ? [] : [3, 0, 0]}>
+            <Text
+                variant="utils"
+                fontSize={[0, 1, 2, 3, 3, 4]}
+                mt={variant === 'small' ? [] : [3, 0, 0]}
+            >
                 {name}
             </Text>
         </Flex>
