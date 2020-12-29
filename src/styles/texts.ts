@@ -5,7 +5,7 @@ export default {
     primHeading: {
         fontFamily: 'heading',
         fontWeight: 'bold',
-        fontSize: ['3.5vh', 4, 6, 6, 6, 7],
+        fontSize: ['3.5vh', 5, 6, 6, 6, 7],
         color: 'primary',
     },
     /**
@@ -13,7 +13,7 @@ export default {
      */
     heading: {
         fontFamily: 'heading',
-        fontWeight: 'bold',
+        fontWeight: 'heading',
         fontSize: ['3vh', 3, 5, 5, 5, 6],
         color: 'primary',
     },
@@ -38,8 +38,8 @@ export default {
      */
     utils: {
         fontFamily: 'heading',
-        fontWeight: 'bold',
-        fontSize: [0, 0, 2, 3, 3, 5],
+        fontWeight: 'heading',
+        fontSize: [0, 0, 1, 1, 1, 3],
         color: 'primary',
     },
     links: {
@@ -52,7 +52,7 @@ export default {
     },
     headerLinks: {
         fontFamily: 'body',
-        fontWeight: 800,
+        fontWeight: 700,
         mx: [0, 0, 3],
         my: [3, 3, 0],
         fontSize: [4, 4, 2],

@@ -11,6 +11,7 @@ import { SEO } from 'components/seo'
 export type Screenshot = {
     screenshotLabel: string
     sources: FluidObject[]
+    publicURL: string
 }
 
 export type QueryData = {
@@ -51,15 +52,13 @@ const getImgFromQuery = (isMobile: boolean, queryResult: any) => {
  */
 const ProjectPage = (props: any) => {
     const {
-        data: { projectData, imgSQuery, imgMQuery, imgLQuery, imgXLQuery },
+        data: { projectData, imgSQuery, imgLQuery, imgXLQuery },
     } = props
 
     const frontmatter = projectData.frontmatter
 
-    console.log(frontmatter.project_screenshots[0])
-
     const imgS = getImgFromQuery(true, imgSQuery)
-    const imgM = getImgFromQuery(false, imgMQuery)
+    // const imgM = getImgFromQuery(false, imgMQuery)
     const imgL = getImgFromQuery(false, imgLQuery)
     const imgXL = getImgFromQuery(false, imgXLQuery)
 
@@ -75,13 +74,14 @@ const ProjectPage = (props: any) => {
                         ...imgS[index],
                         media: '(max-width: 48em) and (orientation: portrait)',
                     },
-                    {
-                        ...imgM[index],
-                        media: '(max-width: 64em)',
-                    },
+                    // {
+                    //     ...imgM[index],
+                    //     media: '(max-width: 64em)',
+                    // },
                     { ...imgXL[index], media: '(min-width: 122em)' },
                     imgL[index],
                 ] as FluidObject[],
+                publicURL: p.screenshot.publicURL,
             })
         ),
         projectGif: {
@@ -90,6 +90,7 @@ const ProjectPage = (props: any) => {
         },
         repoUrl: frontmatter.repo_url,
         webUrl: frontmatter.web_url,
+        finishedDate: frontmatter.finished_date,
     }
 
     const seoProps = {
@@ -140,7 +141,7 @@ export const query = graphql`
         ) {
             frontmatter {
                 project_screenshots {
-                    screenshot_mobile {
+                    screenshot {
                         childImageSharp {
                             fluid(maxWidth: 400, quality: 90) {
                                 ...GatsbyImageSharpFluid
@@ -157,7 +158,7 @@ export const query = graphql`
                 project_screenshots {
                     screenshot {
                         childImageSharp {
-                            fluid(maxWidth: 760, quality: 90) {
+                            fluid(maxWidth: 900, maxHeight: 600, quality: 90) {
                                 ...GatsbyImageSharpFluid
                             }
                         }

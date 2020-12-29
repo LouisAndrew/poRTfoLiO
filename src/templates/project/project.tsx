@@ -22,7 +22,7 @@ type Props = QueryData
  */
 const Project: React.FC<Props> = ({
     desc,
-    // finishedDate,
+    finishedDate,
     projectGif,
     projectName,
     projectScreenshots,
@@ -55,10 +55,6 @@ const Project: React.FC<Props> = ({
                 })
             }, 100)
         }
-
-        // return () => {
-        //     setOpacity(0)
-        // }
     }, [])
 
     return (
@@ -69,41 +65,54 @@ const Project: React.FC<Props> = ({
             // sx={{ opacity, transition: '500ms' }}
         >
             <Box width="100%">
+                <Flex my={[4]} flexDirection="column" alignItems={['center']}>
+                    <Heading
+                        as="h1"
+                        variant="primHeading"
+                        pb={[2]}
+                        sx={{
+                            borderStyle: 'solid',
+                            borderColor: 'primary',
+                            borderWidth: 0,
+                            borderBottomWidth: 1,
+                        }}
+                    >
+                        {projectName}
+                    </Heading>
+                    <Text mt={[1]} mb={[3]} color="text" fontFamily="body">
+                        {finishedDate}
+                    </Text>
+                    <Flex>
+                        <Link
+                            href={webUrl}
+                            target="_blank"
+                            as="a"
+                            sx={{ textDecoration: 'none' }}
+                        >
+                            <Button variant="secondary">
+                                <AiOutlineGlobal /> VISIT SITE
+                            </Button>
+                        </Link>
+                        {repoUrl && (
+                            <Link
+                                href={repoUrl}
+                                target="_blank"
+                                as="a"
+                                sx={{ textDecoration: 'none' }}
+                                ml={[2]}
+                            >
+                                <Button>
+                                    <AiFillCode /> VIEW CODE
+                                </Button>
+                            </Link>
+                        )}
+                    </Flex>
+                </Flex>
                 <ProjectImgs
                     screenshots={projectScreenshots}
                     gifs={projectGif}
                 />
-                <Box width="100%">
-                    <Flex flexDirection="column" alignItems={['center']}>
-                        <Heading mt={[3]} mb={4} as="h2">
-                            {projectName}
-                        </Heading>
-                        <Flex>
-                            <Link
-                                href={webUrl}
-                                target="_blank"
-                                as="a"
-                                sx={{ textDecoration: 'none' }}
-                            >
-                                <Button variant="secondary">
-                                    <AiOutlineGlobal /> VISIT SITE
-                                </Button>
-                            </Link>
-                            {repoUrl && (
-                                <Link
-                                    href={repoUrl}
-                                    target="_blank"
-                                    as="a"
-                                    sx={{ textDecoration: 'none' }}
-                                    ml={[2]}
-                                >
-                                    <Button>
-                                        <AiFillCode /> VIEW CODE
-                                    </Button>
-                                </Link>
-                            )}
-                        </Flex>
-                    </Flex>
+                <Box mt={[5]} width="100%">
                     <Box
                         id="desc"
                         mt={[4]}

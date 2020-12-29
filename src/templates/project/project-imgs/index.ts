@@ -1,4 +1,3 @@
+import { ProjectImgs } from './project-imgs'
 
-import {ProjectImgs} from './project-imgs';
-
-export default ProjectImgs;
+export default ProjectImgs
