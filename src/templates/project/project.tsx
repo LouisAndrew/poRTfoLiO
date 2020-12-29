@@ -83,28 +83,25 @@ const Project: React.FC<Props> = ({
                         {finishedDate}
                     </Text>
                     <Flex>
-                        <Link
+                        <Button
+                            variant="secondary"
                             href={webUrl}
                             target="_blank"
                             as="a"
                             sx={{ textDecoration: 'none' }}
                         >
-                            <Button variant="secondary">
-                                <AiOutlineGlobal /> VISIT SITE
-                            </Button>
-                        </Link>
+                            <AiOutlineGlobal className="left" /> VISIT SITE
+                        </Button>
                         {repoUrl && (
-                            <Link
+                            <Button
                                 href={repoUrl}
                                 target="_blank"
                                 as="a"
                                 sx={{ textDecoration: 'none' }}
-                                ml={[2]}
+                                ml={[4]}
                             >
-                                <Button>
-                                    <AiFillCode /> VIEW CODE
-                                </Button>
-                            </Link>
+                                <AiFillCode className="left" /> VIEW CODE
+                            </Button>
                         )}
                     </Flex>
                 </Flex>
@@ -148,8 +145,9 @@ const Project: React.FC<Props> = ({
                                     zIndex: -1,
                                 },
                                 '&:hover': {
+                                    color: 'primaryHeading',
                                     '&:before': {
-                                        height: '100%',
+                                        height: '80%',
                                         opacity: 0.5,
                                     },
                                 },

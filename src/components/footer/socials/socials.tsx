@@ -64,26 +64,27 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
             data-testid={socialKey}
             as="a"
             bg="background"
-            height={[50, 50, 60, 60, 60, 80]}
-            width={[50, 50, 60, 60, 60, 80]}
+            height={[50, 50, 50, 50, 50, 80]}
+            width={[50, 50, 50, 50, 50, 80]}
             mt={[2]}
             variant="center"
             sx={{
                 display: 'flex',
-                borderRadius: 8,
+                borderRadius: 4,
                 borderStyle: 'solid',
                 borderWidth: 1,
                 borderColor: 'accent',
+                position: 'relative',
 
                 svg: {
-                    height: [25, 25, 25, 30, 30, 50],
-                    width: [25, 25, 25, 30, 30, 50],
+                    height: [25, 25, 25, 25, 25, 50],
+                    width: [25, 25, 25, 25, 25, 50],
                     path: { fill: 'text' },
                 },
                 '&:hover': {
                     svg: {
-                        height: [30, 30, 30, 40, 40, 60],
-                        width: [30, 30, 30, 40, 40, 60],
+                        // height: [30, 30, 30, 40, 40, 60],
+                        // width: [30, 30, 30, 40, 40, 60],
                         path: { fill: 'primary' },
                         transition: '200ms',
                     },

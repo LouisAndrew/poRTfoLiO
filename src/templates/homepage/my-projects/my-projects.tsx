@@ -17,6 +17,8 @@ export type ProjectPreviewData = {
         screenshotLabel: string
         sources: FluidObject[]
     }
+    webUrl: string
+    finishedDate: string
 }
 
 /**
@@ -48,6 +50,8 @@ const MyProjects: React.FC<unknown> = () => {
                         frontmatter {
                             preview_desc
                             project_name
+                            finished_date(formatString: "LL")
+                            web_url
                             project_screenshots {
                                 screenshot_label
                             }
@@ -166,6 +170,8 @@ const MyProjects: React.FC<unknown> = () => {
                     imgL[i],
                 ] as FluidObject[],
             },
+            finishedDate: projectDt.finished_date,
+            webUrl: projectDt.web_url,
         }
     })
 
