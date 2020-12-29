@@ -22,7 +22,7 @@ export default {
      */
     body: {
         fontFamily: 'body',
-        fontSize: ['2vh', 1, 4, 4, 4, 5],
+        fontSize: ['2vh', 1, 3, 3, 3, 5],
         color: 'text',
     },
     /**
@@ -82,8 +82,9 @@ export default {
             zIndex: -1,
         },
         '&:hover': {
+            color: '#000',
             '&:before': {
-                height: '100%',
+                height: '50%',
             },
         },
     },

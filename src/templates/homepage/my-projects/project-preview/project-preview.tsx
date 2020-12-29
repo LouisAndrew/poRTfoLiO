@@ -3,9 +3,12 @@ import React, { useEffect } from 'react'
 import { TweenLite } from 'gsap'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 // import styling libs
-import { Flex, Box, Heading, Text, Button } from 'rebass'
+import { Flex, Box, Heading, Text, Link } from 'rebass'
 import Img from 'gatsby-image'
+import { AiOutlineArrowRight } from 'react-icons/ai'
+
 // import local components
+import Button from 'components/button'
 
 import { ProjectPreviewData } from '../my-projects'
 
@@ -30,6 +33,8 @@ const ProjectPreview: React.FC<Props> = ({
     projectName,
     previewDesc,
     projectScreenshot,
+    finishedDate,
+    webUrl,
 }) => {
     const wrapperRef = React.createRef<HTMLDivElement>()
     const buttonRef = React.createRef<HTMLButtonElement>()
@@ -57,7 +62,7 @@ const ProjectPreview: React.FC<Props> = ({
             flexDirection={['column', 'column', 'column', 'row']}
             mb={[4, 4, 5]}
             sx={{
-                borderRadius: 16,
+                borderRadius: 8,
                 overflow: 'hidden',
                 boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.1)',
             }}
@@ -65,12 +70,12 @@ const ProjectPreview: React.FC<Props> = ({
         >
             <Box
                 // variant="center"
-                width={['100%', '100%', '100%', 600, 600, 999]}
+                width={['100%', '100%', '100%', 510, 600, 999]}
                 height={[
                     'calc(85vw * 0.66)',
                     'calc(85vw * 0.66)',
                     'calc(85vw * 0.66)',
-                    400,
+                    340,
                     400,
                     666,
                 ]}
@@ -95,14 +100,14 @@ const ProjectPreview: React.FC<Props> = ({
                 sx={{
                     height: 'fit-container',
                     width: '100%',
-                    textAlign: ['center', 'center', 'left'],
+                    textAlign: 'left',
                     borderRadius: 16,
                     borderTopRightRadius: [0, 0, 0, 16],
                     borderBottomLeftRadius: [16, 16, 16, 0],
                     borderTopLeftRadius: 0,
                     position: 'relative',
-                    a: {
-                        width: '100%',
+                    'a:last-child': {
+                        width: 'fit-content',
                         m: 0,
                         mt: [4, 4, 4, 0],
                         display: 'block',
@@ -119,24 +124,44 @@ const ProjectPreview: React.FC<Props> = ({
                     },
                 }}
             >
-                <Heading
-                    as="h2"
-                    variant="heading"
-                    data-testid="name"
-                    mb={[2, 2, 3, 4]}
-                >
+                <Heading as="h2" variant="heading" data-testid="name" mb={12}>
                     {projectName}
                 </Heading>
                 <Text as="p" variant="body" data-testid="misc" ref={contentRef}>
                     {previewDesc}
                 </Text>
+                <Link
+                    as="a"
+                    variant="text.utils"
+                    mt={12}
+                    mb={[1]}
+                    sx={{
+                        display: 'block',
+                        fontWeight: 'heading',
+                    }}
+                    href={webUrl}
+                    target="_blank"
+                >
+                    <span role="img" style={{ marginRight: 8 }}>
+                        🔗
+                    </span>{' '}
+                    {webUrl}
+                </Link>
+                <Text
+                    as="span"
+                    variant="utils"
+                    fontWeight="heading"
+                    sx={{ display: 'block' }}
+                >
+                    <span role="img" style={{ marginRight: 8 }}>
+                        📆
+                    </span>{' '}
+                    {finishedDate}
+                </Text>
                 <AniLink fade={true} to={nameToSlug(projectName)}>
-                    <Button
-                        ref={buttonRef}
-                        width="100%"
-                        sx={{ justifyContent: 'center' }}
-                    >
+                    <Button ref={buttonRef} sx={{ justifyContent: 'center' }}>
                         View Project
+                        <AiOutlineArrowRight className="right" />
                     </Button>
                 </AniLink>
             </Box>

@@ -9,12 +9,27 @@ const base = {
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: 'transparent',
+    boxShadow: '6px 6px 0px #aec6cf',
+    overflow: 'hidden',
     svg: {
+        transition: '0.2s',
+        position: 'relative',
         height: [18, 18, 20, 20, 20, 32],
         width: [18, 18, 20, 20, 20, 32],
-        mr: [12, 12, 3],
+        '&.left': {
+            mr: [12, 12, 3],
+        },
+        '&.right': { ml: [12, 12, 3] },
     },
     cursor: 'pointer',
+    '&:hover': {
+        svg: {
+            '&.right': {
+                transform: 'translateX(50%)',
+            },
+        },
+    },
+    '&:focus': { svg: { '&.right': { transform: 'translateX(100%)' } } },
 }
 
 export default {

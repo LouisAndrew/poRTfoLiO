@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
-import { Box, Heading, Text, Link } from 'rebass'
+import { Box, Heading, Text, Button } from 'rebass'
 import { AiOutlineMail } from 'react-icons/ai'
 // import local components
-
+import PageContext from 'context'
 // custom styling for ipohne 5s
 import './index.scss'
 
@@ -35,11 +35,12 @@ const EmailMe: React.FC<unknown> = () => {
         contact_headline: contactHeadline,
         email,
     } = data.emailData.frontmatter.contact as any
+    const { lightTheme } = useContext(PageContext)
 
     return (
         <Box
-            id="contact"
             width={['unset', '50%']}
+            id="contact"
             sx={{ textAlign: ['center', 'left'] }}
         >
             <Heading variant="heading">
@@ -59,20 +60,25 @@ const EmailMe: React.FC<unknown> = () => {
             >
                 {contactContent}
             </Text>
-            <Link
+            <Button
                 as="a"
                 href={`mailto:${email}`}
-                variant="buttons.secondary"
-                width={['100%', 'fit-content']}
+                width="fit-content"
+                bg="linkColor"
+                mx={['auto', 'unset']}
+                color="#000"
                 sx={{
-                    textDecoration: 'none',
-                    cursor: 'pointer',
-                    justifyContent: 'center',
+                    boxShadow: `6px 6px 0px ${
+                        lightTheme ? '#2e2e2e' : '#eeeeee'
+                    }`,
+                    borderStyle: 'solid',
+                    borderWidth: 1,
+                    borderColor: 'primary',
                 }}
             >
-                <AiOutlineMail />
+                <AiOutlineMail className="left" />
                 {btnText}
-            </Link>
+            </Button>
         </Box>
     )
 }
