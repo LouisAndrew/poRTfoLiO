@@ -22,7 +22,7 @@ export type QueryData = {
     projectScreenshots: Screenshot[]
     projectGif: {
         gif: string
-        gifMobile: string
+        gifMobile?: string
     }
     repoUrl: string
     webUrl: string
@@ -74,10 +74,6 @@ const ProjectPage = (props: any) => {
                         ...imgS[index],
                         media: '(max-width: 48em) and (orientation: portrait)',
                     },
-                    // {
-                    //     ...imgM[index],
-                    //     media: '(max-width: 64em)',
-                    // },
                     { ...imgXL[index], media: '(min-width: 122em)' },
                     imgL[index],
                 ] as FluidObject[],
@@ -86,7 +82,6 @@ const ProjectPage = (props: any) => {
         ),
         projectGif: {
             gif: frontmatter.project_gif[0].gif.publicURL,
-            gifMobile: frontmatter.project_gif[0].gif_mobile.publicURL,
         },
         repoUrl: frontmatter.repo_url,
         webUrl: frontmatter.web_url,
