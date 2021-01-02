@@ -33,7 +33,7 @@ desc: >-
 
 
   The application is built with React, tailwind CSS as the CSS framework of choice and [FFMPEG](https://ffmpeg.org/) as the engine behind the video to gif conversion.
-web_url: vid2gif-rust.vercel.app
+web_url: https://vid2gif-rust.vercel.app
 repo_url: https://github.com/LouisAndrew/vid2gif
 preview_desc: Simple video to gif converter. Powered by webassembly and highly
   inspired by fireship.io's tutorial
