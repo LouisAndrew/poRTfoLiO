@@ -7,27 +7,27 @@ project_screenshots:
     screenshot_label: Main section of the app when first visiting the website.
   - screenshot: /img/etheral__main-dropdown.png
     screenshot_label: Dropdown menu on the homepage.
-  - screenshot: /img/collection.png
+  - screenshot: /img/etheral_category.png
     screenshot_label: A collection of products.
-  - screenshot: /img/product.png
+  - screenshot: /img/etheral_product.png
     screenshot_label: Product page
-  - screenshot: /img/product__cart.png
+  - screenshot: /img/etheral_cart.png
     screenshot_label: Cart section.
-  - screenshot: /img/checkout.png
+  - screenshot: /img/etheral_checkout.png
     screenshot_label: Checkout page
   - screenshot: /img/etheral_auth.png
     screenshot_label: Authentication page to login or sign up
-  - screenshot: /img/order__orders.png
+  - screenshot: /img/etheral_orders.png
     screenshot_label: Orders page of an account
-  - screenshot: /img/order.png
+  - screenshot: /img/etheral_order-overview.png
     screenshot_label: Order details of an account
-  - screenshot: /img/admin__login.png
+  - screenshot: /img/etheral_auth-admin.png
     screenshot_label: Login section for admins
-  - screenshot: /img/admin__orders.png
+  - screenshot: /img/etheral_order-admin.png
     screenshot_label: Section in the admin dashboard to view orders
-  - screenshot: /img/admin__settings.png
-    screenshot_label: Website setting for the website.
-  - screenshot: /img/admin__admins.png
+  - screenshot: /img/etheral_admin-settings.png
+    screenshot_label: Settings for the application
+  - screenshot: /img/etheral_admin-admins.png
     screenshot_label: Admins of the website.
 techs:
   - React
