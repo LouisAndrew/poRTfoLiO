@@ -26,7 +26,6 @@ type Props = {
     screenshots: Screenshot[]
     gifs: {
         gif: string
-        gifMobile?: string
     }
 }
 

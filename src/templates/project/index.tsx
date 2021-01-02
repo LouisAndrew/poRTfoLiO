@@ -22,7 +22,6 @@ export type QueryData = {
     projectScreenshots: Screenshot[]
     projectGif: {
         gif: string
-        gifMobile?: string
     }
     repoUrl: string
     webUrl: string
@@ -120,9 +119,6 @@ export const query = graphql`
                 }
                 project_gif {
                     gif {
-                        publicURL
-                    }
-                    gif_mobile {
                         publicURL
                     }
                 }
