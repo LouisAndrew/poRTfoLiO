@@ -11,6 +11,7 @@ const base = {
     borderColor: 'transparent',
     boxShadow: '6px 6px 0px #aec6cf',
     overflow: 'hidden',
+    whiteSpace: 'nowrap',
     svg: {
         transition: '0.2s',
         position: 'relative',

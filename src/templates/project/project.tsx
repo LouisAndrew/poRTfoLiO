@@ -90,7 +90,7 @@ const Project: React.FC<Props> = ({
                             as="a"
                             sx={{ textDecoration: 'none' }}
                         >
-                            <AiOutlineGlobal className="left" /> VISIT SITE
+                            <AiOutlineGlobal className="left" /> Visit site
                         </Button>
                         {repoUrl && (
                             <Button
@@ -100,7 +100,7 @@ const Project: React.FC<Props> = ({
                                 sx={{ textDecoration: 'none' }}
                                 ml={[4]}
                             >
-                                <AiFillCode className="left" /> VIEW CODE
+                                <AiFillCode className="left" /> View code
                             </Button>
                         )}
                     </Flex>

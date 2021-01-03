@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 // import styling libs
 import { Flex, Text } from 'rebass'
-import { AiOutlineBulb, AiFillBulb } from 'react-icons/ai'
+import { BiMoon, BiSun } from 'react-icons/bi'
 // import local components
 
 import PageContext from 'context'
@@ -22,10 +22,10 @@ const ThemeSwitcher: React.FC<unknown> = () => {
                 background: 'none',
                 px: 0,
                 borderStyle: 'solid',
-                borderWidth: 1,
-                borderLeftWidth: lightTheme ? [0, 0, 0] : [1, 1, 0],
-                borderRightWidth: lightTheme ? [1, 1, 0] : [0, 0, 0],
-                borderColor: 'text',
+                borderWidth: 2,
+                borderLeftWidth: lightTheme ? [0, 0, 0] : [2, 2, 0],
+                borderRightWidth: lightTheme ? [2, 2, 0] : [0, 0, 0],
+                borderColor: 'primary',
                 borderRadius: [32],
                 transition: '200ms, border-width: 0ms',
                 svg: { path: { fill: 'primary' } },
@@ -33,8 +33,8 @@ const ThemeSwitcher: React.FC<unknown> = () => {
                 height: [32],
                 cursor: 'pointer',
                 '&:hover': {
-                    borderLeftWidth: lightTheme ? [0, 0, 0] : [1, 1, 1],
-                    borderRightWidth: lightTheme ? [1, 1, 1] : [0, 0, 0],
+                    borderLeftWidth: lightTheme ? [0, 0, 0] : [2, 2, 2],
+                    borderRightWidth: lightTheme ? [2, 2, 2] : [0, 0, 0],
                     p: {
                         maxWidth: '50vh',
                         ml: lightTheme ? [2, 2, 2] : [3, 3, 3],
@@ -49,21 +49,22 @@ const ThemeSwitcher: React.FC<unknown> = () => {
                 width={[32]}
                 sx={{
                     borderStyle: 'solid',
-                    borderWidth: 1,
-                    borderColor: 'text',
+                    borderWidth: 2,
+                    borderColor: 'primary',
                     borderRadius: '50%',
                 }}
             >
                 {lightTheme ? (
-                    <AiOutlineBulb data-testid="button-dark" />
+                    <BiMoon data-testid="button-dark" />
                 ) : (
-                    <AiFillBulb data-testid="button-light" />
+                    <BiSun data-testid="button-light" />
                 )}
             </Flex>
             <Text
                 fontFamily="body"
                 as="p"
                 color="primary"
+                fontWeight="bold"
                 ml={lightTheme ? [2, 2, 0] : [3, 3, 0]}
                 mr={lightTheme ? [3, 3, 0] : [2, 2, 0]}
                 sx={{

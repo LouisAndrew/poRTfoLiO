@@ -80,6 +80,8 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                     transition: '0.2s',
                     height: [25, 25, 25, 25, 25, 50],
                     width: [25, 25, 25, 25, 25, 50],
+                    position: 'relative',
+                    zIndex: 2,
                     path: { transition: '0.2s', fill: 'primary' },
                 },
                 '&:hover': {
