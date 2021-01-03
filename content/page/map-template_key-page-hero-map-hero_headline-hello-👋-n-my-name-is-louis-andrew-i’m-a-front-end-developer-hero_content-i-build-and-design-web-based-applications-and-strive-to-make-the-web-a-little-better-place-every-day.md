@@ -35,7 +35,7 @@ contact:
   contact_headline: Interested in hiring me?\n Let's talk!
   contact_content: "I’m looking forward to talk with you. The fastest way to reach
     me is through email. "
-  button_text: SEND ME AN EMAIL
+  button_text: Send me an email
   email: louisandrew3@gmail.com
 template_key: page
 ---
