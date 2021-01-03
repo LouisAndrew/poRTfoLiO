@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import { Link, Flex } from 'rebass'
@@ -9,6 +9,7 @@ import {
     AiFillMail,
 } from 'react-icons/ai'
 // import local components
+import Dash from './assets/dash'
 
 type socialKeys = 'github' | 'dribbble' | 'email' | 'linkedin'
 
@@ -56,6 +57,15 @@ const Socials: React.FC<unknown> = () => {
  * The small cards which is going to be rendered within Socials component.
  */
 const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
+    const dashRef = useRef<any>(null)
+
+    /**
+     * Function to get the length of dash svg
+     */
+    const getDashLength = () => {
+        return dashRef.current?.getTotalLength()
+    }
+
     // rendering logo based on the social key. a lil bit messy but gets the job done
     return (
         <Link
@@ -73,27 +83,42 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                 borderRadius: '100%',
                 position: 'relative',
                 transition: '0.3s',
-                borderWidth: 2,
-                borderStyle: 'solid',
-                borderColor: 'primary',
+                transitionDelay: '0.6s',
                 svg: {
-                    transition: '0.2s',
                     height: [25, 25, 25, 25, 25, 50],
                     width: [25, 25, 25, 25, 25, 50],
                     position: 'relative',
                     zIndex: 2,
-                    path: { transition: '0.2s', fill: 'primary' },
+                    path: {
+                        transition: '0.2s',
+                        fill: 'primary',
+                        transitionDelay: '0.6s',
+                    },
+                },
+                'svg.dash': {
+                    height: '100%',
+                    width: '100%',
+                    position: 'absolute',
+                    zIndex: 1,
+                    rect: {
+                        transition: '0.8s',
+                        stroke: 'primary',
+                        strokeWidth: 6,
+                        strokeDashoffset: 400,
+                        strokeDasharray: 400,
+                    },
                 },
                 '&:hover': {
                     bg: 'primary',
                     borderColor: 'transparent',
                     svg: {
                         path: { fill: 'secondary' },
-                        transition: '200ms',
                     },
+                    'svg.dash rect': { strokeDashoffset: 0 },
                 },
             }}
         >
+            <Dash className="dash" ref={dashRef} />
             {socialKey === 'github' ? (
                 <AiFillGithub />
             ) : socialKey === 'dribbble' ? (
