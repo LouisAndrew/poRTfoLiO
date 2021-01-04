@@ -96,15 +96,14 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                     },
                 },
                 '&:hover': {
-                    bg: 'primary',
-                    borderColor: 'transparent',
                     transition: '0.3s',
                     transitionDelay: '0.6s',
+                    bg: 'primary',
                     svg: {
                         path: {
-                            fill: 'secondary',
-                            transitionDelay: '0.6s',
                             transition: '0.2s',
+                            transitionDelay: '0.6s',
+                            fill: 'secondary',
                         },
                     },
                     'svg.dash rect': { strokeDashoffset: 0 },
