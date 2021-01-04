@@ -3,10 +3,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import Img from 'gatsby-image'
 import { Box, Flex } from 'rebass'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 // import local components
 import Links from './links'
 import ThemeSwitcher from './theme-switcher'
+import Menu from './menu'
 
 import PageContext from 'context'
 
@@ -48,7 +48,6 @@ const Header: React.FC<unknown> = () => {
                 position: 'fixed',
                 zIndex: 2,
                 transition: '200ms',
-                // backdropFilter: isHeroNotVisible ? 'blur(4px)' : 'unset',
                 backdropFilter: 'blur(4px)',
             }}
             pt={[0, 0, 0, 0, 0, 0]}
@@ -95,48 +94,46 @@ const Header: React.FC<unknown> = () => {
                         top: [0],
                     }}
                 >
-                    <Box
-                        onClick={() => {
-                            setOpenNav(false)
-                        }}
-                        sx={{
-                            position: 'absolute',
-                            right: 24,
-                            top: 24,
-                            display: ['block', 'block', 'none'],
-                            svg: {
-                                height: 24,
-                                width: 24,
-                                path: { fill: 'primary' },
-                            },
-                        }}
-                        className="close-button"
-                        role="button"
-                    >
-                        <AiOutlineClose />
-                    </Box>
                     <Links />
                     {/* <Button mt={[3, 3, 0]}>Theme switcher</Button> */}
                     <ThemeSwitcher />
                 </Flex>
                 <Box
                     onClick={() => {
-                        setOpenNav(true)
+                        setOpenNav(prev => !prev)
                     }}
                     sx={{
                         display: ['block', 'block', 'none'],
-                        opacity: openNav ? 0 : 1,
+                        position: 'relative',
+                        zIndex: 1111,
                         transition: '200ms',
                         svg: {
                             height: 24,
                             width: 24,
                             path: { fill: 'primary' },
+                            '#top': {
+                                transition: '300ms',
+                                transform: openNav
+                                    ? 'rotate(45deg) scale(1.2) translate(10%, -10%)'
+                                    : '',
+                            },
+                            '#mid': {
+                                transition: '400ms',
+                                opacity: openNav ? 0 : 1,
+                                transform: openNav ? 'translateX(-20%)' : '',
+                            },
+                            '#bot': {
+                                transition: '300ms',
+                                transform: openNav
+                                    ? 'rotate(-45deg) scale(1.2) translate(-60%, -20%)'
+                                    : '',
+                            },
                         },
                     }}
                     className="open-button"
                     role="button"
                 >
-                    <AiOutlineMenu />
+                    <Menu />
                 </Box>
             </Flex>
         </Flex>
