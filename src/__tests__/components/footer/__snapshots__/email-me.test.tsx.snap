@@ -18,7 +18,7 @@ exports[`EmailMe matches snapshot 1`] = `
     Content
   </p>
   <a
-    className="css-1xmlhaq"
+    className="css-1he6z58"
     href="mailto:john@doe.com"
   >
     <svg

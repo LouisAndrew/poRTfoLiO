@@ -91,6 +91,9 @@ const EmailMe: React.FC<unknown> = () => {
                         },
                         '#close': {
                             transition: '400ms',
+                            fill: 'transparent',
+                            stroke: '#000',
+                            strokeWidth: 12,
                         },
                     },
                     '&:hover svg': {

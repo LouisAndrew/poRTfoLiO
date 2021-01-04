@@ -73,17 +73,13 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                 display: 'flex',
                 borderRadius: '100%',
                 position: 'relative',
-                transition: '0.3s',
-                transitionDelay: '0.6s',
                 svg: {
                     height: [25, 25, 25, 25, 25, 50],
                     width: [25, 25, 25, 25, 25, 50],
                     position: 'relative',
                     zIndex: 2,
                     path: {
-                        transition: '0.2s',
                         fill: 'primary',
-                        transitionDelay: '0.6s',
                     },
                 },
                 'svg.dash': {
@@ -102,8 +98,14 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                 '&:hover': {
                     bg: 'primary',
                     borderColor: 'transparent',
+                    transition: '0.3s',
+                    transitionDelay: '0.6s',
                     svg: {
-                        path: { fill: 'secondary' },
+                        path: {
+                            fill: 'secondary',
+                            transitionDelay: '0.6s',
+                            transition: '0.2s',
+                        },
                     },
                     'svg.dash rect': { strokeDashoffset: 0 },
                 },
