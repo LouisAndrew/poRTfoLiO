@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import { Box, Heading, Text, Button } from 'rebass'
-import { AiOutlineMail } from 'react-icons/ai'
+// import { AiOutlineMail } from 'react-icons/ai'
 // import local components
 import PageContext from 'context'
+import Mail from './assets/mail'
 // custom styling for ipohne 5s
 import './index.scss'
 
@@ -74,9 +75,41 @@ const EmailMe: React.FC<unknown> = () => {
                     borderStyle: 'solid',
                     borderWidth: 1,
                     borderColor: 'primary',
+                    svg: {
+                        transform: 'translateY(-15%)',
+                        transition: '200ms',
+                        '#letter': {
+                            opacity: 0,
+                            transform: 'translateY(20%)',
+                            transition: '400ms',
+                        },
+                        '#open': {
+                            opacity: 0,
+
+                            transition: '400ms',
+                            fill: '#000',
+                        },
+                        '#close': {
+                            transition: '400ms',
+                        },
+                    },
+                    '&:hover svg': {
+                        transform: 'translateY(0)',
+                        '#letter': {
+                            opacity: 1,
+                            transform: 'translateY(0)',
+                            transitionDelay: '200ms',
+                        },
+                        '#open': {
+                            opacity: 1,
+                        },
+                        '#close': {
+                            opacity: 0,
+                        },
+                    },
                 }}
             >
-                <AiOutlineMail className="left" />
+                <Mail className="left" />
                 {btnText}
             </Button>
         </Box>
