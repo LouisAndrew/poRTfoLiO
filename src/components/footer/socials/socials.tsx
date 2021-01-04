@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import { Link, Flex } from 'rebass'
@@ -57,15 +57,6 @@ const Socials: React.FC<unknown> = () => {
  * The small cards which is going to be rendered within Socials component.
  */
 const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
-    const dashRef = useRef<any>(null)
-
-    /**
-     * Function to get the length of dash svg
-     */
-    const getDashLength = () => {
-        return dashRef.current?.getTotalLength()
-    }
-
     // rendering logo based on the social key. a lil bit messy but gets the job done
     return (
         <Link
@@ -118,7 +109,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
                 },
             }}
         >
-            <Dash className="dash" ref={dashRef} />
+            <Dash className="dash" />
             {socialKey === 'github' ? (
                 <AiFillGithub />
             ) : socialKey === 'dribbble' ? (

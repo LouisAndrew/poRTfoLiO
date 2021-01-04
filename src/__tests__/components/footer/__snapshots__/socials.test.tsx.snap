@@ -5,11 +5,27 @@ exports[`Socials matches snapshot 1`] = `
   className="css-2sc096"
 >
   <a
-    className="css-f6wfez"
+    className="css-1g1erq"
     data-testid="github"
     href="http://localhost"
     target="_blank"
   >
+    <svg
+      className="dash"
+      fill="none"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        height={96}
+        rx={48}
+        stroke="#000"
+        strokeWidth={4}
+        width={96}
+        x={2}
+        y={2}
+      />
+    </svg>
     <svg
       fill="currentColor"
       height="1em"
@@ -30,11 +46,27 @@ exports[`Socials matches snapshot 1`] = `
     </svg>
   </a>
   <a
-    className="css-f6wfez"
+    className="css-1g1erq"
     data-testid="dribbble"
     href="http://google.com"
     target="_blank"
   >
+    <svg
+      className="dash"
+      fill="none"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        height={96}
+        rx={48}
+        stroke="#000"
+        strokeWidth={4}
+        width={96}
+        x={2}
+        y={2}
+      />
+    </svg>
     <svg
       fill="currentColor"
       height="1em"
