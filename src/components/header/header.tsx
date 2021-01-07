@@ -46,7 +46,7 @@ const Header: React.FC<unknown> = () => {
             as="header"
             sx={{
                 position: 'fixed',
-                zIndex: 2,
+                zIndex: 1000,
                 transition: '200ms',
                 backdropFilter: 'blur(4px)',
             }}
