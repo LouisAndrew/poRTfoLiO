@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 // import styling libs
 import { Box, Heading, Text, Button } from 'rebass'
-// import { AiOutlineMail } from 'react-icons/ai'
+import { Player } from '@lottiefiles/react-lottie-player'
 // import local components
 import PageContext from 'context'
 import Mail from './assets/mail'
@@ -30,6 +30,8 @@ const EmailMe: React.FC<unknown> = () => {
         }
     `)
 
+    const lottieRef = useRef<Player>(null)
+
     const {
         button_text: btnText,
         contact_content: contactContent,
@@ -37,6 +39,13 @@ const EmailMe: React.FC<unknown> = () => {
         email,
     } = data.emailData.frontmatter.contact as any
     const { lightTheme } = useContext(PageContext)
+
+    /**
+     * Function to play the confetti animation when email button is clicked.
+     */
+    const playConfettiAnim = () => {
+        lottieRef.current?.play()
+    }
 
     return (
         <Box
@@ -75,7 +84,9 @@ const EmailMe: React.FC<unknown> = () => {
                     borderStyle: 'solid',
                     borderWidth: 1,
                     borderColor: 'primary',
-                    svg: {
+                    position: 'relative',
+                    overflow: 'unset',
+                    'svg.mail': {
                         transform: 'translateY(-15%)',
                         transition: '200ms',
                         '#letter': {
@@ -96,7 +107,7 @@ const EmailMe: React.FC<unknown> = () => {
                             strokeWidth: 12,
                         },
                     },
-                    '&:hover svg': {
+                    '&:hover svg.mail': {
                         transform: 'translateY(0)',
                         '#letter': {
                             opacity: 1,
@@ -111,8 +122,24 @@ const EmailMe: React.FC<unknown> = () => {
                         },
                     },
                 }}
+                onClick={playConfettiAnim}
             >
-                <Mail className="left" />
+                <Player
+                    ref={lottieRef}
+                    autoplay={false}
+                    loop={false}
+                    controls={false}
+                    src="https://assets8.lottiefiles.com/packages/lf20_REOnx3.json"
+                    style={{
+                        height: 300,
+                        width: 300,
+                        position: 'absolute',
+                        top: -200,
+                        left: -50,
+                        zIndex: 2,
+                    }}
+                />
+                <Mail className="left mail" />
                 {btnText}
             </Button>
         </Box>

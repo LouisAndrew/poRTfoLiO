@@ -61,10 +61,13 @@ const ProjectImgs: React.FC<Props> = ({ screenshots, gifs }) => {
                 left: ['-7.5vw', '-7.5vw', '-7.5vw', '-7.5vw', 0],
                 '.carousel-dot': {
                     display: 'flex',
+                    flexWrap: 'wrap',
                     width: '100%',
+                    height: 'fit-content',
+                    maxWidth: '80vw',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    bottom: [-24],
+                    bottom: [-32],
                     'button.carousel__dot': {
                         bg: 'primary',
                         '&:after': { color: 'primary' },

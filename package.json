@@ -26,8 +26,8 @@
         "verify": "gatsby build && gatsby clean && echo -e 'Verified. Page is ready to be pushed.'"
     },
     "dependencies": {
+        "@lottiefiles/react-lottie-player": "^2.2.2",
         "@types/rebass": "^4.0.7",
-        "framer-motion": "^1.9.1",
         "gatsby": "^2.19.32",
         "gatsby-image": "^2.2.43",
         "gatsby-plugin-manifest": "^2.2.44",

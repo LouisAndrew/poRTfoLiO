@@ -23,9 +23,7 @@ import ProjectImgs from 'templates/project/project-imgs'
 // }
 
 describe('ProjectImgs', () => {
-    const Element = (
-        <ProjectImgs screenshots={[]} gifs={{ gif: '', gifMobile: '' }} />
-    )
+    const Element = <ProjectImgs screenshots={[]} gifs={{ gif: '' }} />
 
     afterEach(cleanup)
 
