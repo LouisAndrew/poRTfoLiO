@@ -60,7 +60,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
     // rendering logo based on the social key. a lil bit messy but gets the job done
     return (
         <Link
-            href={socialKey === 'email' ? 'mailto:link' : link}
+            href={socialKey === 'email' ? `mailto:${link}` : link}
             target="_blank"
             data-testid={socialKey}
             as="a"
