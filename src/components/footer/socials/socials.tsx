@@ -61,7 +61,7 @@ const SocialCard: React.FC<SocialCardProps> = ({ link, socialKey }) => {
     return (
         <Link
             href={socialKey === 'email' ? `mailto:${link}` : link}
-            target="_blank"
+            target={socialKey !== 'email' ? '_blank' : undefined}
             data-testid={socialKey}
             as="a"
             bg="secondary"
