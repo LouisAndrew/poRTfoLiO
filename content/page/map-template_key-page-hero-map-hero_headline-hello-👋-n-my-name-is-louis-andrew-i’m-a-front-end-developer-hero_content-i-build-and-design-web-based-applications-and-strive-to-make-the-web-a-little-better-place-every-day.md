@@ -14,7 +14,7 @@ about:
     technologies.
   about_headline: About Me
   about_imgs:
-    - /img/wtf.jpg
+    - /img/profile_picture.jpg
 skills:
   - HTML
   - React
