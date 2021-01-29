@@ -51,7 +51,7 @@ desc: >-
   I've used firebase as the database and authentication provider for this application. Other than that, some lambda / serverless functions also need to be programmed to do some tasks that can't be achieved merely on the front end such as mailing list subscription ([mailchimp](https://mailchimp.com/)), notifying admin when an order when is paid, payment integration ([ipaymu](https://ipaymu.com/)) and so on. 
 
 
-  For faster development time, a styling library, [Rebass ](https://rebassjs.org/)was used here and helpers such as [React Hook Form](https://react-hook-form.com/) are needed to make the development less complicated. A lot of efforts were poured into this project and a dedicated case study is made for this project. [Link to the case study](https://docs.google.com/document/d/13bPPC6m09Sj6RsmJtJCM9MO-Qu7ye6Gnfgugf0xSzaU/edit?usp=sharing)
+  For faster development time, a styling library, [Rebass ](https://rebassjs.org/)was used here and helpers such as [React Hook Form](https://react-hook-form.com/) are needed to make the development less complicated.
 web_url: https://etheralmade.com
 repo_url: https://github.com/etheralmade/etheral
 preview_desc: "E-Commerce website for a business in Indonesia. IG: @etheralmade."
