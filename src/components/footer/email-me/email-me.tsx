@@ -137,6 +137,7 @@ const EmailMe: React.FC<unknown> = () => {
                         top: -200,
                         left: -50,
                         zIndex: 2,
+                        pointerEvents: 'none',
                     }}
                 />
                 <Mail className="left mail" />

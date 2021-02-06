@@ -31,7 +31,12 @@ const Links: React.FC<unknown> = () => {
             mt={[2]}
             sx={{
                 textAlign: ['center', 'left'],
-                '& a': { ...texts.links, '&:first-of-type': { mt: 0 } },
+                '& a': {
+                    ...texts.links,
+                    transition: '200ms',
+                    '&:hover': { fontWeight: 'bold' },
+                    '&:first-of-type': { mt: 0 },
+                },
             }}
         >
             {LINKS.map(link => {
