@@ -10,6 +10,7 @@ const siteKeywords = [
     'front end',
     'React',
     'Portfolio',
+    'Louis Andrew',
 ]
 
 const path = require('path')
